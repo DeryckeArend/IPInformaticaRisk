@@ -8,12 +8,16 @@
 **/
 
 void setup(){
-  fullScreen();
+  //fullScreen();
+  size(640, 620);
   noStroke();
   background(0);
   
 }
 
 void draw(){
-  int x = Node.getX();
+  Node n1 = new Node();
+  n1.x = 1;
+  int x = n1.getX();
+  Sys.out.println
 } 

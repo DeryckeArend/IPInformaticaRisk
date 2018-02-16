@@ -5,7 +5,9 @@ class Country{
   
   Country getCountry(String name){
       Table continentTable = loadTable("Data/ContinentData.csv", "header");
-      continentTable.
+      TableRow row = continentTable.getRow(0);
+      row.get
+      
     return c;
   }
 }
