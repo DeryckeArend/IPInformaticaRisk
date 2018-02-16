@@ -1,8 +1,8 @@
-continent,country,x,y
-europa,belgie,10,10
-noordAmerika,canada,50,50
-afrika,congo,20,10
-oceanie,australie, 30,5
-zuidAmerika,brazilie,40,10
-azie,china,60,5
+continent,points,country,x,y
+europa,5,belgie,10,10
+noordAmerika,6,canada,50,50
+afrika,5,congo,20,10
+oceanie,3,australie, 30,5
+zuidAmerika,7,brazilie,40,10
+azie,6,china,60,5
 
