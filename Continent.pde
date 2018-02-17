@@ -6,6 +6,7 @@
 //      int maximumSnelheid;
 //      color kleur;
 //      ...
+
 class Continent{
  //De naam
  String name;
