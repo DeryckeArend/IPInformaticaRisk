@@ -14,3 +14,8 @@ class Node{
    return y;
  }
 }
+
+public Node getNode(){
+  Node n = new Node();
+  return n;
+}

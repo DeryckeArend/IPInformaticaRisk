@@ -18,7 +18,6 @@ class Continent{
 public Continent getContinent(String cName){
   for(Continent c : continents){
     if(c.name.equals(cName)){
-      println("Found a continent " + " with name and points: " + c.name + c.points);
      return c;
     }
   }

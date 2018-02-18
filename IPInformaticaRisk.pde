@@ -9,7 +9,7 @@
 
 import java.util.List;
 
-//Hier bovendaan slaan we enkele variabelen op zodat we ze later gemakkelijk terugvinden en veranderen
+//Hier bovenaan slaan we enkele variabelen op zodat we ze later gemakkelijk terugvinden en veranderen
 //Een verzameling van de landen, voorlopig starten we met 5
 List<Country> countries = new ArrayList<Country>();
 List<Continent> continents = new ArrayList<Continent>();
@@ -34,6 +34,7 @@ void initiate(){
   initiateCountries();
 }
 
+//Deze methode laadt de continent data van het bestand continentdata.csv.
 void initiateContinents(){
   Table continentTable = loadTable("Data/ContinentData.csv", "header");
   TableRow row;
@@ -48,22 +49,22 @@ void initiateContinents(){
     if(!cNames.contains(c.name)){
       cNames.add(c.name);
       continents.add(c);
-      println("Added " + c.name + " to list, on place " + i + " with " + c.points + " points");
     }
   }
 }
 
+//Deze methode laadt de country data van het bestand countrydata.csv.
 void initiateCountries(){
   Table countryTable = loadTable("Data/CountryData.csv", "header");
   TableRow row;
   
+  //Hierin laden we de naam en het continent van het land.
   for(int i =0; i < countryTable.getRowCount(); i++){
     row = countryTable.getRow(i);
     Country c = new Country();
     c.name = row.getString(0);
-    Continent cont = getContinent(row.getString(1));
-    println(row.getString(1));
-    println(c.name);
-    println(cont.name);
+    c.continent = getContinent(row.getString(1));
+    c.neighbours = row.getString(4).split(",");
+    countries.add(c);
   }
 }
