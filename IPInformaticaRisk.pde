@@ -48,14 +48,22 @@ void initiateContinents(){
     if(!cNames.contains(c.name)){
       cNames.add(c.name);
       continents.add(c);
-      println("Added " + c.name + " to list, on place " + i);
+      println("Added " + c.name + " to list, on place " + i + " with " + c.points + " points");
     }
   }
 }
 
 void initiateCountries(){
-  Table continentTable = loadTable("Data/ContinentData.csv", "header");
-  TableRow row = continentTable.getRow(1);
+  Table countryTable = loadTable("Data/CountryData.csv", "header");
+  TableRow row;
   
-  row.getString(1);
+  for(int i =0; i < countryTable.getRowCount(); i++){
+    row = countryTable.getRow(i);
+    Country c = new Country();
+    c.name = row.getString(0);
+    Continent cont = getContinent(row.getString(1));
+    println(row.getString(1));
+    println(c.name);
+    println(cont.name);
+  }
 }
