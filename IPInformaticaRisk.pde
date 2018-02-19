@@ -10,18 +10,17 @@
 import java.util.List;
 
 //Hier bovenaan slaan we enkele variabelen op zodat we ze later gemakkelijk terugvinden en veranderen
-//Een verzameling van de landen, voorlopig starten we met 5
 List<Country> countries = new ArrayList<Country>();
 List<Continent> continents = new ArrayList<Continent>();
 List<Node> nodes = new ArrayList<Node>();
 
-//Het scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu" of "game" . We beginnen met menu
+//Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu" of "game" . We beginnen met menu
 String state = "menu";
 
-//Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen
+//Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
 PImage background;
 PImage logo;
-PImage nieuweAchtergrond;
+PImage riskMap; 
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -40,7 +39,7 @@ void draw(){
       mainMenu();
     break;
     case("optionsMenu"):
-    
+      
     break;
     case("instructionsMenu"):
     
@@ -64,10 +63,11 @@ void initiate(){
   loadImages();
 }
 
-//Alle afbeeldingen die gebruikt worden, moeten hier geladen worden voor het spel start
+//Alle afbeeldingen die gebruikt worden, moeten hier geladen worden voor het spel start. Let erop dat je geen .png of .jpg vergeet
 void loadImages(){
   background = loadImage("data/Images/mainMenuPlaceholder.jpg");
   logo = loadImage("data/Images/logoDMCV.png");
+  riskMap = loadImage("data/Images/riskMap.jpg");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.

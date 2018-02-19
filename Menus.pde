@@ -30,27 +30,40 @@ void mainMenuSetup(){
 void mainMenu(){
   //Eerst controleren we via de x-as, want alle knoppen hebben dezelfde x-waarden
   if((width/2) - (buttonWidth/2) < mouseX && mouseX < (width/2) + (buttonWidth/2)){
+    
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
-      rect(200,200,200,200);
+      startGame();
     }
-    //tweede knop
+    
+    //Tweede knop naar spelregels
     if(button1Height + 100 < mouseY && mouseY < (button1Height + buttonHeight + 100) && mousePressed){
-      rect(300,200,200,200);
-      startSpelregels();
+      
     }
+    
+    //Derde knop naar Opties
     if(button1Height + 200 < mouseY && mouseY < (button1Height + buttonHeight + 200) && mousePressed){
-      rect(400,200,200,200);
+      
     }
+    
+    //Vierde knop naar Credits
     if(button1Height + 300 < mouseY && mouseY < (button1Height + buttonHeight + 300) && mousePressed){
-      rect(500,200,200,200);
+      
     }
+    
+    //Vijfde knop naar game afsluiten
     if(button1Height + 400 < mouseY && mouseY < (button1Height + buttonHeight + 400) && mousePressed){
-      rect(600,200,200,200);
+      //Sluit het programma af
+      exit();
     }
   }
 }
 
-void startSpelregels(){
-  
+void startGame(){
+  //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
+  background(0);
+  //Dan laden we een afbeelding op als achtergrond. Eerst maak je in IPInformaticaRisk een variabele aan bovenaan bij de andere PImage. Dan laad je de afbeelding op in loadImages(), ook in IPInformatica
+  image(riskMap, 0, 0, width, height);
+  //Maak een knop om terug te keren naar het hoofdmenu
+  rect(10,10,200,70);
 }
