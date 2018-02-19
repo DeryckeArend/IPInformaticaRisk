@@ -21,6 +21,7 @@ String state = "menu";
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen
 PImage background;
 PImage logo;
+PImage nieuweAchtergrond;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -29,6 +30,7 @@ void setup(){
   noStroke();
   background(0);
   initiate();
+  mainMenuSetup();
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
