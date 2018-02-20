@@ -30,6 +30,8 @@ void setup(){
   background(0);
   initiate();
   mainMenuSetup();
+  drawDice();
+  setupDice();
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
