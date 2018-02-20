@@ -66,4 +66,5 @@ void startGame(){
   image(riskMap, 0, 0, width, height);
   //Maak een knop om terug te keren naar het hoofdmenu
   rect(10,10,200,70);
+  
 }

@@ -1,7 +1,8 @@
  int diceSize = 150;
  
  void setupDice(){
-   size(640,360);
+   //size(640,360);
+   fullScreen();
  }
  
  void drawDice(){

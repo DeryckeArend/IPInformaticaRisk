@@ -30,7 +30,6 @@ void setup(){
   background(0);
   initiate();
   mainMenuSetup();
-  drawDice();
   setupDice();
 }
 
