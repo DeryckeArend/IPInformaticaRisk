@@ -1,7 +1,6 @@
 float buttonWidth = 400;
 float buttonHeight = 75;
 float button1Height = 300;
-float straal = 30;
 
 //Deze methode zorgt ervoor dat het main menu wordt getekend bij het opstarten van het spel,
 void mainMenuSetup(){
@@ -68,10 +67,11 @@ void startGame(){
   image(riskMap, 0, 0, width, height);
   //Maak een knop om terug te keren naar het hoofdmenu
   rect(10,10,200,70);
-  for(int i = 0; i < nodes.size(); i++){
-    Node n = nodes.get(i);
-    noFill();
-    ellipse(n.x, n.y, straal, straal);
+}
+  
+void game(){
+  if(mousePressed){
+     text( "x: " + mouseX + " y: " + mouseY, mouseX, mouseY ); 
   }
 }
 
