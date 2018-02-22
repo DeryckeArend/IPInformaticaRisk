@@ -34,9 +34,9 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
+      buttonClicked();
       startGame();
       state = "game";
-      buttonClicked();
     }
     
     //Tweede knop naar spelregels

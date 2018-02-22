@@ -15,7 +15,7 @@ void setupSound() {
 }      
 //buttonclicks in menu
 void buttonClicked() {
-  buttonClick = new SoundFile(this, "/1.mp3");
+  buttonClick = new SoundFile(this, "Music/buttonclick.mp3");
   buttonClick.play();
 }
 //muziekje wanneer je klikt op aanvallen
