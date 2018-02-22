@@ -67,7 +67,11 @@ void startGame(){
   image(riskMap, 0, 0, width, height);
   //Maak een knop om terug te keren naar het hoofdmenu
   rect(10,10,200,70);
-  
+  for(int i = 0; i < nodes.size(); i++){
+    Node n = nodes.get(i);
+    noFill();
+    ellipse(n.x, n.y, 20,20);
+  }
 }
 
 void startCredits(){
