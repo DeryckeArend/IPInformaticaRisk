@@ -6,8 +6,10 @@ class Country{
   Continent continent;
   //Dit is een verzameling (de [] zorgen daar voor), in deze verzameling slaan we de namen van de buurlanden op, zo weten we of 2 landen naast elkaar liggen
   String[] neighbours;
-  
+  //Dit is het cirkeltje dat in elk land zal staan
   Node node;
+  //Welke speler het land bezit
+  Player owner;
 }
 
 public Country getCountry(String cName){
