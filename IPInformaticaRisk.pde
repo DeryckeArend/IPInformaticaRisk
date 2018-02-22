@@ -31,6 +31,7 @@ void setup(){
   initiate();
   mainMenuSetup();
   setupDice();
+  //setupSound();
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
@@ -51,7 +52,11 @@ void draw(){
     
     case("game"):
       //game();
+<<<<<<< HEAD
     game();
+=======
+    game(); 
+>>>>>>> 8521ee7f7d6bbc75a958e0ef5ab378b6238ac953
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
@@ -105,6 +110,23 @@ void initiateCountries(){
     c.continent = getContinent(row.getString(1));
     c.neighbours = row.getString(4).split(",");
     countries.add(c);
+    Player p1 = new Player();
+    p1.name = "yaya";
+    p1.AI = false;
+    p1.playerColor = 500;
+    
+    Player p2 = new Player();
+    p2.name = "yoyo";
+    p2.AI = false;
+    p2.playerColor = 20;
+    
+    int random = (int) random(1,3);
+    if(random == 1){
+     c.owner = p1; 
+    }
+    if(random == 2){
+     c.owner = p2; 
+    }
   }
   
   //Hierin laden we de x- en y-coordinaten van de node en verbinden we de node met het land

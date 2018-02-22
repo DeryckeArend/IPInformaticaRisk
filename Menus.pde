@@ -34,6 +34,7 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
+      buttonClicked();
       startGame();
       state = "game";
     }
@@ -90,7 +91,7 @@ void startOptions(){
   fill(0);
   textSize(50);
   textAlign(CENTER);
-  text("Return", 110, 75);
+  text("Return", 110, 60);
   text("Music", (width/2), button1Height + 225);
   text("Sound", (width/2), button1Height + 325);
 }
