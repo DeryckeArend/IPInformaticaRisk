@@ -105,6 +105,21 @@ void initiateCountries(){
     c.name = row.getString(0);
     c.continent = getContinent(row.getString(1));
     c.neighbours = row.getString(4).split(",");
+    
+    Player p1 = new Player();
+    Player p2 = new Player();
+    
+    p1.name = "yaya";
+    p2.name = "yoyo";
+    p1.AI = false;
+    p2.AI = true;
+    p1.playerColor = 255;
+    p2.playerColor = 10;
+    
+    int random = (int) random(1,3);
+    if(random == 1){c.owner = p1;}
+    if(random == 2){c.owner = p2;}
+    
     countries.add(c);
   }
   
