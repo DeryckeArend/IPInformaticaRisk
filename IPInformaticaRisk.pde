@@ -44,14 +44,18 @@ void draw(){
       returnMenu();
     break;
     case("instructionsMenu"):
-    
+      
     break;
     case("creditMenu"):
     break;
     
     case("game"):
       //game();
+<<<<<<< HEAD
     game(); 
+=======
+    game();
+>>>>>>> c9bf6353031a7bc3a6c5b1dc84acf26a6ec93dfd
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
