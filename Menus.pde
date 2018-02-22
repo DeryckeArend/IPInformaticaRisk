@@ -73,6 +73,7 @@ void startGame(){
   for(int i = 0; i < nodes.size(); i++){
     Node n = nodes.get(i);
     noFill();
+    stroke(50);
     ellipse(n.x, n.y, straal, straal);
   }
 }
