@@ -52,11 +52,8 @@ void draw(){
     
     case("game"):
       //game();
-<<<<<<< HEAD
     game();
-=======
     game(); 
->>>>>>> 8521ee7f7d6bbc75a958e0ef5ab378b6238ac953
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
