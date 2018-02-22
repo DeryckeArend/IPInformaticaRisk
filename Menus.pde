@@ -1,6 +1,8 @@
 float buttonWidth = 400;
 float buttonHeight = 75;
 float button1Height = 300;
+float namenCreditsX = width/2; 
+float namenCreditsY = height/2+400;
 float straal = 30;
 
 //Deze methode zorgt ervoor dat het main menu wordt getekend bij het opstarten van het spel,
@@ -34,7 +36,6 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
-      buttonClicked();
       startGame();
       state = "game";
     }
@@ -73,7 +74,6 @@ void startGame(){
   for(int i = 0; i < nodes.size(); i++){
     Node n = nodes.get(i);
     noFill();
-    stroke(50);
     ellipse(n.x, n.y, straal, straal);
   }
 }
@@ -92,22 +92,22 @@ void startOptions(){
   fill(0);
   textSize(50);
   textAlign(CENTER);
-  text("Return", 110, 60);
+  text("Return", 110, 75);
   text("Music", (width/2), button1Height + 225);
   text("Sound", (width/2), button1Height + 325);
 }
 
-float namenCreditsX; 
-float namenCreditsY = height/2;
-
-
 void drawCredits(){
-  namenCreditsY = namenCreditsY +1;
+  namenCreditsY = namenCreditsY - 10;
   background(0);
   image(background, 0, 0, width, height);
   textMode(CENTER);
-  text("KingBirdy", namenCreditsX, namenCreditsY); 
-  
+  fill(0);
+  text("KingBirdy", width/2, namenCreditsY); 
+  fill(122, 105, 68, 100);
+  rect(10,10,200,70);
+  fill(0);
+  text("Return", 100, 70);
   
 }
 
