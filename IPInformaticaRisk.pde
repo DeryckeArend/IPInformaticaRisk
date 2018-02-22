@@ -31,6 +31,7 @@ void setup(){
   initiate();
   mainMenuSetup();
   setupDice();
+  setupSound();
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
@@ -50,7 +51,11 @@ void draw(){
     
     case("game"):
       //game();
+<<<<<<< HEAD
+    game(); 
+=======
     game();
+>>>>>>> c9bf6353031a7bc3a6c5b1dc84acf26a6ec93dfd
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
