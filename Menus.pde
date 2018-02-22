@@ -51,7 +51,7 @@ void mainMenu(){
     
     //Vierde knop naar Credits
     if(button1Height + 300 < mouseY && mouseY < (button1Height + buttonHeight + 300) && mousePressed){
-      startCredits();
+      state = "creditMenu";
     }
     
     //Vijfde knop naar game afsluiten
@@ -95,8 +95,17 @@ void startOptions(){
   text("Sound", (width/2), button1Height + 325);
 }
 
-void startCredits(){
+float namenCreditsX; 
+float namenCreditsY = height/2;
+
+
+void drawCredits(){
+  namenCreditsY = namenCreditsY +1;
   background(0);
+  image(background, 0, 0, width, height);
+  textMode(CENTER);
+  text("KingBirdy", namenCreditsX, namenCreditsY); 
+  
   
 }
 
