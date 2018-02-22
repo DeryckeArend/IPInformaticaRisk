@@ -40,7 +40,7 @@ void draw(){
       mainMenu();
     break;
     case("optionsMenu"):
-      
+      returnMenu();
     break;
     case("instructionsMenu"):
     
@@ -49,7 +49,7 @@ void draw(){
     break;
     
     case("game"):
-      game();
+      //game();
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");

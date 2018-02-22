@@ -44,7 +44,8 @@ void mainMenu(){
     
     //Derde knop naar Opties
     if(button1Height + 200 < mouseY && mouseY < (button1Height + buttonHeight + 200) && mousePressed){
-      
+      startOptions();
+      state = "optionsMenu";
     }
     
     //Vierde knop naar Credits
@@ -70,7 +71,33 @@ void startGame(){
   
 }
 
+void startOptions(){
+  background(0);
+  image(background, 0, 0, width, height);
+  stroke(10);
+  fill(122, 105, 68, 100);
+  rect(10, 10, 200, 70);
+  //music
+  rect((width/2) - (buttonWidth/2), buttonHeight + 400, buttonWidth, buttonHeight);
+  //sound (clicks ect)
+  rect((width/2) - (buttonWidth/2), buttonHeight + 500, buttonWidth, buttonHeight);
+  
+  fill(0);
+  textSize(50);
+  textAlign(CENTER);
+  text("Return", 110, 75);
+  text("Music", (width/2), button1Height + 225);
+  text("Sound", (width/2), button1Height + 325);
+}
+
 void startCredits(){
   background(0);
   
+}
+
+void returnMenu() {
+  if(10 < mouseY && mouseY < 70 && 10 < mouseX && mouseX < 200 && mousePressed){
+      mainMenuSetup();
+      state = "menu";
+    }
 }
