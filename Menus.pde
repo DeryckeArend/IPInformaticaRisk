@@ -34,6 +34,7 @@ void mainMenu(){
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
       startGame();
+      state = "game";
     }
     
     //Tweede knop naar spelregels
@@ -48,7 +49,7 @@ void mainMenu(){
     
     //Vierde knop naar Credits
     if(button1Height + 300 < mouseY && mouseY < (button1Height + buttonHeight + 300) && mousePressed){
-      
+      startCredits();
     }
     
     //Vijfde knop naar game afsluiten
@@ -66,5 +67,10 @@ void startGame(){
   image(riskMap, 0, 0, width, height);
   //Maak een knop om terug te keren naar het hoofdmenu
   rect(10,10,200,70);
+  
+}
+
+void startCredits(){
+  background(0);
   
 }

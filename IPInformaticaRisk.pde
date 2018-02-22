@@ -20,7 +20,7 @@ String state = "menu";
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
 PImage background;
 PImage logo;
-PImage riskMap; 
+PImage riskMap;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -49,7 +49,7 @@ void draw(){
     break;
     
     case("game"):
-    
+      game();
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
