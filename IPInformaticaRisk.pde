@@ -8,11 +8,13 @@
 **/
 
 import java.util.List;
+import controlP5.*;
 
 //Hier bovenaan slaan we enkele variabelen op zodat we ze later gemakkelijk terugvinden en veranderen
 List<Country> countries = new ArrayList<Country>();
 List<Continent> continents = new ArrayList<Continent>();
 List<Node> nodes = new ArrayList<Node>();
+ControlP5 cp5;
 
 //Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu" of "game" . We beginnen met menu
 String state = "menu";
@@ -26,11 +28,7 @@ PImage riskMap;
 void setup(){
   fullScreen();
   //size(640, 620);
-  noStroke();
-  background(0);
   initiate();
-  mainMenuSetup();
-  setupDice();
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
@@ -51,8 +49,7 @@ void draw(){
     break;
     
     case("game"):
-      //game();
-    game();
+    nodeLines();
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
@@ -65,6 +62,7 @@ void initiate(){
   initiateContinents();
   initiateCountries();
   loadImages();
+  drawMainMenu();
 }
 
 //Alle afbeeldingen die gebruikt worden, moeten hier geladen worden voor het spel start. Let erop dat je geen .png of .jpg vergeet

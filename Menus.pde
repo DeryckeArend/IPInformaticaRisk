@@ -6,7 +6,7 @@ float namenCreditsY = height/2+400;
 float straal = 30;
 
 //Deze methode zorgt ervoor dat het main menu wordt getekend bij het opstarten van het spel,
-void mainMenuSetup(){
+void drawMainMenu(){
   image(background, 0, 0, width, height);
   image(logo, (width/2) - 250, 100, 500, 150);
   stroke(10);
@@ -36,7 +36,8 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
-      startGame();
+      //drawGame();
+      drawStartMenu();
       state = "game";
     }
     
@@ -47,7 +48,7 @@ void mainMenu(){
     
     //Derde knop naar Opties
     if(button1Height + 200 < mouseY && mouseY < (button1Height + buttonHeight + 200) && mousePressed){
-      startOptions();
+      drawOptions();
       state = "optionsMenu";
     }
     
@@ -64,21 +65,7 @@ void mainMenu(){
   }
 }
 
-void startGame(){
-  //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
-  background(0);
-  //Dan laden we een afbeelding op als achtergrond. Eerst maak je in IPInformaticaRisk een variabele aan bovenaan bij de andere PImage. Dan laad je de afbeelding op in loadImages(), ook in IPInformatica
-  image(riskMap, 0, 0, width, height);
-  //Maak een knop om terug te keren naar het hoofdmenu
-  rect(10,10,200,70);
-  for(int i = 0; i < nodes.size(); i++){
-    Node n = nodes.get(i);
-    noFill();
-    ellipse(n.x, n.y, straal, straal);
-  }
-}
-
-void startOptions(){
+void drawOptions(){
   background(0);
   image(background, 0, 0, width, height);
   stroke(10);
@@ -113,7 +100,7 @@ void drawCredits(){
 
 void returnMenu() {
   if(10 < mouseY && mouseY < 70 && 10 < mouseX && mouseX < 200 && mousePressed){
-      mainMenuSetup();
+      drawMainMenu();
       state = "menu";
     }
 }
