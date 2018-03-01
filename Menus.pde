@@ -43,7 +43,8 @@ void mainMenu(){
     
     //Tweede knop naar spelregels
     if(button1Height + 100 < mouseY && mouseY < (button1Height + buttonHeight + 100) && mousePressed){
-      
+      drawInstructionMenu();
+      state="instructionMenu";
     }
     
     //Derde knop naar Opties
@@ -96,6 +97,34 @@ void drawCredits(){
   fill(0);
   text("Return", 100, 70);
   
+}
+
+void drawInstructionMenu(){
+  background(0);
+  image(background, 0, 0, width, height);
+  stroke(10);
+  fill(122,105,68,100);
+  rect(10,10,200,70);
+  
+  fill(0);
+  textSize(40);
+  textAlign(CENTER);
+  text("Return", 110, 75);
+  
+  textAlign(LEFT);
+  String d="Het doel: Verover de hele wereld en versla alle tegenstanders.";
+  fill(0);
+  text(d, width/2 -850, 200);
+  String e="Het begin: Iedereen start met een bepaald aantal gebieden en een aantal soldaten. De gebieden zijn willekeurig verdeeld over alle spelers.";
+  fill(0);
+  text(e, width/2 -850, 250, 1700,700);
+  String f="Het verloop: Speler één begint met zijn eerste zet door op zijn eigen land te klikken en erna op een van zijn buren. Dan zal het duel starten, het stopt pas wanneer een van de teams overblijft en dus op het gebied mag blijven staan. Dan mag deze speler nog andere duels starten en/of zijn soldaten verplaatsen. Erna drukt de speler op *volgende speler* als deze klaar is met zijn zet.";
+  fill(0);
+  text(f,width/2-850, 400, 1700,1500);
+  String g="Het duel: Als een duel is gestart door speler één (de aanvaller) tegen speler twee (de verdediger), zullen er dobbelstenen gegooid worden. Het aantal dobbelstenen correspondeert met het aantal soldaten iemand heeft (Max 6 dobbelstenen als er meer dan 6 soldaten zijn). Wanneer er gelijke cijfers worden gegooid wint de verdediger.";
+  fill(0);
+  text(g,width/2-850, 750, 1700, 1500);
+    
 }
 
 void returnMenu() {

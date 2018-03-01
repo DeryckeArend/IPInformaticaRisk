@@ -41,7 +41,7 @@ void draw(){
       returnMenu();
     break;
     case("instructionsMenu"):
-    
+      returnMenu();
     break;
     case("creditMenu"):
       drawCredits();
