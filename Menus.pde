@@ -5,6 +5,12 @@ float namenCreditsX = width/2;
 float namenCreditsY = height/2+400;
 float straal = 30;
 
+RadioButton r;
+RadioButton r2;
+
+int playerAmount = 0;
+int AIAmount = 0;
+
 //Deze methode zorgt ervoor dat het main menu wordt getekend bij het opstarten van het spel,
 void drawMainMenu(){
   image(background, 0, 0, width, height);
@@ -38,7 +44,7 @@ void mainMenu(){
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
       //drawGame();
       drawStartMenu();
-      state = "game";
+      state = "startMenu";
     }
     
     //Tweede knop naar spelregels
@@ -133,3 +139,73 @@ void returnMenu() {
       state = "menu";
     }
 }
+
+void nextMenu(){
+ if((width/2 - 120) < mouseX &&  mouseX < (width/2 + 120) && 800 < mouseY && mouseY < 875 && mousePressed){
+   if(playerAmount != 0){
+     drawPlayerSelectMenu();
+   }
+ }
+}
+
+void drawStartMenu(){
+  background(0);
+  image(background, 0, 0, width, height);
+  cp5 = new ControlP5(this);
+  text("Selecteer de Spel-Instellingen",960,75);
+  text("Aantal spelers:", 960, 250);
+  text("Aantal computer-spelers:", 960, 500);
+  r = cp5.addRadioButton("radioButtonPlayers")
+         .setPosition(590,300)
+         .setSize(60,60)
+         .setColorForeground(color(0))
+         .setColorBackground(color(89,68,39))
+         .setColorActive(color(0))
+         .setColorLabel(color(0))
+         .setColorValue(0)
+         .setItemsPerRow(5)
+         .setSpacingColumn(100)
+         .addItem("2",1)
+         .addItem("3",2)
+         .addItem("4",3)
+         .addItem("5",4)
+         .addItem("6",5);
+
+  r2 = cp5.addRadioButton("radioButtonAI")
+         .setPosition(590,550)
+         .setSize(60,60)
+         .setColorForeground(color(0))
+         .setColorBackground(color(89,68,39))
+         .setColorActive(color(0))
+         .setColorLabel(color(0))
+         .setItemsPerRow(5)
+         .setSpacingColumn(100)
+         .addItem("1 ",6)
+         .addItem("2 ",7)
+         .addItem("3 ",8)
+         .addItem("4 ",9)
+         .addItem("5 ",10);
+         
+  PFont pfont = createFont("Arial",20,true); // use true/false for smooth/no-smooth
+  ControlFont font = new ControlFont(pfont,60);
+  r.setFont(font);
+  //.align(ControlP5.CENTER, ControlP5.TOP);
+  cp5.setFont(font);
+  
+  fill(color(89,68,39));
+  rect((width/2 -120),800, 240,75);
+  fill(0);
+  text("Volgende", width/2,850);
+}
+
+ void drawPlayerSelectMenu(){
+  
+ }
+ 
+ void radioButtonPlayers(int a){
+   playerAmount = a;
+ }
+ 
+  void radioButtonAI(int a){
+   AIAmount = a;
+ }

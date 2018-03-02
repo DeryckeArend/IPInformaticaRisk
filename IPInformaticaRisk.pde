@@ -51,7 +51,7 @@ void draw(){
     nodeLines();
     break;
     case("startMenu"):
-    
+      nextMenu();
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
