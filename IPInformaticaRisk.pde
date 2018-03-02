@@ -16,7 +16,7 @@ List<Continent> continents = new ArrayList<Continent>();
 List<Node> nodes = new ArrayList<Node>();
 ControlP5 cp5;
 
-//Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu" of "game" . We beginnen met menu
+//Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu" of "game" . We beginnen met menu
 String state = "menu";
 
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
@@ -47,9 +47,11 @@ void draw(){
       drawCredits();
       returnMenu();
     break;
-    
     case("game"):
     nodeLines();
+    break;
+    case("startMenu"):
+    
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");

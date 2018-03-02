@@ -44,7 +44,7 @@ void mainMenu(){
     //Tweede knop naar spelregels
     if(button1Height + 100 < mouseY && mouseY < (button1Height + buttonHeight + 100) && mousePressed){
       drawInstructionMenu();
-      state="instructionMenu";
+      state="instructionsMenu";
     }
     
     //Derde knop naar Opties
