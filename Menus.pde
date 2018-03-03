@@ -86,7 +86,7 @@ void drawOptions(){
   fill(0);
   textSize(50);
   textAlign(CENTER);
-  text("Return", 110, 75);
+  text("Return", 110, 65);
   text("Music", (width/2), button1Height + 225);
   text("Sound", (width/2), button1Height + 325);
 }
@@ -101,7 +101,7 @@ void drawCredits(){
   fill(122, 105, 68, 100);
   rect(10,10,200,70);
   fill(0);
-  text("Return", 100, 70);
+  text("Return", 110, 65);
   
 }
 
@@ -113,10 +113,11 @@ void drawInstructionMenu(){
   rect(10,10,200,70);
   
   fill(0);
-  textSize(40);
+  textSize(50);
   textAlign(CENTER);
-  text("Return", 110, 75);
+  text("Return", 110, 65);
   
+  textSize(40);
   textAlign(LEFT);
   String d="Het doel: Verover de hele wereld en versla alle tegenstanders.";
   fill(0);
