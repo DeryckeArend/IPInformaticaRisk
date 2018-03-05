@@ -42,35 +42,35 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
-<<<<<<< HEAD
+
       buttonClicked();
-      startGame();
+      game();
       state = "game";
-=======
+
       //drawGame();
       drawStartMenu();
       state = "startMenu";
->>>>>>> c48e6fc6ad421a4759269c1c35cc4f057b8a518f
+
     }
     
     //Tweede knop naar spelregels
     if(button1Height + 100 < mouseY && mouseY < (button1Height + buttonHeight + 100) && mousePressed){
-<<<<<<< HEAD
+
       buttonClicked();
-=======
+
       drawInstructionMenu();
       state="instructionsMenu";
->>>>>>> c48e6fc6ad421a4759269c1c35cc4f057b8a518f
+
     }
     
     //Derde knop naar Opties
     if(button1Height + 200 < mouseY && mouseY < (button1Height + buttonHeight + 200) && mousePressed){
-<<<<<<< HEAD
+
       buttonClicked();
-      startOptions();
-=======
       drawOptions();
->>>>>>> c48e6fc6ad421a4759269c1c35cc4f057b8a518f
+
+      drawOptions();
+
       state = "optionsMenu";
     }
     
@@ -103,11 +103,11 @@ void drawOptions(){
   fill(0);
   textSize(50);  
   textAlign(CENTER);
-<<<<<<< HEAD
+
   
-=======
+
   text("Return", 110, 65);
->>>>>>> c48e6fc6ad421a4759269c1c35cc4f057b8a518f
+
   text("Music", (width/2), button1Height + 225);
   text("Sound", (width/2), button1Height + 325);
   
@@ -159,12 +159,12 @@ void drawInstructionMenu(){
 
 void returnMenu() {
   if(10 < mouseY && mouseY < 70 && 10 < mouseX && mouseX < 200 && mousePressed){
-<<<<<<< HEAD
+
     buttonClicked();  
-    mainMenuSetup();
-=======
+    drawMainMenu();
+
       drawMainMenu();
->>>>>>> c48e6fc6ad421a4759269c1c35cc4f057b8a518f
+
       state = "menu";
     }
 }

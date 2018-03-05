@@ -29,12 +29,11 @@ void setup(){
   fullScreen();
   //size(640, 620);
   initiate();
-<<<<<<< HEAD
-  mainMenuSetup();
-  setupDice();
+  drawMainMenu();
+  //drawDice();
   //setupSound();
-=======
->>>>>>> c48e6fc6ad421a4759269c1c35cc4f057b8a518f
+
+
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
@@ -54,7 +53,7 @@ void draw(){
       returnMenu();
     break;
     case("game"):
-    nodeLines();
+    //nodeLines();
     break;
     case("startMenu"):
       nextMenu();
