@@ -8,13 +8,15 @@
 **/
 
 import java.util.List;
+import controlP5.*;
 
 //Hier bovenaan slaan we enkele variabelen op zodat we ze later gemakkelijk terugvinden en veranderen
 List<Country> countries = new ArrayList<Country>();
 List<Continent> continents = new ArrayList<Continent>();
 List<Node> nodes = new ArrayList<Node>();
+ControlP5 cp5;
 
-//Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu" of "game" . We beginnen met menu
+//Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu" of "game" . We beginnen met menu
 String state = "menu";
 
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
@@ -26,12 +28,13 @@ PImage riskMap;
 void setup(){
   fullScreen();
   //size(640, 620);
-  noStroke();
-  background(0);
   initiate();
+<<<<<<< HEAD
   mainMenuSetup();
   setupDice();
   //setupSound();
+=======
+>>>>>>> c48e6fc6ad421a4759269c1c35cc4f057b8a518f
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
@@ -44,16 +47,17 @@ void draw(){
       returnMenu();
     break;
     case("instructionsMenu"):
-    
+      returnMenu();
     break;
     case("creditMenu"):
       drawCredits();
       returnMenu();
     break;
-    
     case("game"):
-      //game();
-    game();
+    nodeLines();
+    break;
+    case("startMenu"):
+      nextMenu();
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
@@ -66,6 +70,7 @@ void initiate(){
   initiateContinents();
   initiateCountries();
   loadImages();
+  drawMainMenu();
 }
 
 //Alle afbeeldingen die gebruikt worden, moeten hier geladen worden voor het spel start. Let erop dat je geen .png of .jpg vergeet
