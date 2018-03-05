@@ -31,6 +31,7 @@ void setup(){
   initiate();
   mainMenuSetup();
   setupDice();
+  //setupSound();
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd

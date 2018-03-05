@@ -4,7 +4,6 @@
 
 ### Website:
 - Foto's toevoegen
-- Logo
 - In-game screenshot
 - Wekelijkse vooruitgang
 

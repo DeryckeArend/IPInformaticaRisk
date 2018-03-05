@@ -36,28 +36,32 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
+      buttonClicked();
       startGame();
       state = "game";
     }
     
     //Tweede knop naar spelregels
     if(button1Height + 100 < mouseY && mouseY < (button1Height + buttonHeight + 100) && mousePressed){
-      
+      buttonClicked();
     }
     
     //Derde knop naar Opties
     if(button1Height + 200 < mouseY && mouseY < (button1Height + buttonHeight + 200) && mousePressed){
+      buttonClicked();
       startOptions();
       state = "optionsMenu";
     }
     
     //Vierde knop naar Credits
     if(button1Height + 300 < mouseY && mouseY < (button1Height + buttonHeight + 300) && mousePressed){
+      buttonClicked();
       state = "creditMenu";
     }
     
     //Vijfde knop naar game afsluiten
     if(button1Height + 400 < mouseY && mouseY < (button1Height + buttonHeight + 400) && mousePressed){
+      buttonClicked();
       //Sluit het programma af
       exit();
     }
@@ -90,11 +94,13 @@ void startOptions(){
   rect((width/2) - (buttonWidth/2), buttonHeight + 500, buttonWidth, buttonHeight);
   
   fill(0);
-  textSize(50);
+  textSize(50);  
   textAlign(CENTER);
-  text("Return", 110, 75);
+  
   text("Music", (width/2), button1Height + 225);
   text("Sound", (width/2), button1Height + 325);
+  
+  text("Return", 110, 65);
 }
 
 void drawCredits(){
@@ -107,13 +113,14 @@ void drawCredits(){
   fill(122, 105, 68, 100);
   rect(10,10,200,70);
   fill(0);
-  text("Return", 100, 70);
+  text("Return", 110, 65);
   
 }
 
 void returnMenu() {
   if(10 < mouseY && mouseY < 70 && 10 < mouseX && mouseX < 200 && mousePressed){
-      mainMenuSetup();
+    buttonClicked();  
+    mainMenuSetup();
       state = "menu";
     }
 }
