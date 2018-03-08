@@ -36,8 +36,8 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
-      //drawGame();
-      drawStartMenu();
+      drawGame();
+      //drawStartMenu();
       state = "game";
     }
     

@@ -39,7 +39,6 @@ void drawStartMenu(){
   background(0);
   image(background, 0, 0, width, height);
   cp5 = new ControlP5(this);
-  cp5.setFont(ControlFont.normal(),10);
   r = cp5.addRadioButton("radioButton")
          .setPosition(20,160)
          .setSize(50,50)
