@@ -15,11 +15,12 @@ class Continent{
  
 }
 
+//Deze methode kan je gebruiken als je van de naam van een continent naar een object continent will gaan
 public Continent getContinent(String cName){
   for(Continent c : continents){
     if(c.name.equals(cName)){
      return c;
     }
   }
-  return new Continent();
+  return null;
  }

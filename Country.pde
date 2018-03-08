@@ -12,11 +12,12 @@ class Country{
   Player owner;
 }
 
+//Via deze methode kan je van de naam van een land naar een object land gaan
 public Country getCountry(String cName){
   for(Country c : countries){
     if(c.name.equals(cName)){
      return c;
     }
   }
-  return new Country();
+  return null;
  }

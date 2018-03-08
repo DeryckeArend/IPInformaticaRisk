@@ -33,8 +33,6 @@ void drawMainMenu(){
   text("Afsluiten", (width/2), button1Height + 450);
 }
 
-
-
 //Deze methode controleert waar de muis is en of je op een rechthoek(knop) klikt
 void mainMenu(){
   //Eerst controleren we via de x-as, want alle knoppen hebben dezelfde x-waarden
@@ -228,9 +226,8 @@ void drawStartMenu(){
 }
 
  void drawPlayerSelectMenu(){
-  
- }
- 
+
+ } 
  void radioButtonPlayers(int a){
    playerAmount = a;
  }
