@@ -16,23 +16,31 @@ List<Continent> continents = new ArrayList<Continent>();
 List<Node> nodes = new ArrayList<Node>();
 ControlP5 cp5;
 
-//Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu" of "game" . We beginnen met menu
+//Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu" of "game" . We beginnen met menu
 String state = "menu";
 
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
 PImage background;
 PImage logo;
 PImage riskMap;
+PImage soldier;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
   fullScreen();
   //size(640, 620);
   initiate();
+  drawMainMenu();
+  //drawDice(6,4);
+  setupSound();
+  //drawGame();
+
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
 void draw(){
+  //Een switch case is hetzelfde als if() maar dan iets korter
+  //Hierin vertellen we aan de game in welke stadium we zitten, zo weeet hij wat hij moet doen als je bv. klikt op een knop. De variabele gameState wordt hierboven opgeslagen en kan maar een aantal vormen aannemen
   switch(state){
     case("menu"):
       mainMenu();
@@ -41,15 +49,17 @@ void draw(){
       returnMenu();
     break;
     case("instructionsMenu"):
-    
+      returnMenu();
     break;
     case("creditMenu"):
       drawCredits();
       returnMenu();
     break;
-    
     case("game"):
-    nodeLines();
+    //nodeLines();
+    break;
+    case("startMenu"):
+      nextMenu();
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
@@ -70,9 +80,11 @@ void loadImages(){
   background = loadImage("data/Images/mainMenuPlaceholder.jpg");
   logo = loadImage("data/Images/logoDMCV.png");
   riskMap = loadImage("data/Images/riskMap.jpg");
+  soldier = loadImage("data/Images/soldier.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.
+//De continenten worden opgeslagen in de arraylist continents
 void initiateContinents(){
   Table continentTable = loadTable("data/ContinentData.csv", "header");
   TableRow row;
