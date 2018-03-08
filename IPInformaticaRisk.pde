@@ -81,7 +81,7 @@ void initiate(){
 void loadImages(){
   background = loadImage("data/Images/mainMenuPlaceholder.jpg");
   logo = loadImage("data/Images/logoDMCV.png");
-  riskMap = loadImage("data/Images/riskMap.jpg");
+  riskMap = loadImage("data/Images/mapLaatsteVersie.png");
   soldier = loadImage("data/Images/soldier.png");
 }
 

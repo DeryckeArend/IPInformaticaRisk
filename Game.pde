@@ -1,4 +1,3 @@
-RadioButton r;
 
 void nodeLines(){
   for(Node n: nodes) {
@@ -33,24 +32,4 @@ void drawGame(){
     noFill();
     ellipse(n.x, n.y, straal, straal);
   }
-}
-
-void drawStartMenu(){
-  background(0);
-  image(background, 0, 0, width, height);
-  cp5 = new ControlP5(this);
-  r = cp5.addRadioButton("radioButton")
-         .setPosition(20,160)
-         .setSize(50,50)
-         .setColorForeground(color(120))
-         .setColorActive(color(255))
-         .setColorLabel(color(255))
-         .setItemsPerRow(5)
-         .setSpacingColumn(50)
-         .addItem("2",1)
-         .addItem("3",2)
-         .addItem("4",3)
-         .addItem("5",4)
-         .addItem("6",5);
-         
 }

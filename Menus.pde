@@ -168,7 +168,7 @@ void nextMenu(){
      r.remove();
      r2.remove();
      drawPlayerSelectMenu();
-   }if(t.)
+   }
  }
 }
 
