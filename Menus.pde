@@ -33,8 +33,6 @@ void drawMainMenu(){
   text("Afsluiten", (width/2), button1Height + 450);
 }
 
-
-
 //Deze methode controleert waar de muis is en of je op een rechthoek(knop) klikt
 void mainMenu(){
   //Eerst controleren we via de x-as, want alle knoppen hebben dezelfde x-waarden
@@ -43,11 +41,10 @@ void mainMenu(){
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
 
-      buttonClicked();
-      game();
-      state = "game";
-
+      //buttonClicked();
       //drawGame();
+      //state = "game";
+
       drawStartMenu();
       state = "startMenu";
 
@@ -103,8 +100,6 @@ void drawOptions(){
   fill(0);
   textSize(50);  
   textAlign(CENTER);
-
-  
 
   text("Return", 110, 65);
 
@@ -228,6 +223,7 @@ void drawStartMenu(){
 }
 
  void drawPlayerSelectMenu(){
+<<<<<<< HEAD
   switch(playerAmount){
     case 2:
     background(0);
@@ -280,6 +276,10 @@ PFont lettertype = createFont("arial", 50);
 
 }
  
+=======
+
+ } 
+>>>>>>> 4906c53ea99647b36deab1424047667f2dc4dc84
  void radioButtonPlayers(int a){
    playerAmount = a;
  }

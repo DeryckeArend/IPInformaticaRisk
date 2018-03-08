@@ -23,6 +23,7 @@ String state = "menu";
 PImage background;
 PImage logo;
 PImage riskMap;
+PImage soldier;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -31,13 +32,15 @@ void setup(){
   initiate();
   drawMainMenu();
   //drawDice();
-  //setupSound();
-
+  setupSound();
+  drawGame();
 
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
 void draw(){
+  //Een switch case is hetzelfde als if() maar dan iets korter
+  //Hierin vertellen we aan de game in welke stadium we zitten, zo weeet hij wat hij moet doen als je bv. klikt op een knop. De variabele gameState wordt hierboven opgeslagen en kan maar een aantal vormen aannemen
   switch(state){
     case("menu"):
       mainMenu();
@@ -77,9 +80,11 @@ void loadImages(){
   background = loadImage("data/Images/mainMenuPlaceholder.jpg");
   logo = loadImage("data/Images/logoDMCV.png");
   riskMap = loadImage("data/Images/riskMap.jpg");
+  soldier = loadImage("data/Images/soldier.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.
+//De continenten worden opgeslagen in de arraylist continents
 void initiateContinents(){
   Table continentTable = loadTable("data/ContinentData.csv", "header");
   TableRow row;
