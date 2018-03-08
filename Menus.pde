@@ -228,8 +228,57 @@ void drawStartMenu(){
 }
 
  void drawPlayerSelectMenu(){
-  
+  switch(playerAmount){
+    case 2:
+    background(0);
+    image(background, 0, 0, width, height);
+    fill(153);
+    rect(width/6, height/4,700, 600);
+    fill(153);
+    rect(
+    break;
+    
+    case 3:
+    
+    break;
+    
+    case 4:
+    
+    break;
+    
+    case 5:
+    
+    break;
+  }
  }
+ 
+ void drawPlayerNameMenu(){
+PFont lettertype = createFont("arial", 50);
+  
+  cp5 = new ControlP5(this);
+  cp5.addTextfield(" ")
+  .setPosition(280,250)
+  .setSize(400,100)
+  .setColorForeground(color(0))
+  .setColorBackground(color(89,68,39))
+  .setColorActive(color(0))
+  .setColorLabel(color(0))
+  .setFont(lettertype)
+  .setAutoClear(false);
+  /*cp5.addTextfield("Player 2 kies hier je naam:")
+  .setPosition(
+  .setSize(400,100)
+  .setFont(lettertype)
+  */
+    text(width + "" + height, 100,100);
+    //image(background, 0, 0, width, height);
+    fill(153);
+    rectMode(CENTER);
+    rect(width/4,height/2,480,720,45);
+    fill(153);
+    rect(width/2+width/4,height/2,480,720,45);
+
+}
  
  void radioButtonPlayers(int a){
    playerAmount = a;
@@ -238,3 +287,5 @@ void drawStartMenu(){
   void radioButtonAI(int a){
    AIAmount = a;
  }
+ 
+ void 
