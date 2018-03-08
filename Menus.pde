@@ -41,11 +41,10 @@ void mainMenu(){
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
 
-      buttonClicked();
-      game();
-      state = "game";
-
+      //buttonClicked();
       //drawGame();
+      //state = "game";
+
       drawStartMenu();
       state = "startMenu";
 
@@ -101,8 +100,6 @@ void drawOptions(){
   fill(0);
   textSize(50);  
   textAlign(CENTER);
-
-  
 
   text("Return", 110, 65);
 

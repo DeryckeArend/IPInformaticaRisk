@@ -12,12 +12,14 @@ void setupSound() {
  /* if (mute = true) {
     file.stop();
   }*/  
-}      
+}
+
 //buttonclicks in menu
 void buttonClicked() {
   buttonClick = new SoundFile(this, "Music/buttonclick.mp3");
   buttonClick.play();
 }
+
 //muziekje wanneer je klikt op aanvallen
 void attackSound() {
   attackSound = new SoundFile(this, "");
