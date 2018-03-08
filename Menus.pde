@@ -40,11 +40,9 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
-<<<<<<< HEAD
       drawGame();
       //drawStartMenu();
       state = "game";
-=======
 
       //buttonClicked();
       //drawGame();
@@ -52,8 +50,6 @@ void mainMenu(){
 
       drawStartMenu();
       state = "startMenu";
-
->>>>>>> 6f1724f9782a6f7b39a8bee26e4e9444cad2b662
     }
     
     //Tweede knop naar spelregels
