@@ -31,9 +31,9 @@ void setup(){
   //size(640, 620);
   initiate();
   drawMainMenu();
-  //drawDice();
+  //drawDice(6,4);
   setupSound();
-  drawGame();
+  //drawGame();
 
 }
 
