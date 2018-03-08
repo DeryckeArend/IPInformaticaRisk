@@ -243,6 +243,7 @@ void drawStartMenu(){
   .setColorBackground(color(114,113,89))
   .setColorActive(color(0))
   .setColorLabel(color(0))
+  .setColor(255);
   .setFont(lettertype)
   .setAutoClear(false);
   
@@ -254,6 +255,7 @@ void drawStartMenu(){
   .setColorBackground(color(114,113,89))
   .setColorActive(color(0))
   .setColorLabel(color(0))
+  .setColor(255)
   .setFont(lettertype)
   .setAutoClear(false);
   
