@@ -41,7 +41,8 @@ void drawSoldier(){
   n.x; //x-waarde node
   n.y; //y-waarde node
   
-  image(soldier,n.x + 7, n.y, 20,20);
+  image(soldier,n.x + 7, n.y, 60, 72);
+  textSize(15);
   text(5, n.x + 30, n.y);
  }
 }

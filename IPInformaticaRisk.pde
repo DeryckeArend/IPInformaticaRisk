@@ -23,6 +23,7 @@ String state = "menu";
 PImage background;
 PImage logo;
 PImage riskMap;
+PImage soldier;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -79,6 +80,7 @@ void loadImages(){
   background = loadImage("data/Images/mainMenuPlaceholder.jpg");
   logo = loadImage("data/Images/logoDMCV.png");
   riskMap = loadImage("data/Images/riskMap.jpg");
+  soldier = loadImage("data/Images/soldier.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.
