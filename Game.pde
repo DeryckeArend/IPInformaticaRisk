@@ -39,8 +39,8 @@ void drawGame(){
 
 void drawSoldier(){
  for(Node n: nodes){
-  image(soldier,n.x + 7, n.y, 60, 72);
-  textSize(15);
+  image(soldier,n.x + 7, n.y, 50, 60);
+  textSize(25);
   text(5, n.x + 30, n.y);
  }
 }
