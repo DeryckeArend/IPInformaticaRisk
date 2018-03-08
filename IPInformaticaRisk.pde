@@ -18,6 +18,8 @@ ControlP5 cp5;
 
 //Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu" of "game" . We beginnen met menu
 String state = "menu";
+//Welke speler aan de beurt is
+Player playerTurn;
 
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
 PImage background;
