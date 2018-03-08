@@ -226,6 +226,7 @@ void drawStartMenu(){
 
 
  void drawPlayerSelectMenu(){
+<<<<<<< HEAD
   image(background, 0, 0, width, height);
   text(playerAmount, 100,100);
   switch(playerAmount){
@@ -284,6 +285,10 @@ void drawStartMenu(){
   }
  }
  
+=======
+
+ } 
+>>>>>>> 3bd7e135629b9f1255c592a6c8c5193dbada8462
  void radioButtonPlayers(int a){
    playerAmount = a;
  }
@@ -291,4 +296,8 @@ void drawStartMenu(){
   void radioButtonAI(int a){
    AIAmount = a;
  }
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 3bd7e135629b9f1255c592a6c8c5193dbada8462
  
