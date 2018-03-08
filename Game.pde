@@ -1,7 +1,6 @@
-//Dit is de setup methode van de game, de kaart nodes enzo worden hier getekend
-void game(){
-  //if(mousePressed){
-  //text( "x: " + mouseX + " y: " + mouseY, mouseX, mouseY );
+RadioButton r;
+
+void nodeLines(){
   for(Node n: nodes) {
     if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
       Country c = n.country;
@@ -34,13 +33,24 @@ void drawGame(){
     noFill();
     ellipse(n.x, n.y, straal, straal);
   }
-  drawSoldier();
 }
 
-void drawSoldier(){
- for(Node n: nodes){
-  image(soldier,n.x + 7, n.y, 50, 60);
-  textSize(25);
-  text(5, n.x + 30, n.y);
- }
+void drawStartMenu(){
+  background(0);
+  image(background, 0, 0, width, height);
+  cp5 = new ControlP5(this);
+  r = cp5.addRadioButton("radioButton")
+         .setPosition(20,160)
+         .setSize(50,50)
+         .setColorForeground(color(120))
+         .setColorActive(color(255))
+         .setColorLabel(color(255))
+         .setItemsPerRow(5)
+         .setSpacingColumn(50)
+         .addItem("2",1)
+         .addItem("3",2)
+         .addItem("4",3)
+         .addItem("5",4)
+         .addItem("6",5);
+         
 }
