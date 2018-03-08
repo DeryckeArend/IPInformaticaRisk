@@ -33,7 +33,7 @@ void setup(){
   drawMainMenu();
   //drawDice();
   setupSound();
-  //drawGame();
+  drawGame();
 
 }
 
