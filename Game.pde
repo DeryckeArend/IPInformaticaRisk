@@ -25,8 +25,6 @@ void drawGame(){
   background(0);
   //Dan laden we een afbeelding op als achtergrond. Eerst maak je in IPInformaticaRisk een variabele aan bovenaan bij de andere PImage. Dan laad je de afbeelding op in loadImages(), ook in IPInformatica
   image(riskMap, 0, 0, width, height);
-  //Maak een knop om terug te keren naar het hoofdmenu
-  rect(10,10,200,70);
   for(int i = 0; i < nodes.size(); i++){
     Node n = nodes.get(i);
     noFill();

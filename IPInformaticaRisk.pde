@@ -14,7 +14,9 @@ import controlP5.*;
 List<Country> countries = new ArrayList<Country>();
 List<Continent> continents = new ArrayList<Continent>();
 List<Node> nodes = new ArrayList<Node>();
+List<Player> players = new ArrayList<Player>();
 ControlP5 cp5;
+
 
 //Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu" of "game" . We beginnen met menu
 String state = "menu";
@@ -35,7 +37,7 @@ void setup(){
   drawMainMenu();
   //drawDice(6,4);
   setupSound();
-  //drawGame();
+  drawGame();
 
 }
 
