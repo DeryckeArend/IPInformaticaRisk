@@ -167,6 +167,8 @@ void returnMenu() {
 void nextMenu(){
  if((width/2 - 120) < mouseX &&  mouseX < (width/2 + 120) && 800 < mouseY && mouseY < 875 && mousePressed){
    if(playerAmount != 0){
+     r.remove();
+     r2.remove();
      drawPlayerSelectMenu();
    }
  }
@@ -189,11 +191,11 @@ void drawStartMenu(){
          .setColorValue(0)
          .setItemsPerRow(5)
          .setSpacingColumn(100)
-         .addItem("2",1)
-         .addItem("3",2)
-         .addItem("4",3)
-         .addItem("5",4)
-         .addItem("6",5);
+         .addItem("2",2)
+         .addItem("3",3)
+         .addItem("4",4)
+         .addItem("5",5)
+         .addItem("6",6);
 
   r2 = cp5.addRadioButton("radioButtonAI")
          .setPosition(590,550)
@@ -222,16 +224,50 @@ void drawStartMenu(){
   text("Volgende", width/2,850);
 }
 
+
  void drawPlayerSelectMenu(){
-<<<<<<< HEAD
+  image(background, 0, 0, width, height);
+  text(playerAmount, 100,100);
   switch(playerAmount){
     case 2:
-    background(0);
-    image(background, 0, 0, width, height);
+    
     fill(153);
-    rect(width/6, height/4,700, 600);
-    fill(153);
-    rect(
+    rectMode(CENTER);
+    rect(width/4,height/2,480,720,45);
+    rect(width/2+width/4,height/2,480,720,45);
+    
+    PFont lettertype = createFont("arial", 50);
+
+    cp5 = new ControlP5(this);
+  Textfield t = cp5.addTextfield("Name player 1:")
+  .setPosition(280,250)
+  .setSize(400,100)
+  .setColorForeground(color(0))
+  .setColorBackground(color(114,113,89))
+  .setColorActive(color(0))
+  .setColorLabel(color(0))
+  .setFont(lettertype)
+  .setAutoClear(false);
+  
+  Textfield t2= cp5.addTextfield("Name player 2:")
+  .setPosition(width/2+280,250)
+  .setSize(400,100)
+  .setFont(lettertype)
+  .setColorForeground(color(0))
+  .setColorBackground(color(114,113,89))
+  .setColorActive(color(0))
+  .setColorLabel(color(0))
+  .setFont(lettertype)
+  .setAutoClear(false);
+  
+ Label l = t.getCaptionLabel();
+ l.setFont(createFont("arial", 25));
+ l.align(LEFT,ControlP5.TOP_OUTSIDE);
+ 
+ Label l2 = t2.getCaptionLabel();
+ l2.setFont(createFont("arial", 25));
+ l2.align(LEFT,ControlP5.TOP_OUTSIDE);
+
     break;
     
     case 3:
@@ -248,38 +284,6 @@ void drawStartMenu(){
   }
  }
  
- void drawPlayerNameMenu(){
-PFont lettertype = createFont("arial", 50);
-  
-  cp5 = new ControlP5(this);
-  cp5.addTextfield(" ")
-  .setPosition(280,250)
-  .setSize(400,100)
-  .setColorForeground(color(0))
-  .setColorBackground(color(89,68,39))
-  .setColorActive(color(0))
-  .setColorLabel(color(0))
-  .setFont(lettertype)
-  .setAutoClear(false);
-  /*cp5.addTextfield("Player 2 kies hier je naam:")
-  .setPosition(
-  .setSize(400,100)
-  .setFont(lettertype)
-  */
-    text(width + "" + height, 100,100);
-    //image(background, 0, 0, width, height);
-    fill(153);
-    rectMode(CENTER);
-    rect(width/4,height/2,480,720,45);
-    fill(153);
-    rect(width/2+width/4,height/2,480,720,45);
-
-}
- 
-=======
-
- } 
->>>>>>> 4906c53ea99647b36deab1424047667f2dc4dc84
  void radioButtonPlayers(int a){
    playerAmount = a;
  }
@@ -288,4 +292,3 @@ PFont lettertype = createFont("arial", 50);
    AIAmount = a;
  }
  
- void 
