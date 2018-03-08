@@ -40,6 +40,9 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight) && mousePressed){
+      drawGame();
+      //drawStartMenu();
+      state = "game";
 
       //buttonClicked();
       //drawGame();
@@ -47,7 +50,6 @@ void mainMenu(){
 
       drawStartMenu();
       state = "startMenu";
-
     }
     
     //Tweede knop naar spelregels
@@ -154,14 +156,10 @@ void drawInstructionMenu(){
 
 void returnMenu() {
   if(10 < mouseY && mouseY < 70 && 10 < mouseX && mouseX < 200 && mousePressed){
-
     buttonClicked();  
     drawMainMenu();
-
-      drawMainMenu();
-
-      state = "menu";
-    }
+    state = "menu";
+  }
 }
 
 void nextMenu(){
@@ -170,7 +168,7 @@ void nextMenu(){
      r.remove();
      r2.remove();
      drawPlayerSelectMenu();
-   }
+   }if(t.)
  }
 }
 
@@ -226,9 +224,7 @@ void drawStartMenu(){
 
 
  void drawPlayerSelectMenu(){
-<<<<<<< HEAD
   image(background, 0, 0, width, height);
-  text(playerAmount, 100,100);
   switch(playerAmount){
     case 2:
     
@@ -272,34 +268,24 @@ void drawStartMenu(){
  l2.align(LEFT,ControlP5.TOP_OUTSIDE);
 
     break;
-    
     case 3:
     
     break;
-    
     case 4:
     
     break;
-    
     case 5:
     
     break;
   }
  }
  
-=======
-
- } 
->>>>>>> 3bd7e135629b9f1255c592a6c8c5193dbada8462
  void radioButtonPlayers(int a){
    playerAmount = a;
  }
  
-  void radioButtonAI(int a){
+ void radioButtonAI(int a){
    AIAmount = a;
  }
-<<<<<<< HEAD
-=======
- 
->>>>>>> 3bd7e135629b9f1255c592a6c8c5193dbada8462
+
  
