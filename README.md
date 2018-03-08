@@ -24,3 +24,5 @@
 ## Taakverdeling:
 - Alex: De kaart maken
 - Arne: Credits verder afwerken
+        Start-menu verder afwerken zie hierboven
+- Arend: Code opkuisen
