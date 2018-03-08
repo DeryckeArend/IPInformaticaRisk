@@ -1,6 +1,6 @@
  int diceSize = 150;
  
- void drawDice(){
+ void drawDice(int defenderAmount, int attackerAmount, Player attacker, Player defender){
    background(#39ac39);
    
    //backgroundDice
@@ -36,5 +36,7 @@
    loop();
  }
  
- 
+ void dicePlaceholder(){
+   
+ }
  
