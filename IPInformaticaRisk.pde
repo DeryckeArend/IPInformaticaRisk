@@ -37,6 +37,7 @@ void setup(){
   drawMainMenu();
   //drawDice(6,4);
   setupSound();
+  state="game";
   drawGame();
 
 }
@@ -60,7 +61,7 @@ void draw(){
       returnMenu();
     break;
     case("game"):
-    //nodeLines();
+      neighbourNodes();
     break;
     case("startMenu"):
       nextMenu();
