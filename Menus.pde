@@ -20,6 +20,8 @@ Textfield t6;
 int playerAmount = 0;
 int AIAmount = 0;
 
+int startMenuState = 0;
+
 //Deze methode zorgt ervoor dat het main menu wordt getekend bij het opstarten van het spel,
 void drawMainMenu(){
   image(background, 0, 0, width, height);
@@ -173,16 +175,25 @@ void returnMenu() {
 
 void nextMenu(){
  if((width/2 - 120) < mouseX &&  mouseX < (width/2 + 120) && 800 < mouseY && mouseY < 875 && mousePressed){
-   if(playerAmount != 0){
+   if(playerAmount != 0 && startMenuState == 0){
      r.remove();
      //r2.remove();
-     
-     if(t1.getText() != null || t2.getText() != null){
-       Player p = new Player();
-       p.name = t1.getText();
-     }else{
      drawPlayerSelectMenu();
-     }
+     startMenuState = 1;
+   }else if (startMenuState == 1){
+     //Dit is tijdelijk, er zou een betere methode moeten zijn.
+     try{
+       t1.remove();
+       t2.remove();
+       t3.remove();
+       t4.remove();
+       t5.remove();
+       t6.remove();
+     }catch(Exception e){
+         println("Dit is een " + e.toString() + " exception, dit is normaal.");
+       }
+     state="game";
+     drawGame();
    }
  }
 }
@@ -240,6 +251,7 @@ void drawStartMenu(){
 
  void drawPlayerSelectMenu(){
    image(background, 0, 0, width, height);
+   text("Selecteer de Spel-Instellingen",960,75);
    switch(playerAmount){
     case 2:
     
@@ -249,7 +261,7 @@ void drawStartMenu(){
     rect(width/2+width/4,height/2,480,720,45);
     
     PFont lettertype = createFont("arial", 50);
-
+    
     cp5 = new ControlP5(this);
     t1 = cp5.addTextfield("Name player 1:")
     .setPosition(280,250)

@@ -37,8 +37,8 @@ void setup(){
   drawMainMenu();
   //drawDice(6,4);
   setupSound();
-  state="game";
-  drawGame();
+  //state="game";
+  //drawGame();
 
 }
 
