@@ -32,4 +32,13 @@ void drawGame(){
     fill(0);
     ellipse(n.x, n.y, straal, straal);
   }
+  drawSoldier();
+}
+
+void drawSoldier(){
+ for(Node n: nodes){
+  image(soldier,n.x + 7, n.y, 50, 60);
+  textSize(25);
+  text(5, n.x + 30, n.y);
+  }
 }
