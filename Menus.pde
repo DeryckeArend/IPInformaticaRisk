@@ -202,6 +202,8 @@ void drawStartMenu(){
   background(0);
   image(background, 0, 0, width, height);
   cp5 = new ControlP5(this);
+  textAlign(CENTER);
+  textSize(45);
   text("Selecteer de Spel-Instellingen",960,75);
   text("Aantal spelers:", 960, 250);
   //text("Aantal computer-spelers:", 960, 500);
