@@ -102,7 +102,7 @@ void mainMenu(){
 }
 
 void returnMenu() {
-  if(10 < mouseY && mouseY < 70 && 10 < mouseX && mouseX < 200 && mousePressed){
+  if(10 < mouseY && mouseY < 70 && 10 < mouseX && mouseX < 200){
     //Het geluidje
     buttonClicked();  
     drawMainMenu();
@@ -111,7 +111,7 @@ void returnMenu() {
 }
 
 void nextMenu(){
- if((width/2 - 120) < mouseX &&  mouseX < (width/2 + 120) && 800 < mouseY && mouseY < 875 && mousePressed){
+ if((width/2 - 120) < mouseX &&  mouseX < (width/2 + 120) && 800 < mouseY && mouseY < 875){
    if(playerAmount != 0 && startMenuState == 0){
      r.remove();
      //r2.remove();
