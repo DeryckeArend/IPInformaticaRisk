@@ -17,6 +17,9 @@ List<Node> nodes = new ArrayList<Node>();
 List<Player> players = new ArrayList<Player>();
 ControlP5 cp5;
 
+//De variabelen die het aantal spelers bijhouden
+int playerAmount = 0;
+int AIAmount = 0;
 
 //Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu" of "game" . We beginnen met menu
 String state = "menu";
@@ -44,32 +47,7 @@ void setup(){
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
 void draw(){
-  //Een switch case is hetzelfde als if() maar dan iets korter
-  //Hierin vertellen we aan de game in welke stadium we zitten, zo weet hij wat hij moet doen als je bv. klikt op een knop. De variabele gameState wordt hierboven opgeslagen en kan maar een aantal vormen aannemen
-  switch(state){
-    case("menu"):
-      mainMenu();
-    break;
-    case("optionsMenu"):
-      returnMenu();
-    break;
-    case("instructionsMenu"):
-      returnMenu();
-    break;
-    case("creditMenu"):
-      drawCredits();
-      returnMenu();
-    break;
-    case("game"):
-      neighbourNodes();
-    break;
-    case("startMenu"):
-      nextMenu();
-    break;
-    default:
-      println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
-    break;
-  }
+
 }
 
 //In deze methode kunnen we zorgen dat alles geladen wordt, de landen, continenten, spelers ...
