@@ -191,13 +191,7 @@ void nextMenu(){
    }else if (startMenuState == 1){
      //Dit is tijdelijk, er zou een betere methode moeten zijn.
      try{
-       t.remove();
-       t1.remove();
-       t2.remove();
-       t3.remove();
-       t4.remove();
-       t5.remove();
-       t6.remove();
+       cp5.remove(this);
      }catch(Exception e){
          println("Dit is een " + e.toString() + " exception, dit is normaal.");
        }
@@ -265,6 +259,7 @@ void drawStartMenu(){
    text("Selecteer de Spel-Instellingen",960,75);
    fill(153);
    rectMode(CENTER);
+    cp5 = new ControlP5(this);
     
    //Afhankelijk van het aantal spelers worden de rechthoeken met textfield en color selector gekozen
    switch(playerAmount){
@@ -272,14 +267,12 @@ void drawStartMenu(){
     case 2:
     rect(width/4,height/2,480,720,45);
     rect(width/2+width/4,height/2,480,720,45);
-    
-    cp5 = new ControlP5(this);
-    
-    readyTextField(t1, 280,250, "Name player 1:");
-    readyTextField(t2, width/2+280,250, "Name player 2:");
 
-    readyRadioButton(rcp1,280,400,"ColorPicker1");
-    readyRadioButton(rcp2,width/2+280,400,"ColorPicker2");
+    prepareTextField(t1, 280,250, "Name player 1:");
+    prepareTextField(t2, width/2+280,250, "Name player 2:");
+
+    prepareRadioButton(rcp1,280,400,"ColorPicker1");
+    prepareRadioButton(rcp2,width/2+280,400,"ColorPicker2");
     break;
     case 3:
     
@@ -300,7 +293,7 @@ void drawStartMenu(){
   text("Volgende", width/2,850);
  }
  
- Textfield readyTextField(Textfield t, int x, int y, String label){
+ Textfield prepareTextField(Textfield t, int x, int y, String label){
    PFont lettertype = createFont("arial", 50);
    
    t = cp5.addTextfield(label)
@@ -321,7 +314,7 @@ void drawStartMenu(){
     return t;
  }
  
- RadioButton readyRadioButton(RadioButton rc, int x, int y, String label){
+ RadioButton prepareRadioButton(RadioButton rc, int x, int y, String label){
         rc = cp5.addRadioButton(label)
          .setPosition(x,y)
          .setSize(60,60)
@@ -333,12 +326,13 @@ void drawStartMenu(){
          .setItemsPerRow(3)
          .setSpacingColumn(20)
          .setSpacingRow(20)
-         .addItem("red"+label,1)
-         .addItem("blue"+label,2)
-         .addItem("green"+label,3)
-         .addItem("yellow"+label,4)
-         .addItem("orange"+label,5)
-         .addItem("purple"+label,6)
+         //Hier moet het label aan de kleur worden toegevoegd zodat we geen duplicates hebben
+         .addItem("red"+label, 1)
+         .addItem("blue"+label, 2)
+         .addItem("green"+label, 3)
+         .addItem("yellow"+label, 4)
+         .addItem("orange"+label, 5)
+         .addItem("purple"+label, 6)
          .hideLabels();
          
          rc.getItem(0).setColorBackground(color(183, 42, 42));
