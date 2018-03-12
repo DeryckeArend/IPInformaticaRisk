@@ -21,7 +21,8 @@ float w = 20;
 float h = 20;
 float initialX = x;
 float higherX = 1250;
-boolean lock = false;
+float value2;
+//boolean lock = false;
 
 //Hier komen alle texfield mogelijkheden
 Textfield t;
@@ -131,6 +132,7 @@ void drawOptions(){
     x = my; 
   }
   float value = map(x, initialX, higherX, 0, 100);
+  value2 = map(value, 0, 100, 0.0, 1.0);
   // display text
   fill(255);
   textSize(32);
@@ -385,18 +387,3 @@ void drawStartMenu(){
  void radioButtonAI(int a){
    AIAmount = a;
  }
-/*
-boolean isOver()
-  {
-    return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
-  }
-  
-void test() {
-  if(isOver() && mousePressed) {
-    lock = true;
-    
-  }
-  else {
-    lock = false;
-  }
-}*/
