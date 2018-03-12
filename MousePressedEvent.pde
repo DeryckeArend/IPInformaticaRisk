@@ -1,5 +1,19 @@
 //Dit is de enige class waarin mousePressed gebruikt mag worden, anders flip ik ... you're warned
+/*
+boolean isOver()
+  {
+    return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
+  }
+void mousePressed() {
+  if(isOver()) {
+    lock = true;
+  }
+}
 
+void mouseReleased() {
+    lock = false;
+}
+  */
 int startMenuState = 0;
 
 void mousePressed(){
