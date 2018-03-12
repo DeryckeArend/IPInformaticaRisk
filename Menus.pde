@@ -247,6 +247,8 @@ void drawStartMenu(){
   //.align(ControlP5.CENTER, ControlP5.TOP);
   cp5.setFont(font);
   
+  //Aanpassen 
+  
   fill(color(89,68,39));
   rect((width/2 -120),800, 240,75);
   fill(0);
@@ -274,9 +276,31 @@ void drawStartMenu(){
     prepareRadioButton(rcp1,280,400,"ColorPicker1");
     prepareRadioButton(rcp2,width/2+280,400,"ColorPicker2");
     break;
-    case 3:
     
+    case 3:
+    rect(width/4,height/2,450,720,45);
+    rect(width/2,height/2,450,720,45);
+    rect((width*3)/4,height/2,450,720,45);
+    
+    cp5 = new ControlP5(this);
+    
+    readyTextField(t1, 280,250, "Name player 1:");
+    readyTextField(t2, (width/2)-200,250, "Name player 2:");
+    readyTextField(t3, (width/2)+280,250, "Name player 3:");
+    
+    textAlign(LEFT,BOTTOM);
+    fill(0);
+    PFont titleColor =createFont("arial",40);
+    textFont(titleColor,40);
+    text("Kies je kleur:",280,450);
+    text("Kies je kleur:",(width/2)-200,450);
+    text("Kies je kleur:",(width/2)+280,450);
+    
+    readyRadioButton(rcp1,280,450, "ColorPicker 1");
+    readyRadioButton(rcp2,(width/2)-200,450,"ColorPicker2");
+    readyRadioButton(rcp3,(width/2)+280,450,"ColorPicker3");
     break;
+    
     case 4:
     
     break;
@@ -288,13 +312,19 @@ void drawStartMenu(){
   //De knop onderaan die ons naar het volgende scherm brengt
   rectMode(CORNER);
   fill(color(89,68,39));
-  rect((width/2 -120),800, 240,75);
+  rect((width/2 -120),950, 240,75);
   fill(0);
-  text("Volgende", width/2,850);
+  text("Volgende", width/2-100,1010);
  }
  
+<<<<<<< HEAD
  Textfield prepareTextField(Textfield t, int x, int y, String label){
    PFont lettertype = createFont("arial", 50);
+=======
+ Textfield readyTextField(Textfield t, int x, int y, String label){
+   PFont lettertypeInhoud = createFont("arial", 50);
+   PFont lettertypeTitel= createFont("arial",25);
+>>>>>>> a9ab584ec5ce5127294116a351dca7401af83e7d
    
    t = cp5.addTextfield(label)
     .setPosition(x,y)
@@ -304,11 +334,11 @@ void drawStartMenu(){
     .setColorActive(color(0))
     .setColorLabel(color(0))
     .setColor(255)
-    .setFont(lettertype)
+    .setFont(lettertypeInhoud)
     .setAutoClear(false);
    
     Label l = t.getCaptionLabel();
-    l.setFont(createFont("arial", 25));
+    l.setFont(lettertypeTitel);
     l.align(LEFT,ControlP5.TOP_OUTSIDE);
     
     return t;
