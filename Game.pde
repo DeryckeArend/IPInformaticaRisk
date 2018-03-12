@@ -83,5 +83,31 @@ void drawSidebar() {
 }
 
 void loadPlayers(){
+  Player p1 = new Player();
+  Player p2 = new Player();
+  Player p3 = new Player();
+  Player p4 = new Player();
+  Player p5 = new Player();
+  Player p6 = new Player();
+    
+  p1.name = t1.getText();
+  p2.name = t2.getText();
+  p3.name = t3.getText();
+  p4.name = t4.getText();
+  p5.name = t5.getText();
+  p6.name = t6.getText();
   
+  p1.AI = false;
+  p2.AI = false;
+  p3.AI = false;
+  p4.AI = false;
+  p5.AI = false;
+  p6.AI = false;
+  
+  p1.playerColor = 255;
+  p2.playerColor = 10;
+  p3.playerColor = 10;
+  p4.playerColor = 10;
+  p5.playerColor = 10;
+  p6.playerColor = 10;
 }
