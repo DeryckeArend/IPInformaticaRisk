@@ -81,3 +81,7 @@ void drawSidebar() {
       yPosT += 150;
   }
 }
+
+void loadPlayers(){
+  
+}

@@ -15,7 +15,7 @@ RadioButton rcp4;
 RadioButton rcp5;
 RadioButton rcp6;
 
-//De variabelen voor de slider??
+//De variabelen voor de slider
 float x = 650;
 float y = 540;
 float w = 20;
@@ -23,7 +23,7 @@ float h = 20;
 float initialX = x;
 float higherX = 1250;
 float value2;
-//boolean lock = false;
+boolean lock = false;
 
 //De variabelen voor de textfields in het playerSelectMenu
 Textfield t;
@@ -58,7 +58,6 @@ void drawMainMenu(){
 
 
 void drawOptionsMenu(){
-  background(0);
   image(background, 0, 0, width, height);
   stroke(10);
   fill(122, 105, 68, 100);
@@ -67,24 +66,7 @@ void drawOptionsMenu(){
   textSize(50);  
   textAlign(CENTER);
   text("Return", 110, 65);
-  
-  rect(660, 540, 600, 4);
-  fill(200);
-  rect(x, y-8, 20, 20);
-  float my = constrain(mouseX, initialX, higherX);
-  if(((x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y))) { 
-    x = my; 
-  }
-  float value = map(x, initialX, higherX, 0, 100);
-  value2 = map(value, 0, 100, 0.0, 1.0);
-  // display text
-  fill(255);
-  textSize(32);
-  textAlign(CENTER);
-  text("Sound:", initialX -100, y+10);
-  text(int(value) +"%", higherX +100, y+10);    
-}
-
+}  
 
 void drawCreditsMenu(){
   namenCreditsY = namenCreditsY - 10;

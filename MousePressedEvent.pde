@@ -1,19 +1,5 @@
 //Dit is de enige class waarin mousePressed gebruikt mag worden, anders flip ik ... you're warned
-/*
-boolean isOver()
-  {
-    return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
-  }
-void mousePressed() {
-  if(isOver()) {
-    lock = true;
-  }
-}
 
-void mouseReleased() {
-    lock = false;
-}
-  */
 int startMenuState = 0;
 
 void mousePressed(){
@@ -25,7 +11,7 @@ void mousePressed(){
       mainMenu();
     break;
     case("optionsMenu"):
-      drawOptionsMenu();
+      updateSlider();
       returnMenu();
     break;
     case("instructionsMenu"):
@@ -83,6 +69,7 @@ void mainMenu(){
       buttonClicked();
       
       drawOptionsMenu();
+      updateSlider();
       state = "optionsMenu";
     }
     
@@ -108,6 +95,9 @@ void returnMenu() {
     drawMainMenu();
     state = "menu";
   }
+  if(isOver()) {
+    lock = true;
+  }
 }
 
 void nextMenu(){
@@ -118,6 +108,7 @@ void nextMenu(){
      drawPlayerSelectMenu();
      startMenuState = 1;
    }else if (startMenuState == 1){
+     loadPlayers();
      //Dit is tijdelijk, er zou een betere methode moeten zijn.
      try{
        cp5.remove(this);
@@ -129,3 +120,30 @@ void nextMenu(){
    }
  }
 }
+  
+void mouseReleased() {
+    lock = false;
+}
+
+void updateSlider(){
+  drawOptionsMenu();
+  rect(660, 540, 600, 4);
+  fill(200);
+  rect(x, y-8, 20, 20);
+  float my = constrain(mouseX, initialX, higherX);
+  if(((x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y))) { 
+    x = my; 
+  }
+  float value = map(x, initialX, higherX, 0, 100);
+  value2 = map(value, 0, 100, 0.0, 1.0);
+  // display text
+  fill(255);
+  textSize(32);
+  textAlign(CENTER);
+  text("Sound:", initialX -100, y+10);
+  text(int(value) +"%", higherX +100, y+10);    
+}
+
+boolean isOver(){
+    return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
+  }

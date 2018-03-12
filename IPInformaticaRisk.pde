@@ -47,7 +47,29 @@ void setup(){
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
 void draw(){
+ switch(state){
+    case("menu"):
 
+    break;
+    case("optionsMenu"):
+      updateSlider();
+    break;
+    case("instructionsMenu"):
+
+    break;
+    case("creditMenu"):
+
+    break;
+    case("game"):
+
+    break;
+    case("startMenu"):
+
+    break;
+    default:
+      println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
+    break;
+  }
 }
 
 //In deze methode kunnen we zorgen dat alles geladen wordt, de landen, continenten, spelers ...
