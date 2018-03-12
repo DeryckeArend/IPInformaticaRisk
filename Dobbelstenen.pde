@@ -1,66 +1,49 @@
- int diceSize = 150;
+ int diceSize = 75;
  int defenderDiceX = 450;
  int defenderDiceY = 300;
  int attackerDiceX = 300;
  int attackerDiceY = 300;
  
  void drawDice(int defenderAmount, int attackerAmount){
-   rect(460,200,1000,600,50);
-  
+   fill(113, 125, 145);
+   rect(460,200,1000,750,50);
   for(int i = 0; i < defenderAmount; i++){
     int roll = int(random(1,7));
-    rect(defenderDiceX, defenderDiceY, diceSize, diceSize, 50);
-    if (roll == 1 || roll == 3|| roll ==5)
-     ellipse(width/2, height/2, diceSize/5, diceSize/5);
-     
-   if (roll == 2 || roll == 3 || roll == 4 || roll == 5 || roll == 6) {
-     ellipse(width/2 - diceSize/4, height/2 - diceSize/4, diceSize/5, diceSize/5);
-     ellipse(width/2 + diceSize/4, height/2 + diceSize/4, diceSize/5, diceSize/5);
-   }
-   if (roll == 4 || roll == 5 || roll ==6){ 
-     ellipse(width/2 + diceSize/4, height/2 - diceSize/4, diceSize/5, diceSize/5);
-     ellipse(width/2 - diceSize/4, height/2 + diceSize/4, diceSize/5, diceSize/5);
-   }
-   if (roll == 6){
-     ellipse(width/2 + diceSize/4, height/2, diceSize/5, diceSize/5);
-     ellipse(width/2 - diceSize/4, height/2, diceSize/5, diceSize/5);
-   }
+    diceMaker(roll, width/2 - 350, 350 + 100*i, color(85, 134, 214));
   }
-   
+  
+  for(int i = 0; i < attackerAmount; i++){
+    int roll = int(random(1,7));
+    diceMaker(roll, width/2 + 350, 350 + 100*i, color(183, 42, 42));
+  }
+  
+ }
+  
+ 
+ void diceMaker(int side, int x, int y, color c){
    //backgroundDice
    noStroke();
-   fill(255,255,255);
+   fill(c);
    rectMode(CENTER);
-   rect(width/2, height/2, diceSize, diceSize, diceSize/5);
+   rect(x, y, diceSize, diceSize, diceSize/5);
+   rectMode(CORNER);
    
-   //alle mogelijke manieren hoe de dots zich moeten zetten om een cijfer uit te komen
    fill(50);
-   int side = int(random(1,7));
    
-   if (side == 1 || side == 3|| side ==5)
-     ellipse(width/2, height/2, diceSize/5, diceSize/5);
-     
+   if (side == 1 || side == 3|| side ==5){
+     ellipse(x, y, diceSize/5, diceSize/5);
+   }
    if (side == 2 || side == 3 || side == 4 || side == 5 || side == 6) {
-     ellipse(width/2 - diceSize/4, height/2 - diceSize/4, diceSize/5, diceSize/5);
-     ellipse(width/2 + diceSize/4, height/2 + diceSize/4, diceSize/5, diceSize/5);
+     ellipse(x - diceSize/4, y - diceSize/4, diceSize/5, diceSize/5);
+     ellipse(x + diceSize/4, y + diceSize/4, diceSize/5, diceSize/5);
    }
    if (side == 4 || side == 5 || side ==6){ 
-     ellipse(width/2 + diceSize/4, height/2 - diceSize/4, diceSize/5, diceSize/5);
-     ellipse(width/2 - diceSize/4, height/2 + diceSize/4, diceSize/5, diceSize/5);
+     ellipse(x + diceSize/4, y - diceSize/4, diceSize/5, diceSize/5);
+     ellipse(x - diceSize/4, y + diceSize/4, diceSize/5, diceSize/5);
    }
    if (side == 6){
-     ellipse(width/2 + diceSize/4, height/2, diceSize/5, diceSize/5);
-     ellipse(width/2 - diceSize/4, height/2, diceSize/5, diceSize/5);
+     ellipse(x + diceSize/4, y, diceSize/5, diceSize/5);
+     ellipse(x - diceSize/4, y, diceSize/5, diceSize/5);
    }
-    if (mousePressed && mouseButton == LEFT)
-    noLoop();
- }
- 
- void mousePressed() {
-   loop();
- }
- 
- void dicePlaceholder(){
-   
  }
  
