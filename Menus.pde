@@ -72,7 +72,7 @@ void drawOptionsMenu(){
   fill(200);
   rect(x, y-8, 20, 20);
   float my = constrain(mouseX, initialX, higherX);
-  if(mousePressed && ((x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y))) { 
+  if(((x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y))) { 
     x = my; 
   }
   float value = map(x, initialX, higherX, 0, 100);
