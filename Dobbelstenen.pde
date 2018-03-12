@@ -7,6 +7,7 @@
  void drawDice(int defenderAmount, int attackerAmount){
    fill(113, 125, 145);
    rect(460,200,1000,750,50);
+   //Afhankelijk van het aantal dobbelstenen van de verdediger worden de rechthoekjes en de cirkeltjes getekend in diceMaker
   for(int i = 0; i < defenderAmount; i++){
     int roll = int(random(1,7));
     diceMaker(roll, width/2 - 350, 350 + 100*i, color(85, 134, 214));

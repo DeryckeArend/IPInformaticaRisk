@@ -35,7 +35,7 @@ void setup(){
   //size(640, 620);
   initiate();
   drawMainMenu();
-  drawDice(6,4);
+  //drawDice(6,4);
   setupSound();
   //state="game";
   //drawGame();

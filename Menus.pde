@@ -8,6 +8,13 @@ float straal = 20;
 //De variabelen voor de radiobuttons, ze staan hier zodat ze globaal zouden zijn
 RadioButton r;
 //RadioButton r2;
+RadioButton rcp1;
+RadioButton rcp2;
+RadioButton rcp3;
+RadioButton rcp4;
+RadioButton rcp5;
+RadioButton rcp6;
+
 
 //Hier komen alle texfield mogelijkheden
 Textfield t1;
@@ -254,48 +261,23 @@ void drawStartMenu(){
  void drawPlayerSelectMenu(){
    image(background, 0, 0, width, height);
    text("Selecteer de Spel-Instellingen",960,75);
-   switch(playerAmount){
-    case 2:
+   fill(153);
+   rectMode(CENTER);
     
-    fill(153);
-    rectMode(CENTER);
+   //Afhankelijk van het aantal spelers worden de rechthoeken met textfield en color selector gekozen
+   switch(playerAmount){
+  
+    case 2:
     rect(width/4,height/2,480,720,45);
     rect(width/2+width/4,height/2,480,720,45);
     
-    PFont lettertype = createFont("arial", 50);
-    
     cp5 = new ControlP5(this);
-    t1 = cp5.addTextfield("Name player 1:")
-    .setPosition(280,250)
-    .setSize(400,100)
-    .setColorForeground(color(0))
-    .setColorBackground(color(114,113,89))
-    .setColorActive(color(0))
-    .setColorLabel(color(0))
-    .setColor(255)
-    .setFont(lettertype)
-    .setAutoClear(false);
-  
-    t2 = cp5.addTextfield("Name player 2:")
-    .setPosition(width/2+280,250)
-    .setSize(400,100)
-    .setFont(lettertype)
-    .setColorForeground(color(0))
-    .setColorBackground(color(114,113,89))
-    .setColorActive(color(0))
-    .setColorLabel(color(0))
-    .setColor(255)
-    .setFont(lettertype)
-    .setAutoClear(false);
-  
-     Label l = t1.getCaptionLabel();
-     l.setFont(createFont("arial", 25));
-     l.align(LEFT,ControlP5.TOP_OUTSIDE);
- 
-     Label l2 = t2.getCaptionLabel();
-     l2.setFont(createFont("arial", 25));
-     l2.align(LEFT,ControlP5.TOP_OUTSIDE);
+    
+    readyTextField(t1, 280,250, "Name player 1:");
+    readyTextField(t2, width/2+280,250, "Name player 2:");
 
+    readyRadioButton(rcp1,280,400,"ColorPicker1");
+    readyRadioButton(rcp2,width/2+280,400,"ColorPicker2");
     break;
     case 3:
     
@@ -314,6 +296,56 @@ void drawStartMenu(){
   rect((width/2 -120),800, 240,75);
   fill(0);
   text("Volgende", width/2,850);
+ }
+ 
+ Textfield readyTextField(Textfield t, int x, int y, String label){
+   PFont lettertype = createFont("arial", 50);
+   
+   t = cp5.addTextfield(label)
+    .setPosition(x,y)
+    .setSize(400,100)
+    .setColorForeground(color(0))
+    .setColorBackground(color(114,113,89))
+    .setColorActive(color(0))
+    .setColorLabel(color(0))
+    .setColor(255)
+    .setFont(lettertype)
+    .setAutoClear(false);
+   
+    Label l = t.getCaptionLabel();
+    l.setFont(createFont("arial", 25));
+    l.align(LEFT,ControlP5.TOP_OUTSIDE);
+    
+    return t;
+ }
+ 
+ RadioButton readyRadioButton(RadioButton rc, int x, int y, String label){
+        rc = cp5.addRadioButton(label)
+         .setPosition(x,y)
+         .setSize(60,60)
+         .setColorForeground(color(0))
+         .setColorBackground(color(89,68,39))
+         .setColorActive(color(0))
+         .setColorLabel(color(0))
+         .setColorValue(0)
+         .setItemsPerRow(3)
+         .setSpacingColumn(20)
+         .setSpacingRow(20)
+         .addItem("red"+label,1)
+         .addItem("blue"+label,2)
+         .addItem("green"+label,3)
+         .addItem("yellow"+label,4)
+         .addItem("orange"+label,5)
+         .addItem("purple"+label,6)
+         .hideLabels();
+         
+         rc.getItem(0).setColorBackground(color(183, 42, 42));
+         rc.getItem(1).setColorBackground(color(44, 115, 163));
+         rc.getItem(2).setColorBackground(color(43, 162, 47));
+         rc.getItem(3).setColorBackground(color(219, 221, 73));
+         rc.getItem(4).setColorBackground(color(255,165,0));
+         rc.getItem(5).setColorBackground(color(188, 64, 182));
+   return r;
  }
  
  void radioButtonPlayers(int a){
