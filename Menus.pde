@@ -17,6 +17,7 @@ RadioButton rcp6;
 
 
 //Hier komen alle texfield mogelijkheden
+Textfield t;
 Textfield t1;
 Textfield t2;
 Textfield t3;
@@ -190,6 +191,7 @@ void nextMenu(){
    }else if (startMenuState == 1){
      //Dit is tijdelijk, er zou een betere methode moeten zijn.
      try{
+       t.remove();
        t1.remove();
        t2.remove();
        t3.remove();
