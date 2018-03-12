@@ -4,6 +4,9 @@ int startMenuState = 0;
 
 void mousePressed(){
   
+  if(isOver()) {
+    lock = true;
+  }
   //Een switch case is hetzelfde als if() maar dan iets korter
   //Hierin vertellen we aan de game in welke stadium we zitten, zo weet hij wat hij moet doen als je bv. klikt op een knop. De variabele gameState wordt hierboven opgeslagen en kan maar een aantal vormen aannemen
   switch(state){
@@ -11,7 +14,6 @@ void mousePressed(){
       mainMenu();
     break;
     case("optionsMenu"):
-      updateSlider();
       returnMenu();
     break;
     case("instructionsMenu"):
@@ -95,9 +97,6 @@ void returnMenu() {
     drawMainMenu();
     state = "menu";
   }
-  if(isOver()) {
-    lock = true;
-  }
 }
 
 void nextMenu(){
@@ -131,7 +130,8 @@ void updateSlider(){
   fill(200);
   rect(x, y-8, 20, 20);
   float my = constrain(mouseX, initialX, higherX);
-  if(((x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y))) { 
+  //((x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y))
+  if(lock) { 
     x = my; 
   }
   float value = map(x, initialX, higherX, 0, 100);
