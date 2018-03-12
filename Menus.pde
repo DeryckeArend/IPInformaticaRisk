@@ -284,9 +284,9 @@ void drawStartMenu(){
     
     cp5 = new ControlP5(this);
     
-    readyTextField(t1, 280,250, "Name player 1:");
-    readyTextField(t2, (width/2)-200,250, "Name player 2:");
-    readyTextField(t3, (width/2)+280,250, "Name player 3:");
+    prepareTextField(t1, 280,250, "Name player 1:");
+    prepareTextField(t2, (width/2)-200,250, "Name player 2:");
+    prepareTextField(t3, (width/2)+280,250, "Name player 3:");
     
     textAlign(LEFT,BOTTOM);
     fill(0);
@@ -296,9 +296,9 @@ void drawStartMenu(){
     text("Kies je kleur:",(width/2)-200,450);
     text("Kies je kleur:",(width/2)+280,450);
     
-    readyRadioButton(rcp1,280,450, "ColorPicker 1");
-    readyRadioButton(rcp2,(width/2)-200,450,"ColorPicker2");
-    readyRadioButton(rcp3,(width/2)+280,450,"ColorPicker3");
+    prepareRadioButton(rcp1,280,450, "ColorPicker 1");
+    prepareRadioButton(rcp2,(width/2)-200,450,"ColorPicker2");
+    prepareRadioButton(rcp3,(width/2)+280,450,"ColorPicker3");
     break;
     
     case 4:
@@ -317,14 +317,9 @@ void drawStartMenu(){
   text("Volgende", width/2-100,1010);
  }
  
-<<<<<<< HEAD
  Textfield prepareTextField(Textfield t, int x, int y, String label){
-   PFont lettertype = createFont("arial", 50);
-=======
- Textfield readyTextField(Textfield t, int x, int y, String label){
    PFont lettertypeInhoud = createFont("arial", 50);
    PFont lettertypeTitel= createFont("arial",25);
->>>>>>> a9ab584ec5ce5127294116a351dca7401af83e7d
    
    t = cp5.addTextfield(label)
     .setPosition(x,y)
