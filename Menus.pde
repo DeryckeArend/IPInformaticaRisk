@@ -15,6 +15,13 @@ RadioButton rcp4;
 RadioButton rcp5;
 RadioButton rcp6;
 
+float x = 650;
+float y = 540;
+float w = 20;
+float h = 20;
+float initialX = x;
+float higherX = 1250;
+boolean lock = false;
 
 //Hier komen alle texfield mogelijkheden
 Textfield t;
@@ -85,10 +92,8 @@ void mainMenu(){
     if(button1Height + 200 < mouseY && mouseY < (button1Height + buttonHeight + 200) && mousePressed){
 
       buttonClicked();
+      
       drawOptions();
-
-      drawOptions();
-
       state = "optionsMenu";
     }
     
@@ -113,21 +118,25 @@ void drawOptions(){
   stroke(10);
   fill(122, 105, 68, 100);
   rect(10, 10, 200, 70);
-  //music
-  rect((width/2) - (buttonWidth/2), buttonHeight + 400, buttonWidth, buttonHeight);
-  //sound (clicks ect)
-  rect((width/2) - (buttonWidth/2), buttonHeight + 500, buttonWidth, buttonHeight);
-  
   fill(0);
   textSize(50);  
   textAlign(CENTER);
-
   text("Return", 110, 65);
-
-  text("Music", (width/2), button1Height + 225);
-  text("Sound", (width/2), button1Height + 325);
   
-  text("Return", 110, 65);
+  rect(660, 540, 600, 4);
+  fill(200);
+  rect(x, y-8, 20, 20);
+  float my = constrain(mouseX, initialX, higherX);
+  if(mousePressed && ((x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y))) { 
+    x = my; 
+  }
+  float value = map(x, initialX, higherX, 0, 100);
+  // display text
+  fill(255);
+  textSize(32);
+  textAlign(CENTER);
+  text("Sound:", initialX -100, y+10);
+  text(int(value) +"%", higherX +100, y+10);    
 }
 
 void drawCredits(){
@@ -357,5 +366,18 @@ void drawStartMenu(){
  void radioButtonAI(int a){
    AIAmount = a;
  }
-
- 
+/*
+boolean isOver()
+  {
+    return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
+  }
+  
+void test() {
+  if(isOver() && mousePressed) {
+    lock = true;
+    
+  }
+  else {
+    lock = false;
+  }
+}*/

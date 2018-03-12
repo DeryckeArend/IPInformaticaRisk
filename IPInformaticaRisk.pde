@@ -45,7 +45,7 @@ void setup(){
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
 void draw(){
   //Een switch case is hetzelfde als if() maar dan iets korter
-  //Hierin vertellen we aan de game in welke stadium we zitten, zo weeet hij wat hij moet doen als je bv. klikt op een knop. De variabele gameState wordt hierboven opgeslagen en kan maar een aantal vormen aannemen
+  //Hierin vertellen we aan de game in welke stadium we zitten, zo weet hij wat hij moet doen als je bv. klikt op een knop. De variabele gameState wordt hierboven opgeslagen en kan maar een aantal vormen aannemen
   switch(state){
     case("menu"):
       mainMenu();
