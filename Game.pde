@@ -48,7 +48,7 @@ void drawSoldier(){
 void drawSidebar() {
   int yPos = 100;
   int yPosT = 130;
-  int playerTurn = 4;
+  int playerTurn = 1;
   
   strokeWeight(3);
   int i = 0;
