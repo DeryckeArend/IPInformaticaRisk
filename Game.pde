@@ -27,12 +27,13 @@ void drawGame(){
   background(0);
   //Dan laden we een afbeelding op als achtergrond. Eerst maak je in IPInformaticaRisk een variabele aan bovenaan bij de andere PImage. Dan laad je de afbeelding op in loadImages(), ook in IPInformatica
   image(riskMap, 0, 0, width, height);
+  /*
   for(int i = 0; i < nodes.size(); i++){
     Node n = nodes.get(i);
     fill(0);
     ellipse(n.x, n.y, straal, straal);
   }
-  drawSoldier();
+  drawSoldier();*/
   drawSidebar();
 }
 
@@ -50,22 +51,22 @@ void drawSidebar() {
   int playerTurn = 4;
   
   strokeWeight(3);
-    
-  for (int i = 0; i < playerAmount; i++) {
+  int i = 0;
+  for (Player p : players) {
     if (i == playerTurn - 1) {
       strokeWeight(10);
     }
     else {
       strokeWeight(3);
     }
-      fill(255);
+      fill(p.playerColor);
       stroke(100);
       rect(1600, yPos, 300, 125, 30);
       
       fill(0);
       textAlign(CENTER);
       textSize(25);
-      text("egon", 1750, yPosT);
+      text(p.name, 1750, yPosT);
       
       textAlign(LEFT);
       textSize(20);
@@ -73,25 +74,47 @@ void drawSidebar() {
       text("Countries: ", 1620, yPosT + 70);
       
       textAlign(RIGHT);
-      text("100", 1880, yPosT + 30);
+      text(p.points, 1880, yPosT + 30);
       text("10", 1880, yPosT + 70);
       
       fill(255);
       yPos += 150;
       yPosT += 150;
+      i++;
   }
 }
 
 void loadPlayers(){
+  //Na dat er op de 'Volgende' knop wordt gedrukt wordt deze methode opgeroepen
+  //Hierin worden de naam van de speler, zijn kleur en de rest opgeladen en opgeslaan
   for(int i = 1; i <= playerAmount; i++){
     Player p = new Player();
     p.name = cp5.get(Textfield.class, "Name player " + i + ":").getText();
-    println(p.name);
+    switch( (int) cp5.get(RadioButton.class, "ColorPicker" + i).getValue()){
+      case 1:
+        p.playerColor = color(183, 42, 42);
+      break;
+      case 2:
+        p.playerColor = color(44, 115, 163);
+      break;
+      case 3:
+        p.playerColor = color(43, 162, 47);
+      break;
+      case 4:
+        p.playerColor = color(219, 221, 73);
+      break;
+      case 5:
+        p.playerColor = color(255,165,0);
+      break;
+      case 6:
+        p.playerColor = color(188, 64, 182);
+      break;
+      default:
+      break;
+    }
+    p.points = 0;
     p.AI = false;
-  }
- 
-  for(int i = 0; i < playerAmount; i++){
-   println(rcp1.getValue()); 
+    players.add(p);
   }
  
 }

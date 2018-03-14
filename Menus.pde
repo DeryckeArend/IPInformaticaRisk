@@ -193,7 +193,7 @@ void drawPlayerSelectMenu(){
     text("Kies je kleur:",(width/2)-200,450);
     text("Kies je kleur:",(width/2)+280,450);
     
-    prepareRadioButton(rcp1,280,450, "ColorPicker 1");
+    prepareRadioButton(rcp1,280,450, "ColorPicker1");
     prepareRadioButton(rcp2,(width/2)-200,450,"ColorPicker2");
     prepareRadioButton(rcp3,(width/2)+280,450,"ColorPicker3");
     break;
@@ -272,6 +272,3 @@ void drawPlayerSelectMenu(){
    playerAmount = a;
  }
  
- void radioButtonAI(int a){
-   AIAmount = a;
- }
