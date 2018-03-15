@@ -99,6 +99,26 @@ void drawSidebar() {
   }
 }
 
+void checkContinents(Continent continent){
+  List<Country> countryInContinent = new ArrayList<Country>();
+  for(Country c : countries){
+   if(c.continent == continent){
+     countryInContinent.add(c);
+   }
+  }
+  
+  Player owner = countryInContinent.get(0).owner;
+  int countryOwnerPoints = 0;
+  for(Country c : countryInContinent){
+    if(c.owner == owner){
+      countryOwnerPoints++;
+      if(countryOwnerPoints == countryInContinent.size()){
+        owner.points = owner.points + continent.points;
+      }
+    }
+  }
+}
+
 void loadPlayers(){
   //Na dat er op de 'Volgende' knop wordt gedrukt wordt deze methode opgeroepen
   //Hierin worden de naam van de speler, zijn kleur en de rest opgeladen en opgeslaan

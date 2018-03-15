@@ -4,6 +4,8 @@ int startMenuState = 0;
 
 void mousePressed(){
   
+  if(state == "ga")
+  
   if(isOver()) {
     lock = true;
   }
@@ -71,6 +73,7 @@ void mainMenu(){
       buttonClicked();
       
       drawOptionsMenu();
+      drawSliderBox();
       updateSlider();
       state = "optionsMenu";
     }
@@ -128,15 +131,18 @@ void mouseReleased() {
 }
 
 void updateSlider(){
-  drawOptionsMenu();
+  drawSliderBox();
+  fill(0);
   rect(660, 540, 600, 4);
   fill(200);
   rect(x, y-8, 20, 20);
+  drawSliderBox();
   float my = constrain(mouseX, initialX, higherX);
   //((x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y))
   if(lock) { 
     x = my; 
   }
+  drawSliderBox();
   float value = map(x, initialX, higherX, 0, 100);
   value2 = map(value, 0, 100, 0.0, 1.0);
   // display text
@@ -144,7 +150,8 @@ void updateSlider(){
   textSize(32);
   textAlign(CENTER);
   text("Sound:", initialX -100, y+10);
-  text(int(value) +"%", higherX +100, y+10);    
+  text(int(value) +"%", higherX +100, y+10);
+  drawSliderBox();
 }
 
 boolean isOver(){

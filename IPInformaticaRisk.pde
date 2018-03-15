@@ -58,7 +58,7 @@ void draw(){
 
     break;
     case("creditMenu"):
-
+      drawCreditsMenu();
     break;
     case("game"):
 
@@ -84,7 +84,7 @@ void initiate(){
 void loadImages(){
   background = loadImage("data/Images/mainMenuPlaceholder.jpg");
   logo = loadImage("data/Images/logoDMCV.png");
-  riskMap = loadImage("data/Images/mapLaatsteVersie.png");
+  riskMap = loadImage("data/Images/mapLaatsteVersieAangepast.png");
   soldier = loadImage("data/Images/soldier.png");
 }
 
