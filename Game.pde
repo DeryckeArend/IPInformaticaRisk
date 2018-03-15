@@ -90,7 +90,7 @@ void drawSidebar() {
       
       textAlign(RIGHT);
       text(p.points, 1880, yPosT + 30);
-      text("10", 1880, yPosT + 70);
+      text(p.countries, 1880, yPosT + 70);
       
       fill(255);
       yPos += 150;
@@ -128,6 +128,7 @@ void loadPlayers(){
       break;
     }
     p.points = 0;
+    p.countries = 0;
     p.AI = false;
     players.add(p);
   }
