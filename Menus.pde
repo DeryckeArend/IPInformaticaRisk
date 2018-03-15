@@ -201,8 +201,8 @@ void drawPlayerSelectMenu(){
     prepareTextField(t3, 280,250 + height/2 -150, "Name player 3:");
     prepareTextField(t4, width/2+280,250 + height/2 -150, "Name player 4:");
     
-    prepareRadioButton(rcp1,280,375,"ColorPicker1");
-    prepareRadioButton(rcp2,width/2+280,375,"ColorPicker2");
+    prepareRadioButton(rcp1,280,398,"ColorPicker1");
+    prepareRadioButton(rcp2,width/2+280,398,"ColorPicker2");
     prepareRadioButton(rcp3,280,375 + height/2-127,"ColorPicker3");
     prepareRadioButton(rcp4,width/2+280,375 + height/2-127,"ColorPicker4");
     
@@ -250,12 +250,6 @@ void drawPlayerSelectMenu(){
     prepareRadioButton(rcp5,(width/2)-200,375+height/2-127,"ColorPicker5");
     prepareRadioButton(rcp6,(width/2)+280,375+height/2-127,"ColorPicker6");
 
-    prepareRadioButton(rcp1,280,375, "ColorPicker1");
-    prepareRadioButton(rcp2,(width/2)-200,375,"ColorPicker2");
-    prepareRadioButton(rcp3,(width/2)+280,375,"ColorPicker3");
-    prepareRadioButton(rcp4,280,375+height/2-150, "ColorPicker4");
-    prepareRadioButton(rcp5,(width/2)-200,375+height/2-150,"ColorPicker5");
-    prepareRadioButton(rcp6,(width/2)+280,375+height/2-150,"ColorPicker6");
    
   }
   
@@ -294,7 +288,7 @@ void drawPlayerSelectMenu(){
  
  RadioButton prepareRadioButton(RadioButton rc, int x, int y, String label){
         rc = cp5.addRadioButton(label)
-         .setPosition(x,y)
+         .setPosition(x+90,y)
          .setSize(60,60)
          .setColorForeground(color(0))
          .setColorBackground(color(89,68,39))
@@ -323,7 +317,7 @@ void drawPlayerSelectMenu(){
         fill(0);
         PFont titleColor =createFont("arial",40);
         textFont(titleColor,40);
-        text("Kies je kleur:",x+115,y-15);
+        text("Kies je kleur:",x+205,y-15);
     
     
    return r;
