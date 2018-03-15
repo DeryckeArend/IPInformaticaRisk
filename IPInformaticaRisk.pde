@@ -121,10 +121,6 @@ void initiateCountries(){
     c.continent = getContinent(row.getString(1));
     c.neighbours = row.getString(4).split(",");
     
-    int random = (int) random(1,3);
-    //if(random == 1){c.owner = p1;}
-    //if(random == 2){c.owner = p2;}
-    
     countries.add(c);
   }
   
