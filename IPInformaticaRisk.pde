@@ -58,7 +58,7 @@ void draw(){
 
     break;
     case("creditMenu"):
-
+      drawCreditsMenu();
     break;
     case("game"):
 

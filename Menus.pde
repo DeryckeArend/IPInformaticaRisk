@@ -68,6 +68,12 @@ void drawOptionsMenu(){
   text("Return", 110, 65);
 }  
 
+void drawSliderBox() {
+  noStroke();
+  fill(206,169,99,50);
+  rect(480,500,920,80);
+}
+
 void drawCreditsMenu(){
   namenCreditsY = namenCreditsY - 10;
   background(0);
