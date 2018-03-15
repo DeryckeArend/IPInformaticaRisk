@@ -3,7 +3,7 @@ class Player{
   //Is het een 'menselijke' speler of tegen de computer(AI). Een boolean is true/false. Dus als deze waarde false is zal het een menselijke speler zijn
   boolean AI;
   String name;
-  color playerColor;
+  color playerColor = 255;
   int points;
   int countries;
 }
