@@ -24,7 +24,7 @@ void mousePressed(){
       returnMenu();
     break;
     case("game"):
-      neighbourNodes();
+      //neighbourNodes();
     break;
     case("startMenu"):
       nextMenu();
@@ -43,7 +43,7 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight)){
-      drawGame();
+      //drawGame();
       //drawStartMenu();
       state = "game";
 

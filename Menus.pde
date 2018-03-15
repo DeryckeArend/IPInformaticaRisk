@@ -211,20 +211,20 @@ void drawPlayerSelectMenu(){
     rect(width/4,height/4+100,450,360,45);
     rect(width/2,height/4+100,450,360,45);
     rect((width*3)/4,height/4 +100,450,360,45);
-    rect(width/4, height/4+height/2 -50,480,360,45);
-    rect(width/2+width/4,height/2+height/4 -50,480,360,45); 
+    rect(width/4+225, height/4+height/2 -50,480,360,45);
+    rect((width*3)/4-225,height/2+height/4 -50,480,360,45); 
     
     prepareTextField(t1, 280,250, "Name player 1:");
     prepareTextField(t2, (width/2)-200,250, "Name player 2:");
     prepareTextField(t3, (width/2)+280,250, "Name player 3:");
-    prepareTextField(t3, 280,250 + height/2 -150, "Name player 4:");
-    prepareTextField(t4, width/2+280,250 + height/2 -150, "Name player 5:");
+    prepareTextField(t3, 500,250 + height/2 -150, "Name player 4:");
+    prepareTextField(t4, width/2+50,250 + height/2 -150, "Name player 5:");
     
     prepareRadioButton(rcp1,280,398, "ColorPicker1");
     prepareRadioButton(rcp2,(width/2)-200,398,"ColorPicker2");
     prepareRadioButton(rcp3,(width/2)+280,398,"ColorPicker3");
-    prepareRadioButton(rcp4,280,375 + height/2-127,"ColorPicker4");
-    prepareRadioButton(rcp5,width/2+280,375 + height/2-127,"ColorPicker5");
+    prepareRadioButton(rcp4,500,375 + height/2-127,"ColorPicker4");
+    prepareRadioButton(rcp5, width/2+50,375 + height/2-127,"ColorPicker5");
     
     break;
     
@@ -269,7 +269,7 @@ void drawPlayerSelectMenu(){
    
    t = cp5.addTextfield(label)
     .setPosition(x,y)
-    .setSize(400,100)
+    .setSize(400,90)
     .setColorForeground(color(0))
     .setColorBackground(color(114,113,89))
     .setColorActive(color(0))
