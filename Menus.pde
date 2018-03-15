@@ -227,8 +227,7 @@ void drawPlayerSelectMenu(){
     prepareRadioButton(rcp5,width/2+280,375 + height/2-127,"ColorPicker5");
     
     break;
-<<<<<<< HEAD
-=======
+    
     case 6:
     rect(width/4,height/4+100,450,360,45);
     rect(width/2,height/4+100,450,360,45);
