@@ -204,6 +204,7 @@ void drawPlayerSelectMenu(){
     case 5:
     
     break;
+    
   }
   
   //De knop onderaan die ons naar het volgende scherm brengt
