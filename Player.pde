@@ -6,5 +6,4 @@ class Player{
   color playerColor;
   int points;
   int countries;
-  
 }
