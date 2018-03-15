@@ -199,11 +199,64 @@ void drawPlayerSelectMenu(){
     break;
     
     case 4:
+    rect(width/4,height/4 + 100,480,360,45);
+    rect(width/2+width/4,height/4 + 100,480,360,45);
+    rect(width/4, height/4+height/2 -50,480,360,45);
+    rect(width/2+width/4,height/2+height/4 -50,480,360,45); 
+    
+    prepareTextField(t1, 280,250, "Name player 1:");
+    prepareTextField(t2, width/2+280,250, "Name player 2:");
+    prepareTextField(t3, 280,250 + height/2 -150, "Name player 3:");
+    prepareTextField(t4, width/2+280,250 + height/2 -150, "Name player 4:");
+    
+    prepareRadioButton(rcp1,280,375,"ColorPicker1");
+    prepareRadioButton(rcp2,width/2+280,375,"ColorPicker2");
+    prepareRadioButton(rcp3,280,375 + height/2-150,"ColorPicker3");
+    prepareRadioButton(rcp4,width/2+280,375 + height/2-150,"ColorPicker4");
     
     break;
     case 5:
+    rect(width/4,height/4+100,450,360,45);
+    rect(width/2,height/4+100,450,360,45);
+    rect((width*3)/4,height/4 +100,450,360,45);
+    rect(width/4, height/4+height/2 -50,480,360,45);
+    rect(width/2+width/4,height/2+height/4 -50,480,360,45); 
+    
+    prepareTextField(t1, 280,250, "Name player 1:");
+    prepareTextField(t2, (width/2)-200,250, "Name player 2:");
+    prepareTextField(t3, (width/2)+280,250, "Name player 3:");
+    prepareTextField(t3, 280,250 + height/2 -150, "Name player 4:");
+    prepareTextField(t4, width/2+280,250 + height/2 -150, "Name player 5:");
+    
+    prepareRadioButton(rcp1,280,375, "ColorPicker1");
+    prepareRadioButton(rcp2,(width/2)-200,375,"ColorPicker2");
+    prepareRadioButton(rcp3,(width/2)+280,375,"ColorPicker3");
+    prepareRadioButton(rcp4,280,375 + height/2-150,"ColorPicker4");
+    prepareRadioButton(rcp5,width/2+280,375 + height/2-150,"ColorPicker5");
     
     break;
+    case 6:
+    rect(width/4,height/4+100,450,360,45);
+    rect(width/2,height/4+100,450,360,45);
+    rect((width*3)/4,height/4 +100,450,360,45);
+    rect(width/4,height/4+height/2-50,450,360,45);
+    rect(width/2,height/4+height/2-50,450,360,45);
+    rect((width*3)/4,height/4 +height/2-50,450,360,45);
+    
+    prepareTextField(t1, 280,250, "Name player 1:");
+    prepareTextField(t2, (width/2)-200,250, "Name player 2:");
+    prepareTextField(t3, (width/2)+280,250, "Name player 3:");
+    prepareTextField(t4, 280,250+height/2-150, "Name player 4:");
+    prepareTextField(t5, (width/2)-200,250+height/2-150, "Name player 5:");
+    prepareTextField(t6, (width/2)+280,250+height/2-150, "Name player 6:");
+    
+    prepareRadioButton(rcp1,280,375, "ColorPicker1");
+    prepareRadioButton(rcp2,(width/2)-200,375,"ColorPicker2");
+    prepareRadioButton(rcp3,(width/2)+280,375,"ColorPicker3");
+    prepareRadioButton(rcp4,280,375+height/2-150, "ColorPicker4");
+    prepareRadioButton(rcp5,(width/2)-200,375+height/2-150,"ColorPicker5");
+    prepareRadioButton(rcp6,(width/2)+280,375+height/2-150,"ColorPicker6");
+    
   }
   
   //De knop onderaan die ons naar het volgende scherm brengt
