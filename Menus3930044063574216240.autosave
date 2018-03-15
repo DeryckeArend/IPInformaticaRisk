@@ -1,9 +1,9 @@
-//De variabelen voor de knoppen in het hoofdmenu
+  //De variabelen voor de knoppen in het hoofdmenu
 float buttonWidth = 400;
 float buttonHeight = 75;
 float button1Height = 300;
 float namenCreditsX = width/2; 
-float namenCreditsY = height/2 + 400;
+float namenCreditsY = height/2+400;
 float straal = 20;
 
 //De variabelen voor de radiobuttons, ze staan hier zodat ze globaal zouden zijn
@@ -79,42 +79,41 @@ void drawCreditsMenu(){
   background(0);
   image(background, 0, 0, width, height);
   textAlign(CENTER);
-  fill(0);
   textSize(50);
-  text("Credits:", width/2, namenCreditsY-100);
+  text("Credits:",width/2, namenCreditsY-100);
   textAlign(RIGHT);
+  fill(0);
   textSize(35);
-  text("Game code:", width/2-100, namenCreditsY+100);
+  text("Game Code:", width/2-100, namenCreditsY);
   textAlign(LEFT);
-  text("Arend Derycke", width/2+100, namenCreditsY+100);
-  text("Egon Van Hoenacker", width/2+100, namenCreditsY+150);
+  text("Arend Derycke", width/2+100, namenCreditsY);
+  text("Egon Van Hoenacker", width/2+100, namenCreditsY+50);
+  text("Leonie Van Renterghem", width/2+100, namenCreditsY+100);
+  text("Alex Moens", width/2+100, namenCreditsY+150);
   text("Arne Callaert", width/2+100, namenCreditsY+200);
-  text("Alex Moens", width/2+100, namenCreditsY+250);
-  text("Leonie Van Renterghem", width/2+100, namenCreditsY+300);
   
   textAlign(RIGHT);
-  text("Map:", width/2-100, namenCreditsY+400);
+  text("Map:", width/2-100, namenCreditsY+300);
   textAlign(LEFT);
+  text("Arend Derycke", width/2+100, namenCreditsY+300);
+  text("Egon Van Hoenacker", width/2+100, namenCreditsY+350);
   text("Alex Moens", width/2+100, namenCreditsY+400);
-  text("Egon Van Hoenacker", width/2+100, namenCreditsY+450);
-  text("Arne Callaert", width/2+100, namenCreditsY+500);
-  text("Arend Derycke", width/2+100, namenCreditsY+550);
-  text("Leonie Van Renterghem", width/2+100, namenCreditsY+600);
+  text("Arne Callaert", width/2+100, namenCreditsY+450);
+  text("Leonie Van Renterghem", width/2+100, namenCreditsY+500);
   
   textAlign(RIGHT);
-  text("Muziek:", width/2-100, namenCreditsY+700);
+  text("Muziek:", width/2-100, namenCreditsY+600);
   textAlign(LEFT);
-  text("Alex Moens", width/2+100, namenCreditsY+700);
-  text("Arne Callaert", width/2+100, namenCreditsY+750);
-  text("Arend Derycke", width/2+100, namenCreditsY+800);
-  text("Egon Van Hoenacker", width/2+100, namenCreditsY+850);
-  text("Leonie Van Renterghem", width/2+100, namenCreditsY+900);
+  text("Alex Moens", width/2+100, namenCreditsY+600);
+  text("Arne Callaert", width/2+100, namenCreditsY+650);
+  text("Arend Derycke", width/2+100, namenCreditsY+700);
+  text("Egon Van Hoenacker", width/2+100, namenCreditsY+750);
+  text("Leonie Van Renterghem", width/2+100, namenCreditsY+800);
+  
   
   fill(122, 105, 68, 100);
   rect(10,10,200,70);
   fill(0);
-  textSize(50);
-  textAlign(CENTER);
   text("Return", 110, 65);
   
 }
