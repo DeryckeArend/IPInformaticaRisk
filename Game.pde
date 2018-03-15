@@ -96,6 +96,16 @@ void drawSidebar() {
       yPos += 150;
       yPosT += 150;
       i++;
+      
+      fill(255);
+      rectMode(CENTER);
+      rect(1750,860,250,100,75);
+      rectMode(CORNER);
+      fill(0);
+      textAlign(CENTER);
+      textSize(30);
+      text("Volgende beurt",1750, 870);
+      
   }
 }
 

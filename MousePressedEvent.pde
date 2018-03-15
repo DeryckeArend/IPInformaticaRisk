@@ -27,9 +27,12 @@ void mousePressed(){
     break;
     case("game"):
       //neighbourNodes();
+
     break;
     case("startMenu"):
+    if(startMenuState==0){
       nextMenu();
+    }else{startGameButton();}
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
@@ -111,16 +114,6 @@ void nextMenu(){
      //r2.remove();
      drawPlayerSelectMenu();
      startMenuState = 1;
-   }else if (startMenuState == 1){
-     loadPlayers();
-     //Dit is tijdelijk, er zou een betere methode moeten zijn.
-     try{
-       cp5.remove(this);
-     }catch(Exception e){
-         println("Dit is een " + e.toString() + " exception, dit is normaal.");
-       }
-     state="game";
-     drawGame();
    }
  }
 }
@@ -152,6 +145,20 @@ void updateSlider(){
   text("Sound:", initialX -100, y+10);
   text(int(value) +"%", higherX +100, y+10);
   drawSliderBox();
+}
+
+void startGameButton(){
+  if((width/2-120) < mouseX && mouseX < (width/2 + 120) && 912.5 < mouseY && mouseY < 987.5){
+     loadPlayers();
+     //Dit is tijdelijk, er zou een betere methode moeten zijn.
+     try{
+       cp5.remove(this);
+     }catch(Exception e){
+         println("Dit is een " + e.toString() + " exception, dit is normaal.");
+       }
+     state="game";
+     drawGame();
+  }
 }
 
 boolean isOver(){
