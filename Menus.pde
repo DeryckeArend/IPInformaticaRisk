@@ -3,7 +3,7 @@ float buttonWidth = 400;
 float buttonHeight = 75;
 float button1Height = 300;
 float namenCreditsX = width/2; 
-float namenCreditsY = height/2+400;
+float namenCreditsY = height/2 + 400;
 float straal = 20;
 
 //De variabelen voor de radiobuttons, ze staan hier zodat ze globaal zouden zijn

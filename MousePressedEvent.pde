@@ -22,6 +22,7 @@ void mousePressed(){
       returnMenu();
     break;
     case("creditMenu"):
+      namenCreditsY = height/2+400;
       drawCreditsMenu();
       returnMenu();
     break;
