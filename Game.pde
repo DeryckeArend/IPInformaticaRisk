@@ -27,18 +27,18 @@ void drawGame(){
   background(0);
   //Dan laden we een afbeelding op als achtergrond. Eerst maak je in IPInformaticaRisk een variabele aan bovenaan bij de andere PImage. Dan laad je de afbeelding op in loadImages(), ook in IPInformatica
   image(riskMap, 0, 0, width, height);
-  /*
+  
   for(int i = 0; i < nodes.size(); i++){
     Node n = nodes.get(i);
     fill(0);
     ellipse(n.x, n.y, straal, straal);
   }
-  drawSoldier();*/
+  //drawSoldier();
   drawSidebar();
-  verdeelLanden();
+ // verdeelLanden();
 }
 
-void verdeelLanden() {
+/*void verdeelLanden() {
   int deelbaarGetal = countries.size() - (countries.size() % playerAmount);
   int verdeelAantal = deelbaarGetal / playerAmount;
   for (Country c: countries) {
@@ -50,7 +50,7 @@ void verdeelLanden() {
     }
     c.owner = p;
   }
-}
+}*/
 
 void drawSoldier(){
  for(Node n: nodes){
@@ -76,17 +76,17 @@ void drawSidebar() {
     }
       fill(p.playerColor);
       stroke(100);
-      rect(1600, yPos, 300, 125, 30);
+      rect(1500, yPos, 400, 125, 30);
       
       fill(0);
       textAlign(CENTER);
       textSize(25);
-      text(p.name, 1750, yPosT);
+      text(p.name, 1700, yPosT);
       
       textAlign(LEFT);
       textSize(20);
-      text("Points: ", 1620, yPosT + 30);
-      text("Countries: ", 1620, yPosT + 70);
+      text("Points: ", 1520, yPosT + 30);
+      text("Countries: ", 1520, yPosT + 70);
       
       textAlign(RIGHT);
       text(p.points, 1880, yPosT + 30);
