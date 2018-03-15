@@ -35,10 +35,10 @@ void drawGame(){
   }
   drawSoldier();*/
   drawSidebar();
-  verdeelLanden();
+ // verdeelLanden();
 }
 
-void verdeelLanden() {
+/*void verdeelLanden() {
   int deelbaarGetal = countries.size() - (countries.size() % playerAmount);
   int verdeelAantal = deelbaarGetal / playerAmount;
   for (Country c: countries) {
@@ -50,7 +50,7 @@ void verdeelLanden() {
     }
     c.owner = p;
   }
-}
+}*/
 
 void drawSoldier(){
  for(Node n: nodes){

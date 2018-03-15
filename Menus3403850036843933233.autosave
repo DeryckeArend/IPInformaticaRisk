@@ -3,7 +3,7 @@ float buttonWidth = 400;
 float buttonHeight = 75;
 float button1Height = 300;
 float namenCreditsX = width/2; 
-float namenCreditsY = height/2 + 400;
+float namenCreditsY = height/2+400;
 float straal = 20;
 
 //De variabelen voor de radiobuttons, ze staan hier zodat ze globaal zouden zijn
@@ -68,19 +68,12 @@ void drawOptionsMenu(){
   text("Return", 110, 65);
 }  
 
-void drawSliderBox() {
-  noStroke();
-  fill(206,169,99,50);
-  rect(480,500,920,80);
-}
-
 void drawCreditsMenu(){
-  namenCreditsY = namenCreditsY - 10;
-  background(0);
+  namenCreditsY = namenCreditsY - 20;
   image(background, 0, 0, width, height);
   textMode(CENTER);
   fill(0);
-  text("KingBirdy", width/2, namenCreditsY); 
+  text("KingBirdy", width/2, namenCreditsY);
   fill(122, 105, 68, 100);
   rect(10,10,200,70);
   fill(0);
