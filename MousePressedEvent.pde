@@ -96,6 +96,8 @@ void returnMenu() {
     buttonClicked();  
     drawMainMenu();
     state = "menu";
+    stopSound();
+    setupSound();
   }
 }
 
@@ -122,6 +124,7 @@ void nextMenu(){
   
 void mouseReleased() {
     lock = false;
+    
 }
 
 void updateSlider(){
