@@ -76,17 +76,17 @@ void drawSidebar() {
     }
       fill(p.playerColor);
       stroke(100);
-      rect(1600, yPos, 300, 125, 30);
+      rect(1500, yPos, 400, 125, 30);
       
       fill(0);
       textAlign(CENTER);
       textSize(25);
-      text(p.name, 1750, yPosT);
+      text(p.name, 1700, yPosT);
       
       textAlign(LEFT);
       textSize(20);
-      text("Points: ", 1620, yPosT + 30);
-      text("Countries: ", 1620, yPosT + 70);
+      text("Points: ", 1520, yPosT + 30);
+      text("Countries: ", 1520, yPosT + 70);
       
       textAlign(RIGHT);
       text(p.points, 1880, yPosT + 30);
