@@ -227,6 +227,8 @@ void drawPlayerSelectMenu(){
     prepareRadioButton(rcp5,width/2+280,375 + height/2-127,"ColorPicker5");
     
     break;
+<<<<<<< HEAD
+=======
     case 6:
     rect(width/4,height/4+100,450,360,45);
     rect(width/2,height/4+100,450,360,45);
@@ -248,7 +250,14 @@ void drawPlayerSelectMenu(){
     prepareRadioButton(rcp4,280,375+height/2-127, "ColorPicker4");
     prepareRadioButton(rcp5,(width/2)-200,375+height/2-127,"ColorPicker5");
     prepareRadioButton(rcp6,(width/2)+280,375+height/2-127,"ColorPicker6");
-    
+
+    prepareRadioButton(rcp1,280,375, "ColorPicker1");
+    prepareRadioButton(rcp2,(width/2)-200,375,"ColorPicker2");
+    prepareRadioButton(rcp3,(width/2)+280,375,"ColorPicker3");
+    prepareRadioButton(rcp4,280,375+height/2-150, "ColorPicker4");
+    prepareRadioButton(rcp5,(width/2)-200,375+height/2-150,"ColorPicker5");
+    prepareRadioButton(rcp6,(width/2)+280,375+height/2-150,"ColorPicker6");
+   
   }
   
   //De knop onderaan die ons naar het volgende scherm brengt
