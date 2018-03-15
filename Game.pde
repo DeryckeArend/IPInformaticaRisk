@@ -27,30 +27,32 @@ void drawGame(){
   background(0);
   //Dan laden we een afbeelding op als achtergrond. Eerst maak je in IPInformaticaRisk een variabele aan bovenaan bij de andere PImage. Dan laad je de afbeelding op in loadImages(), ook in IPInformatica
   image(riskMap, 0, 0, width, height);
-  /*
+  verdeelLanden();
   for(int i = 0; i < nodes.size(); i++){
     Node n = nodes.get(i);
-    fill(0);
+    Country c = n.country;
+    color pcolor = c.owner.playerColor;
+    fill(pcolor);
     ellipse(n.x, n.y, straal, straal);
   }
-  drawSoldier();*/
+  //drawSoldier();
   drawSidebar();
- // verdeelLanden();
 }
 
-/*void verdeelLanden() {
+void verdeelLanden() {
   int deelbaarGetal = countries.size() - (countries.size() % playerAmount);
   int verdeelAantal = deelbaarGetal / playerAmount;
   for (Country c: countries) {
-    int i = int(random(1,playerAmount));
+    int i = (int) random(0,playerAmount);
     Player p = players.get(i);
-    while (p.countries > verdeelAantal) {
-      i = int(random(0,playerAmount+1));
+    while (p.countries >= verdeelAantal) {
+      i = (int) random(0,playerAmount);
       p = players.get(i);
     }
     c.owner = p;
+    p.countries++;
   }
-}*/
+}
 
 void drawSoldier(){
  for(Node n: nodes){

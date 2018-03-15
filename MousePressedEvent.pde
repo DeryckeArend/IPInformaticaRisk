@@ -4,8 +4,6 @@ int startMenuState = 0;
 
 void mousePressed(){
   
-  if(state == "ga")
-  
   if(isOver()) {
     lock = true;
   }
