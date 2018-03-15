@@ -18,7 +18,7 @@ List<Player> players = new ArrayList<Player>();
 ControlP5 cp5;
 
 //De variabelen die het aantal spelers bijhouden
-int playerAmount = 0;
+int playerAmount;
 int AIAmount = 0;
 
 //Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu" of "game" . We beginnen met menu
