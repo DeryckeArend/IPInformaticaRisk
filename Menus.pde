@@ -185,25 +185,72 @@ void drawPlayerSelectMenu(){
     prepareTextField(t2, (width/2)-200,250, "Name player 2:");
     prepareTextField(t3, (width/2)+280,250, "Name player 3:");
     
-    textAlign(LEFT,BOTTOM);
-    fill(0);
-    PFont titleColor =createFont("arial",40);
-    textFont(titleColor,40);
-    text("Kies je kleur:",280,450);
-    text("Kies je kleur:",(width/2)-200,450);
-    text("Kies je kleur:",(width/2)+280,450);
-    
     prepareRadioButton(rcp1,280,450, "ColorPicker1");
     prepareRadioButton(rcp2,(width/2)-200,450,"ColorPicker2");
     prepareRadioButton(rcp3,(width/2)+280,450,"ColorPicker3");
     break;
     
     case 4:
+    rect(width/4,height/4 + 100,480,360,45);
+    rect(width/2+width/4,height/4 + 100,480,360,45);
+    rect(width/4, height/4+height/2 -50,480,360,45);
+    rect(width/2+width/4,height/2+height/4 -50,480,360,45); 
+    
+    prepareTextField(t1, 280,250, "Name player 1:");
+    prepareTextField(t2, width/2+280,250, "Name player 2:");
+    prepareTextField(t3, 280,250 + height/2 -150, "Name player 3:");
+    prepareTextField(t4, width/2+280,250 + height/2 -150, "Name player 4:");
+    
+    prepareRadioButton(rcp1,280,398,"ColorPicker1");
+    prepareRadioButton(rcp2,width/2+280,398,"ColorPicker2");
+    prepareRadioButton(rcp3,280,375 + height/2-127,"ColorPicker3");
+    prepareRadioButton(rcp4,width/2+280,375 + height/2-127,"ColorPicker4");
     
     break;
     case 5:
+    rect(width/4,height/4+100,450,360,45);
+    rect(width/2,height/4+100,450,360,45);
+    rect((width*3)/4,height/4 +100,450,360,45);
+    rect(width/4, height/4+height/2 -50,480,360,45);
+    rect(width/2+width/4,height/2+height/4 -50,480,360,45); 
+    
+    prepareTextField(t1, 280,250, "Name player 1:");
+    prepareTextField(t2, (width/2)-200,250, "Name player 2:");
+    prepareTextField(t3, (width/2)+280,250, "Name player 3:");
+    prepareTextField(t3, 280,250 + height/2 -150, "Name player 4:");
+    prepareTextField(t4, width/2+280,250 + height/2 -150, "Name player 5:");
+    
+    prepareRadioButton(rcp1,280,398, "ColorPicker1");
+    prepareRadioButton(rcp2,(width/2)-200,398,"ColorPicker2");
+    prepareRadioButton(rcp3,(width/2)+280,398,"ColorPicker3");
+    prepareRadioButton(rcp4,280,375 + height/2-127,"ColorPicker4");
+    prepareRadioButton(rcp5,width/2+280,375 + height/2-127,"ColorPicker5");
     
     break;
+    
+    case 6:
+    rect(width/4,height/4+100,450,360,45);
+    rect(width/2,height/4+100,450,360,45);
+    rect((width*3)/4,height/4 +100,450,360,45);
+    rect(width/4,height/4+height/2-50,450,360,45);
+    rect(width/2,height/4+height/2-50,450,360,45);
+    rect((width*3)/4,height/4 +height/2-50,450,360,45);
+    
+    prepareTextField(t1, 280,250, "Name player 1:");
+    prepareTextField(t2, (width/2)-200,250, "Name player 2:");
+    prepareTextField(t3, (width/2)+280,250, "Name player 3:");
+    prepareTextField(t4, 280,250+height/2-150, "Name player 4:");
+    prepareTextField(t5, (width/2)-200,250+height/2-150, "Name player 5:");
+    prepareTextField(t6, (width/2)+280,250+height/2-150, "Name player 6:");
+    
+    prepareRadioButton(rcp1,280,398, "ColorPicker1");
+    prepareRadioButton(rcp2,(width/2)-200,398,"ColorPicker2");
+    prepareRadioButton(rcp3,(width/2)+280,398,"ColorPicker3");
+    prepareRadioButton(rcp4,280,375+height/2-127, "ColorPicker4");
+    prepareRadioButton(rcp5,(width/2)-200,375+height/2-127,"ColorPicker5");
+    prepareRadioButton(rcp6,(width/2)+280,375+height/2-127,"ColorPicker6");
+
+   
   }
   
   //De knop onderaan die ons naar het volgende scherm brengt
@@ -211,7 +258,8 @@ void drawPlayerSelectMenu(){
   fill(color(89,68,39));
   rect((width/2 -120),950, 240,75);
   fill(0);
-  text("Volgende", width/2-100,1010);
+  textMode(CENTER);
+  text("Volgende", width/2,1005);
  }
  
  
@@ -240,7 +288,7 @@ void drawPlayerSelectMenu(){
  
  RadioButton prepareRadioButton(RadioButton rc, int x, int y, String label){
         rc = cp5.addRadioButton(label)
-         .setPosition(x,y)
+         .setPosition(x+90,y)
          .setSize(60,60)
          .setColorForeground(color(0))
          .setColorBackground(color(89,68,39))
@@ -265,6 +313,13 @@ void drawPlayerSelectMenu(){
          rc.getItem(3).setColorBackground(color(219, 221, 73));
          rc.getItem(4).setColorBackground(color(255,165,0));
          rc.getItem(5).setColorBackground(color(188, 64, 182));
+         
+        fill(0);
+        PFont titleColor =createFont("arial",40);
+        textFont(titleColor,40);
+        text("Kies je kleur:",x+205,y-15);
+    
+    
    return r;
  }
  

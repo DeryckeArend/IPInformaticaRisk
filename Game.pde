@@ -1,7 +1,7 @@
 void neighbourNodes(){
   for(Node n: nodes) {
     if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
-      drawGame();
+      //drawGame();
       noStroke();
       fill(255,255,255);
       ellipse(n.x,n.y,straal,straal);
@@ -35,6 +35,21 @@ void drawGame(){
   }
   drawSoldier();*/
   drawSidebar();
+  verdeelLanden();
+}
+
+void verdeelLanden() {
+  int deelbaarGetal = countries.size() - (countries.size() % playerAmount);
+  int verdeelAantal = deelbaarGetal / playerAmount;
+  for (Country c: countries) {
+    int i = int(random(1,playerAmount));
+    Player p = players.get(i);
+    while (p.countries > verdeelAantal) {
+      i = int(random(0,playerAmount+1));
+      p = players.get(i);
+    }
+    c.owner = p;
+  }
 }
 
 void drawSoldier(){
@@ -75,7 +90,7 @@ void drawSidebar() {
       
       textAlign(RIGHT);
       text(p.points, 1880, yPosT + 30);
-      text("10", 1880, yPosT + 70);
+      text(p.countries, 1880, yPosT + 70);
       
       fill(255);
       yPos += 150;
@@ -133,6 +148,7 @@ void loadPlayers(){
       break;
     }
     p.points = 0;
+    p.countries = 0;
     p.AI = false;
     players.add(p);
   }

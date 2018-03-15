@@ -5,5 +5,5 @@ class Player{
   String name;
   color playerColor;
   int points;
-  
+  int countries;
 }

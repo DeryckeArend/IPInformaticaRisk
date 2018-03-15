@@ -4,13 +4,17 @@ SoundFile buttonClick;
 SoundFile attackSound;
 SoundFile nextPlayer;
 
-float soundLevel = value2;
+//float soundLevel = value2;
 
 void setupSound() {
   // Load a soundfile from the /data folder of the sketch and play it back
   music = new SoundFile(this, "Music/soundtrack.mp3");
   music.loop();
-  music.amp(soundLevel);
+  music.amp(value2);
+}
+
+void stopSound() {
+  music.stop();
 }
 
 //buttonclicks in menu
