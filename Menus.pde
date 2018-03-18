@@ -216,8 +216,6 @@ void drawPlayerSelectMenu(){
     rect(width/2,height/2,450,720,45);
     rect((width*3)/4,height/2,450,720,45);
     
-    cp5 = new ControlP5(this);
-    
     prepareTextField(t1, 280,250, "Name player 1:");
     prepareTextField(t2, (width/2)-200,250, "Name player 2:");
     prepareTextField(t3, (width/2)+280,250, "Name player 3:");
@@ -297,6 +295,7 @@ void drawPlayerSelectMenu(){
   fill(0);
   textMode(CENTER);
   text("Volgende", width/2,1005);
+  state = "startMenu";
  }
  
  

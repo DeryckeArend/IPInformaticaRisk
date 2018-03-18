@@ -42,15 +42,22 @@ void drawGame(){
 void verdeelLanden() {
   int deelbaarGetal = countries.size() - (countries.size() % playerAmount);
   int verdeelAantal = deelbaarGetal / playerAmount;
+  int verdeeldeLanden = 0;
   for (Country c: countries) {
     int i = (int) random(0,playerAmount);
     Player p = players.get(i);
-    while (p.countries >= verdeelAantal) {
+    if((countries.size() - verdeeldeLanden) <= (countries.size() % playerAmount)){
+      c.owner = p;
+      p.countries++;
+    }else{
+    while (players.get(i).countries >= verdeelAantal) {
       i = (int) random(0,playerAmount);
       p = players.get(i);
-    }
+      }
     c.owner = p;
     p.countries++;
+    }
+    verdeeldeLanden++;
   }
 }
 
@@ -65,12 +72,12 @@ void drawSoldier(){
 void drawSidebar() {
   int yPos = 100;
   int yPosT = 130;
-  int playerTurn = 1;
+  int playerTurnInt = 1;
   
   strokeWeight(3);
   int i = 0;
   for (Player p : players) {
-    if (i == playerTurn - 1) {
+    if (i == playerTurnInt - 1) {
       strokeWeight(10);
     }
     else {
