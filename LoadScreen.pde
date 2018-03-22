@@ -1,7 +1,3 @@
-int xx = width/2;
- 
-float time = millis();
- 
 void loadScreen() {
   if(millis() > 3000) {
     startup();
