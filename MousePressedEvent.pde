@@ -214,7 +214,7 @@ boolean isOver(){
 void neighbourNodes(){
   for(Node n: nodes) {
     if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
-      if(activeNode != n){
+      if(n.country.owner == playerTurn){
         drawGame();
         cp5.remove("plusButton");
         cp5.remove("minusButton");
