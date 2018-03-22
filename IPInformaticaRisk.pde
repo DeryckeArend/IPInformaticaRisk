@@ -28,7 +28,7 @@ Player playerTurn;
 int playerTurnInt;
 //De hoeveelste beurt het is, met 1 beurt bedoel ik hier dat iedereen 1 keer aan de beurt is geweest
 int globalTurn = 1;
-//Hierin staat wat de speler aan het doen is, "reinforce", "attack" of "defend", gebruik aub precies deze namen
+//Hierin staat wat de speler aan het doen is, "reinforce", "attack" of "distribute", gebruik aub precies deze namen
 String refAttDis;
 
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
@@ -73,6 +73,9 @@ void draw(){
     break;
     case("startMenu"):
 
+    break;
+    case("game"):
+    
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
