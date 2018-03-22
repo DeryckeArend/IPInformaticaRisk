@@ -28,7 +28,7 @@ void mousePressed(){
     break;
     case("game"):
       neighbourNodes();
-      turnSystem();
+
     break;
     case("startMenu"):
     if(startMenuState==0){
@@ -41,30 +41,6 @@ void mousePressed(){
   }
   
 }
-
-void turnSystem(){
-  if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
-    if(refAttDis == "reinforce"){
-      refAttDis = "attack";
-      drawGame();
-    }
-    if(refAttDis == "attack"){
-      refAttDis = "distribute";
-      drawGame();  
-  }
-    if(refAttDis == "distribute"){
-      if(playerTurnInt == playerAmount){
-      playerTurnInt = 0;
-      globalTurn ++;
-      }
-      playerTurnInt++;      
-      playerTurn = players.get(playerTurnInt - 1);
-      refAttDis = "reinforce";
-      drawGame();
-    }
-  }
-  
-  }
 
 //Deze methode controleert waar de muis is en of je op een rechthoek(knop) klikt in het hoofdmenu
 void mainMenu(){
@@ -187,8 +163,6 @@ void startGameButton(){
          println("Dit is een " + e.toString() + " exception, dit is normaal.");
        }
      state="game";
-     playerTurnInt = 1;
-     playerTurn = players.get(0);
      drawGame();
   }
   if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
@@ -210,11 +184,7 @@ boolean isOver(){
 void neighbourNodes(){
   for(Node n: nodes) {
     if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
-      activeNode = n;
-      drawDistBox(n.x, n.y);
-      drawTextDistBox(n.x,n.y);
-  
+      //drawDistBox();
      }
   }
- 
 }
