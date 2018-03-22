@@ -35,6 +35,9 @@ void mousePressed(){
       nextMenu();
     }else{startGameButton();}
     break;
+    case("loadscreen"):
+    
+    break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
     break;
@@ -189,6 +192,7 @@ void startGameButton(){
      state="game";
      playerTurnInt = 1;
      playerTurn = players.get(0);
+     verdeelLanden();
      drawGame();
   }
   if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
@@ -210,11 +214,14 @@ boolean isOver(){
 void neighbourNodes(){
   for(Node n: nodes) {
     if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
-      activeNode = n;
-      drawDistBox(n.x, n.y);
-      drawTextDistBox(n.x,n.y);
-  
-     }
+      if(activeNode != n){
+        drawGame();
+        cp5.remove("plusButton");
+        cp5.remove("minusButton");
+        drawDistBox(n.x, n.y);
+        drawTextDistBox(n.x,n.y);
+        activeNode = n;
+      }
+    }
   }
- 
 }

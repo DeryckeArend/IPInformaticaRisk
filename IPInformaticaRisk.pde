@@ -88,7 +88,7 @@ void draw(){
 
     break;
     case("game"):
-    
+
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");

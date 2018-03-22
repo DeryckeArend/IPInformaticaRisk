@@ -5,9 +5,11 @@ Node checkNode;
 void drawGame(){
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
   background(0);
+  noStroke();
+  rectMode(CORNER);
+  textAlign(CORNER);
   //Dan laden we een afbeelding op als achtergrond. Eerst maak je in IPInformaticaRisk een variabele aan bovenaan bij de andere PImage. Dan laad je de afbeelding op in loadImages(), ook in IPInformatica
   image(riskMap, 0, 0, width, height);
-  verdeelLanden();
   for(int i = 0; i < nodes.size(); i++){
     Node n = nodes.get(i);
     Country c = n.country;
@@ -17,6 +19,7 @@ void drawGame(){
   }
   drawSoldier();
   drawSidebar();
+  //neighbourNodes();
 }
 
 void verdeelLanden() {
@@ -63,6 +66,7 @@ void drawSoldier(){
    }
   
   textSize(25);
+  fill(0);
   text(5, n.x + 30, n.y);
  }
 }
