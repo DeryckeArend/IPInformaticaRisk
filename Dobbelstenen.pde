@@ -1,21 +1,37 @@
  int diceSize = 75;
- int defenderDiceX = 450;
- int defenderDiceY = 300;
- int attackerDiceX = 300;
- int attackerDiceY = 300;
  
  void drawDice(int defenderAmount, int attackerAmount){
    fill(113, 125, 145);
    rect(460,200,1000,750,50);
+   fill(50);
+   PFont titleDice =createFont("Showcard Gothic",40);
+   textFont(titleDice,40);
+   textAlign(CENTER);
+   text("aanvaller",(width/2)-350,275); 
+   text("verdediger",(width/2)+350,275);
+   
    //Afhankelijk van het aantal dobbelstenen van de verdediger worden de rechthoekjes en de cirkeltjes getekend in diceMaker
-  for(int i = 0; i < defenderAmount; i++){
-    int roll = int(random(1,7));
-    diceMaker(roll, width/2 - 350, 350 + 100*i, color(85, 134, 214));
+   
+  List<Integer> rollsDef = new ArrayList<Integer>();
+   for(int i = 0; i < defenderAmount; i++){
+     int rollDef = (int) random(1,7);
+     rollsDef.add(rollDef);
+   }   
+  Collections.sort(rollsDef, Collections.reverseOrder());
+   
+  for(int i = 0; i < rollsDef.size(); i++){
+    diceMaker(rollsDef.get(i), width/2 - 350, 350 + 100*i, color(85, 134, 214));   
   }
   
+  List<Integer> rollsAtt = new ArrayList<Integer>();
+  for(int i= 0; i< attackerAmount; i++){
+     int rollAtt = (int) random(1,7);
+     rollsAtt.add(rollAtt);
+  }
+  Collections.sort(rollsAtt, Collections.reverseOrder());
+  
   for(int i = 0; i < attackerAmount; i++){
-    int roll = int(random(1,7));
-    diceMaker(roll, width/2 + 350, 350 + 100*i, color(183, 42, 42));
+    diceMaker(rollsAtt.get(i), width/2 + 350, 350 + 100*i, color(183, 42, 42));
   }
   
  }
@@ -26,8 +42,7 @@
    fill(c);
    rectMode(CENTER);
    rect(x, y, diceSize, diceSize, diceSize/5);
-   rectMode(CORNER);
-   
+   rectMode(CORNER);   
    fill(50);
    
    if (side == 1 || side == 3|| side ==5){

@@ -9,6 +9,7 @@
 
 import java.util.List;
 import controlP5.*;
+import java.util.Collections;
 
 //Hier bovenaan slaan we enkele variabelen op zodat we ze later gemakkelijk terugvinden en veranderen
 List<Country> countries = new ArrayList<Country>();
