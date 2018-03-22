@@ -1,4 +1,4 @@
-
+int placedSoldiers;
 
 void drawGame(){
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
@@ -143,32 +143,39 @@ void loadPlayers(){
 }
 
 void distributeSoldiers() {
+  placedSoldiers = 0;
   Player p = playerTurn;
   int soldierAmount = (p.points - p.countries) + p.countries/2;
-  int placedSoldiers = 2;
+  
   boolean endDistTurnButton = false;
   while(placedSoldiers < soldierAmount && !endDistTurnButton) {
     
   }
 }
 
-void drawDistBox() {
+void drawDistBox(int xPos, int yPos) {
+  fill(0);
+  stroke(255);
+  rect(xPos+17, yPos-45, 125, 40, 50);
   cp5 = new ControlP5(this);
-  r = cp5.addRadioButton("radioButtonPlayers")
-         .setPosition(n.x,300)
-         .setSize(50,50)
-         .setColorForeground(color(0))
-         .setColorBackground(color(89,68,39))
-         .setColorActive(color(0))
-         .setColorLabel(color(0))
-         .setColorValue(0)
-         .setItemsPerRow(5)
-         .setSpacingColumn(100)
-         .addItem("2",2)
-         .addItem("3",3);
-  PFont pfont = createFont("Arial",20,true); // use true/false for smooth/no-smooth
-  ControlFont font = new ControlFont(pfont,60);
-  r.setFont(font);
-  //.align(ControlP5.CENTER, ControlP5.TOP);
-  cp5.setFont(font);
+  cp5.addButton("plusButton")
+     .setPosition(xPos+20, yPos-50)
+     .setImages(loadImage("data/Images/up.png"), loadImage("data/Images/up.png"), loadImage("data/Images/up.png"))
+     .updateSize();
+  textAlign(CENTER);
+  textSize(30);
+  fill(255);
+  text(placedSoldiers, xPos+80,yPos -15);
+  cp5.addButton("minusButton")
+     .setPosition(xPos+90, yPos-50)
+     .setImages(loadImage("data/Images/down.png"), loadImage("data/Images/down.png"), loadImage("data/Images/down.png"))
+     .updateSize();
+}
+
+public void plusButton() {
+  placedSoldiers++;
+}
+
+public void minusButton() {
+  placedSoldiers--;
 }

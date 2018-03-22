@@ -169,7 +169,7 @@ boolean isOver(){
 void neighbourNodes(){
   for(Node n: nodes) {
     if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
-      drawDistBox();
+      drawDistBox(n.x, n.y);
      }
   }
 }
