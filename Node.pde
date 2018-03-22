@@ -6,16 +6,5 @@ class Node{
  int x;
  int y;
  
- int getX(){
-   return x;
- }
- 
- int getY(){
-   return y;
- }
-}
-
-public Node getNode(){
-  Node n = new Node();
-  return n;
+ int soldiers;
 }
