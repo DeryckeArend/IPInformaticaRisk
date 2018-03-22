@@ -187,6 +187,14 @@ void drawStartMenu(){
   rect((width/2 -120),800, 240,75);
   fill(0);
   text("Volgende", width/2,850);
+  
+  fill(color(89,68,39));
+  rect(30, 20, 225, 75);
+  textAlign(CORNER);
+  fill(0);
+  text("Return", 70, 75);
+  textAlign(CENTER);
+  
 }
 
 
@@ -296,6 +304,12 @@ void drawPlayerSelectMenu(){
   textMode(CENTER);
   text("Volgende", width/2,1005);
   state = "startMenu";
+  
+  fill(color(89,68,39));
+  rect(30, 20, 225, 75);
+  textAlign(CORNER);
+  fill(0);
+  text("Return", 82, 75);
  }
  
  
