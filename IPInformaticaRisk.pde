@@ -35,7 +35,13 @@ String refAttDis;
 PImage background;
 PImage logo;
 PImage riskMap;
-PImage soldier;
+PImage soldierRed;
+PImage soldierBlue;
+PImage soldierPurple;
+PImage soldierYellow;
+PImage soldierOrange;
+PImage soldierGreen;
+
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -96,7 +102,12 @@ void loadImages(){
   background = loadImage("data/Images/mainMenuPlaceholder.jpg");
   logo = loadImage("data/Images/logoDMCV.png");
   riskMap = loadImage("data/Images/mapLaatsteVersieAangepast.png");
-  soldier = loadImage("data/Images/soldier.png");
+  soldierRed = loadImage("data/Images/soldierRed.png");
+  soldierRed = loadImage("data/Images/soldierBlue.png");
+  soldierRed = loadImage("data/Images/soldierOrange.png");
+  soldierRed = loadImage("data/Images/soldierYellow.png");
+  soldierRed = loadImage("data/Images/soldierGreen.png");
+  soldierRed = loadImage("data/Images/soldierPurple.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.
