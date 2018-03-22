@@ -162,6 +162,7 @@ void initiateCountries(){
         n.x = row.getInt(2);
         n.y = row.getInt(3);
         n.country = c;
+        n.soldiers = 0;
         nodes.add(n);
         c.node = n;
       }

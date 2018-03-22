@@ -1,6 +1,5 @@
 int placedSoldiers;
 Node activeNode;
-Node checkNode;
 
 void drawGame(){
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
@@ -67,7 +66,7 @@ void drawSoldier(){
   
   textSize(25);
   fill(0);
-  text(5, n.x + 30, n.y);
+  text(n.soldiers, n.x + 30, n.y);
  }
 }
 
