@@ -46,13 +46,21 @@ void turnSystem(){
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
     if(refAttDis == "reinforce"){
       refAttDis = "attack";
+      drawGame();
     }
     if(refAttDis == "attack"){
       refAttDis = "distribute";
-    }
+      drawGame();  
+  }
     if(refAttDis == "distribute"){
-      //playerTurnInt =
+      if(playerTurnInt == playerAmount){
+      playerTurnInt = 0;
+      globalTurn ++;
+      }
+      playerTurnInt++;      
+      playerTurn = players.get(playerTurnInt - 1);
       refAttDis = "reinforce";
+      drawGame();
     }
   }
   
@@ -179,6 +187,8 @@ void startGameButton(){
          println("Dit is een " + e.toString() + " exception, dit is normaal.");
        }
      state="game";
+     playerTurnInt = 1;
+     playerTurn = players.get(0);
      drawGame();
   }
   if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
