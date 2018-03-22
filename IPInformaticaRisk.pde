@@ -21,10 +21,15 @@ ControlP5 cp5;
 int playerAmount;
 int AIAmount = 0;
 
-//Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu" of "game" . We beginnen met menu
+//Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu", "gameAttack", "gameReinforce" . We beginnen met menu
 String state = "menu";
 //Welke speler aan de beurt is
 Player playerTurn;
+int playerTurnInt;
+//De hoeveelste beurt het is, met 1 beurt bedoel ik hier dat iedereen 1 keer aan de beurt is geweest
+int globalTurn = 1;
+//Hierin staat wat de speler aan het doen is, "reinforce", "attack" of "distribute", gebruik aub precies deze namen
+String refAttDis;
 
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
 PImage background;
@@ -60,11 +65,17 @@ void draw(){
     case("creditMenu"):
       drawCreditsMenu();
     break;
-    case("game"):
+    case("gameAttack"):
+
+    break;
+    case("gameReinforce"):
 
     break;
     case("startMenu"):
 
+    break;
+    case("game"):
+    
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");

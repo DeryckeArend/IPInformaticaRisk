@@ -27,8 +27,8 @@ void mousePressed(){
       returnMenu();
     break;
     case("game"):
-      neighbourNodes();
-
+      //neighbourNodes();
+      turnSystem();
     break;
     case("startMenu"):
     if(startMenuState==0){
@@ -41,6 +41,30 @@ void mousePressed(){
   }
   
 }
+
+void turnSystem(){
+  if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
+    if(refAttDis == "reinforce"){
+      refAttDis = "attack";
+      drawGame();
+    }
+    if(refAttDis == "attack"){
+      refAttDis = "distribute";
+      drawGame();  
+  }
+    if(refAttDis == "distribute"){
+      if(playerTurnInt == playerAmount){
+      playerTurnInt = 0;
+      globalTurn ++;
+      }
+      playerTurnInt++;      
+      playerTurn = players.get(playerTurnInt - 1);
+      refAttDis = "reinforce";
+      drawGame();
+    }
+  }
+  
+  }
 
 //Deze methode controleert waar de muis is en of je op een rechthoek(knop) klikt in het hoofdmenu
 void mainMenu(){
@@ -115,6 +139,11 @@ void nextMenu(){
      startMenuState = 1;
    }
  }
+ if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
+    r.remove(); 
+    drawMainMenu();
+    state = "menu";
+ }
 }
   
 void mouseReleased() {
@@ -158,7 +187,19 @@ void startGameButton(){
          println("Dit is een " + e.toString() + " exception, dit is normaal.");
        }
      state="game";
+     playerTurnInt = 1;
+     playerTurn = players.get(0);
      drawGame();
+  }
+  if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
+    try{
+       cp5.remove(this);
+     }catch(Exception e){
+         println("Dit is een " + e.toString() + " exception, dit is normaal.");
+       }
+    drawStartMenu();
+    startMenuState=0;
+    state = "startMenu";
   }
 }
 
@@ -166,10 +207,11 @@ boolean isOver(){
     return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
   }
   
-void neighbourNodes(){
+/*void neighbourNodes(){
   for(Node n: nodes) {
     if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
       drawDistBox(n.x, n.y);
      }
   }
-}
+ 
+}*/
