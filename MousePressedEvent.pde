@@ -131,6 +131,11 @@ void nextMenu(){
      startMenuState = 1;
    }
  }
+ if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
+    r.remove(); 
+    drawMainMenu();
+    state = "menu";
+ }
 }
   
 void mouseReleased() {
@@ -175,6 +180,16 @@ void startGameButton(){
        }
      state="game";
      drawGame();
+  }
+  if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
+    try{
+       cp5.remove(this);
+     }catch(Exception e){
+         println("Dit is een " + e.toString() + " exception, dit is normaal.");
+       }
+    drawStartMenu();
+    startMenuState=0;
+    state = "startMenu";
   }
 }
 
