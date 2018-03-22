@@ -27,8 +27,14 @@ void mousePressed(){
       returnMenu();
     break;
     case("game"):
+    if(refAttDis.equals("reinforce")){
       neighbourNodes();
-      turnSystem();
+    }if(refAttDis.equals("attack")){
+      
+    }if(refAttDis.equals("distribute")){
+      
+    }
+    turnSystem();
     break;
     case("startMenu"):
     if(startMenuState==0){
@@ -49,6 +55,8 @@ void turnSystem(){
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
     if(refAttDis == "reinforce"){
       refAttDis = "attack";
+      cp5.remove("plusButton");
+      cp5.remove("minusButton");
       drawGame();
     }
     if(refAttDis == "attack"){

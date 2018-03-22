@@ -103,8 +103,8 @@ void drawSidebar() {
       text(p.countries, 1880, yPosT + 70);
       
       fill(255);
-      yPos += 150;
-      yPosT += 150;
+      yPos += 140;
+      yPosT += 140;
       i++;
   } 
       
