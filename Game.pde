@@ -1,5 +1,6 @@
 int placedSoldiers;
 Node activeNode;
+Node checkNode;
 
 void drawGame(){
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
@@ -182,7 +183,6 @@ void distributeSoldiers() {
 }
 
 void drawDistBox(int xPos, int yPos) {
-
   cp5 = new ControlP5(this);
   cp5.addButton("plusButton")
      .setPosition(xPos+20, yPos-50)
@@ -210,7 +210,6 @@ void drawTextDistBox(int xPos, int yPos) {
 
 public void plusButton() {
   placedSoldiers++;
-  println(placedSoldiers);
   drawTextDistBox(activeNode.x,activeNode.y);
 }
 
