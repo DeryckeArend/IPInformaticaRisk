@@ -20,7 +20,6 @@
   
  }
   
- 
  void diceMaker(int side, int x, int y, color c){
    //backgroundDice
    noStroke();
