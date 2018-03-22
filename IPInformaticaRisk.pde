@@ -22,7 +22,7 @@ int playerAmount;
 int AIAmount = 0;
 
 //Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu", "gameAttack", "gameReinforce" . We beginnen met menu
-String state = "menu";
+String state = "loadScreen";
 //Welke speler aan de beurt is
 Player playerTurn;
 int playerTurnInt;
@@ -40,7 +40,10 @@ PImage soldier;
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
   fullScreen();
+  loadScreen();
+  frame.setResizable(true);
   //size(640, 620);
+  state="menu";
   initiate();
   drawMainMenu();
   //drawDice(6,4);
@@ -53,6 +56,9 @@ void setup(){
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
 void draw(){
  switch(state){
+    case("loadScreen"):
+   load();
+   break;
     case("menu"):
 
     break;
