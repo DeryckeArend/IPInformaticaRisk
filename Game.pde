@@ -43,6 +43,9 @@ void verdeelLanden() {
 
 void drawSoldier(){
  for(Node n: nodes){
+   switch(n.country.owner.playerColor){
+     
+   }
   image(soldier,n.x + 7, n.y, 50, 60);
   textSize(25);
   text(5, n.x + 30, n.y);
