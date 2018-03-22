@@ -14,7 +14,7 @@ void mousePressed(){
       mainMenu();
     break;
     case("optionsMenu"):
-      returnMenu();
+      returnMenuOptions();
     break;
     case("instructionsMenu"):
       returnMenu();
@@ -101,6 +101,15 @@ void returnMenu() {
     buttonClicked();  
     drawMainMenu();
     state = "menu";
+  }
+}
+
+void returnMenuOptions() {
+  if(10 < mouseY && mouseY < 70 && 10 < mouseX && mouseX < 200){
+    //Het geluidje
+    buttonClicked();  
+    drawMainMenu();
+    state = "menu";
     stopSound();
     setupSound();
   }
@@ -141,9 +150,11 @@ void updateSlider(){
   fill(255);
   textSize(32);
   textAlign(CENTER);
-  text("Sound:", initialX -100, y+10);
+  text("Music:", initialX -100, y+10);
   text(int(value) +"%", higherX +100, y+10);
   drawSliderBox();
+  
+  
 }
 
 void startGameButton(){

@@ -77,7 +77,7 @@ void drawSidebar() {
       strokeWeight(3);
     }
       fill(p.playerColor);
-      stroke(100);
+      stroke(0);
       rect(1500, yPos, 400, 125, 30);
       
       fill(0);

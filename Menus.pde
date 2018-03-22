@@ -87,7 +87,7 @@ void drawCreditsMenu(){
   text("Game code:", width/2-100, namenCreditsY+100);
   textAlign(LEFT);
   text("Arend Derycke", width/2+100, namenCreditsY+100);
-  text("Egon Van Hoenacker", width/2+100, namenCreditsY+150);
+  text("Egon Vanhoenacker", width/2+100, namenCreditsY+150);
   text("Arne Callaert", width/2+100, namenCreditsY+200);
   text("Alex Moens", width/2+100, namenCreditsY+250);
   text("Leonie Van Renterghem", width/2+100, namenCreditsY+300);
@@ -96,7 +96,7 @@ void drawCreditsMenu(){
   text("Map:", width/2-100, namenCreditsY+400);
   textAlign(LEFT);
   text("Alex Moens", width/2+100, namenCreditsY+400);
-  text("Egon Van Hoenacker", width/2+100, namenCreditsY+450);
+  text("Egon Vanhoenacker", width/2+100, namenCreditsY+450);
   text("Arne Callaert", width/2+100, namenCreditsY+500);
   text("Arend Derycke", width/2+100, namenCreditsY+550);
   text("Leonie Van Renterghem", width/2+100, namenCreditsY+600);
@@ -107,7 +107,7 @@ void drawCreditsMenu(){
   text("Alex Moens", width/2+100, namenCreditsY+700);
   text("Arne Callaert", width/2+100, namenCreditsY+750);
   text("Arend Derycke", width/2+100, namenCreditsY+800);
-  text("Egon Van Hoenacker", width/2+100, namenCreditsY+850);
+  text("Egon Vanhoenacker", width/2+100, namenCreditsY+850);
   text("Leonie Van Renterghem", width/2+100, namenCreditsY+900);
   
   fill(122, 105, 68, 100);
