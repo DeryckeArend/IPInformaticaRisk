@@ -1,5 +1,5 @@
-
 int placedSoldiers;
+Node activeNode;
 
 void drawGame(){
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
@@ -157,7 +157,6 @@ void distributeSoldiers() {
   placedSoldiers = 0;
   Player p = playerTurn;
   int soldierAmount = (p.points - p.countries) + p.countries/2;
-  
   boolean endDistTurnButton = false;
   while(placedSoldiers < soldierAmount && !endDistTurnButton) {
     
@@ -165,28 +164,44 @@ void distributeSoldiers() {
 }
 
 void drawDistBox(int xPos, int yPos) {
-  fill(0);
-  stroke(255);
-  rect(xPos+17, yPos-45, 125, 40, 50);
+
   cp5 = new ControlP5(this);
   cp5.addButton("plusButton")
      .setPosition(xPos+20, yPos-50)
      .setImages(loadImage("data/Images/up.png"), loadImage("data/Images/up.png"), loadImage("data/Images/up.png"))
      .updateSize();
-  textAlign(CENTER);
-  textSize(30);
-  fill(255);
-  text(placedSoldiers, xPos+80,yPos -15);
+
   cp5.addButton("minusButton")
      .setPosition(xPos+90, yPos-50)
      .setImages(loadImage("data/Images/down.png"), loadImage("data/Images/down.png"), loadImage("data/Images/down.png"))
      .updateSize();
 }
 
+void drawTextDistBox(int xPos, int yPos) {
+  //rect
+  rectMode(CORNER);
+  fill(0);
+  stroke(255);
+  rect(xPos+17, yPos-45, 125, 40, 50);  
+  //text
+  textAlign(CENTER);
+  textSize(30);
+  fill(255);
+  text(placedSoldiers, xPos+80,yPos -15);
+}
+
 public void plusButton() {
   placedSoldiers++;
+  println(placedSoldiers);
+  drawTextDistBox(activeNode.x,activeNode.y);
 }
 
 public void minusButton() {
-  placedSoldiers--;
+  if(placedSoldiers > 0){
+    placedSoldiers--;
+    drawTextDistBox(activeNode.x,activeNode.y);
+  }
+  else{
+    drawTextDistBox(activeNode.x,activeNode.y);
+  }
 }

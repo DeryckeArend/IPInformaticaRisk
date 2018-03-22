@@ -27,7 +27,7 @@ void mousePressed(){
       returnMenu();
     break;
     case("game"):
-      //neighbourNodes();
+      neighbourNodes();
       turnSystem();
     break;
     case("startMenu"):
@@ -207,11 +207,13 @@ boolean isOver(){
     return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
   }
   
-/*void neighbourNodes(){
+void neighbourNodes(){
   for(Node n: nodes) {
     if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
+      activeNode = n;
       drawDistBox(n.x, n.y);
+      drawTextDistBox(n.x,n.y);
      }
   }
  
-}*/
+}
