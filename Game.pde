@@ -1,13 +1,14 @@
 int placedSoldiers;
 Node activeNode;
-Node checkNode;
 
 void drawGame(){
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
   background(0);
+  noStroke();
+  rectMode(CORNER);
+  textAlign(CORNER);
   //Dan laden we een afbeelding op als achtergrond. Eerst maak je in IPInformaticaRisk een variabele aan bovenaan bij de andere PImage. Dan laad je de afbeelding op in loadImages(), ook in IPInformatica
   image(riskMap, 0, 0, width, height);
-  verdeelLanden();
   for(int i = 0; i < nodes.size(); i++){
     Node n = nodes.get(i);
     Country c = n.country;
@@ -17,6 +18,7 @@ void drawGame(){
   }
   drawSoldier();
   drawSidebar();
+  //neighbourNodes();
 }
 
 void verdeelLanden() {
@@ -44,26 +46,27 @@ void verdeelLanden() {
 void drawSoldier(){
  for(Node n: nodes){
    if(n.country.owner.playerColor == color(183, 42, 42)){
-     image(soldierRed,n.x + 7, n.y, 50, 60);
+     image(soldierRed,n.x + 7, n.y, 40, 40);
    }
    if(n.country.owner.playerColor == color(44, 115, 163)){
-     image(soldierBlue,n.x + 7, n.y, 50, 60);
+     image(soldierBlue,n.x + 7, n.y, 40, 40);
    }  
    if(n.country.owner.playerColor == color(43, 162, 47)){
-     image(soldierGreen,n.x + 7, n.y, 50, 60);
+     image(soldierGreen,n.x + 7, n.y, 40, 40);
    }
    if(n.country.owner.playerColor == color(219, 221, 73)){
-     image(soldierYellow,n.x + 7, n.y, 50, 60);
+     image(soldierYellow,n.x + 7, n.y, 40, 40);
    }
    if(n.country.owner.playerColor == color(255,165,0)){
-     image(soldierOrange,n.x + 7, n.y, 50, 60);
+     image(soldierOrange,n.x + 7, n.y, 40, 40);
    }
    if(n.country.owner.playerColor == color(188, 64, 182)){
-     image(soldierPurple,n.x + 7, n.y, 50, 60);
+     image(soldierPurple,n.x + 7, n.y, 40, 40);
    }
   
   textSize(25);
-  text(5, n.x + 30, n.y);
+  fill(0);
+  text(n.soldiers, n.x + 30, n.y);
  }
 }
 
@@ -100,8 +103,8 @@ void drawSidebar() {
       text(p.countries, 1880, yPosT + 70);
       
       fill(255);
-      yPos += 150;
-      yPosT += 150;
+      yPos += 140;
+      yPosT += 140;
       i++;
   } 
       

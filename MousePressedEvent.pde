@@ -27,13 +27,22 @@ void mousePressed(){
       returnMenu();
     break;
     case("game"):
+    if(refAttDis.equals("reinforce")){
       neighbourNodes();
-      turnSystem();
+    }if(refAttDis.equals("attack")){
+      
+    }if(refAttDis.equals("distribute")){
+      
+    }
+    turnSystem();
     break;
     case("startMenu"):
     if(startMenuState==0){
       nextMenu();
     }else{startGameButton();}
+    break;
+    case("loadscreen"):
+    
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
@@ -46,6 +55,8 @@ void turnSystem(){
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
     if(refAttDis == "reinforce"){
       refAttDis = "attack";
+      cp5.remove("plusButton");
+      cp5.remove("minusButton");
       drawGame();
     }
     if(refAttDis == "attack"){
@@ -189,6 +200,7 @@ void startGameButton(){
      state="game";
      playerTurnInt = 1;
      playerTurn = players.get(0);
+     verdeelLanden();
      drawGame();
   }
   if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
@@ -210,11 +222,14 @@ boolean isOver(){
 void neighbourNodes(){
   for(Node n: nodes) {
     if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
-      activeNode = n;
-      drawDistBox(n.x, n.y);
-      drawTextDistBox(n.x,n.y);
-  
-     }
+      if(n.country.owner == playerTurn){
+        drawGame();
+        cp5.remove("plusButton");
+        cp5.remove("minusButton");
+        drawDistBox(n.x, n.y);
+        drawTextDistBox(n.x,n.y);
+        activeNode = n;
+      }
+    }
   }
- 
 }

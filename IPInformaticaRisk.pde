@@ -9,6 +9,7 @@
 
 import java.util.List;
 import controlP5.*;
+import java.util.Collections;
 
 //Hier bovenaan slaan we enkele variabelen op zodat we ze later gemakkelijk terugvinden en veranderen
 List<Country> countries = new ArrayList<Country>();
@@ -29,7 +30,7 @@ int playerTurnInt;
 //De hoeveelste beurt het is, met 1 beurt bedoel ik hier dat iedereen 1 keer aan de beurt is geweest
 int globalTurn = 1;
 //Hierin staat wat de speler aan het doen is, "reinforce", "attack" of "distribute", gebruik aub precies deze namen
-String refAttDis;
+String refAttDis = "reinforce";
 
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
 PImage background;
@@ -87,7 +88,7 @@ void draw(){
 
     break;
     case("game"):
-    
+
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
@@ -109,11 +110,11 @@ void loadImages(){
   logo = loadImage("data/Images/logoDMCV.png");
   riskMap = loadImage("data/Images/mapLaatsteVersieAangepast.png");
   soldierRed = loadImage("data/Images/soldierRed.png");
-  soldierRed = loadImage("data/Images/soldierBlue.png");
-  soldierRed = loadImage("data/Images/soldierOrange.png");
-  soldierRed = loadImage("data/Images/soldierYellow.png");
-  soldierRed = loadImage("data/Images/soldierGreen.png");
-  soldierRed = loadImage("data/Images/soldierPurple.png");
+  soldierBlue = loadImage("data/Images/soldierBlue.png");
+  soldierOrange = loadImage("data/Images/soldierOrange.png");
+  soldierYellow = loadImage("data/Images/soldierYellow.png");
+  soldierGreen = loadImage("data/Images/soldierGreen.png");
+  soldierPurple = loadImage("data/Images/soldierPurple.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.
@@ -161,6 +162,7 @@ void initiateCountries(){
         n.x = row.getInt(2);
         n.y = row.getInt(3);
         n.country = c;
+        n.soldiers = 0;
         nodes.add(n);
         c.node = n;
       }
