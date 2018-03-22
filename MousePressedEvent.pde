@@ -4,7 +4,7 @@ int startMenuState = 0;
 
 void mousePressed(){
   
-  text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
+  //text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
   
   if(isOver()) {
     lock = true;
@@ -27,7 +27,7 @@ void mousePressed(){
       returnMenu();
     break;
     case("game"):
-      //neighbourNodes();
+      neighbourNodes();
 
     break;
     case("startMenu"):
@@ -162,6 +162,7 @@ void startGameButton(){
      }catch(Exception e){
          println("Dit is een " + e.toString() + " exception, dit is normaal.");
        }
+     state="game";
      drawGame();
   }
   if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
@@ -179,3 +180,11 @@ void startGameButton(){
 boolean isOver(){
     return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
   }
+  
+void neighbourNodes(){
+  for(Node n: nodes) {
+    if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
+      drawDistBox();
+     }
+  }
+}

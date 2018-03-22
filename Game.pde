@@ -1,27 +1,3 @@
-void neighbourNodes(){
-  for(Node n: nodes) {
-    if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
-      //drawGame();
-      noStroke();
-      fill(255,255,255);
-      ellipse(n.x,n.y,straal,straal);
-      Country c = n.country;
-       for(int i = 0; i < c.neighbours.length; i++){
-         Node node = getCountry(c.neighbours[i]).node;
-         
-         if(getCountry(c.neighbours[i]).owner.name.equals(c.owner.name)){
-           fill(80, 126, 201);
-           ellipse(node.x, node.y, straal, straal);
-         }
-         if(!getCountry(c.neighbours[i]).owner.name.equals(c.owner.name)){
-           fill(204, 79, 102);
-           ellipse(node.x, node.y, straal, straal);
-         }
-       }
-     }
-  }
-}
-
 void drawGame(){
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
   background(0);
@@ -105,7 +81,17 @@ void drawSidebar() {
       yPos += 150;
       yPosT += 150;
       i++;
-  }
+  } 
+      
+     fill(91,89,87);
+     rectMode(CENTER);
+     rect(1700,1000,300,50,25);
+     fill(255);
+     textAlign(CENTER);
+     textSize(25);
+     text("Volgende beurt",1700,1007.5);
+      
+ 
 }
 
 void checkContinents(Continent continent){
@@ -170,6 +156,28 @@ void distributeSoldiers() {
   int placedSoldiers = 2;
   boolean endDistTurnButton = false;
   while(placedSoldiers < soldierAmount && !endDistTurnButton) {
-    //code voor de knoppen om soldaten te assignen
+    
   }
 }
+
+/*void drawDistBox() {
+  cp5 = new ControlP5(this);
+  r = cp5.addRadioButton("radioButtonPlayers")
+         .setPosition(n.x,300)
+         .setSize(50,50)
+         .setColorForeground(color(0))
+         .setColorBackground(color(89,68,39))
+         .setColorActive(color(0))
+         .setColorLabel(color(0))
+         .setColorValue(0)
+         .setItemsPerRow(5)
+         .setSpacingColumn(100)
+         .addItem("2",2)
+         .addItem("3",3);
+  PFont pfont = createFont("Arial",20,true); // use true/false for smooth/no-smooth
+  ControlFont font = new ControlFont(pfont,60);
+  r.setFont(font);
+  //.align(ControlP5.CENTER, ControlP5.TOP);
+  cp5.setFont(font);
+}
+*/
