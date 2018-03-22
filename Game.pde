@@ -83,7 +83,17 @@ void drawSidebar() {
       yPos += 150;
       yPosT += 150;
       i++;
-  }
+  } 
+      
+     fill(91,89,87);
+     rectMode(CENTER);
+     rect(1700,1000,300,50,25);
+     fill(255);
+     textAlign(CENTER);
+     textSize(25);
+     text("Volgende beurt",1700,1007.5);
+      
+ 
 }
 
 void checkContinents(Continent continent){
@@ -152,7 +162,7 @@ void distributeSoldiers() {
   }
 }
 
-void drawDistBox() {
+/*void drawDistBox() {
   cp5 = new ControlP5(this);
   r = cp5.addRadioButton("radioButtonPlayers")
          .setPosition(n.x,300)
@@ -172,3 +182,4 @@ void drawDistBox() {
   //.align(ControlP5.CENTER, ControlP5.TOP);
   cp5.setFont(font);
 }
+*/
