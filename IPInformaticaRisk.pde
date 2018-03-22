@@ -109,11 +109,11 @@ void loadImages(){
   logo = loadImage("data/Images/logoDMCV.png");
   riskMap = loadImage("data/Images/mapLaatsteVersieAangepast.png");
   soldierRed = loadImage("data/Images/soldierRed.png");
-  soldierRed = loadImage("data/Images/soldierBlue.png");
-  soldierRed = loadImage("data/Images/soldierOrange.png");
-  soldierRed = loadImage("data/Images/soldierYellow.png");
-  soldierRed = loadImage("data/Images/soldierGreen.png");
-  soldierRed = loadImage("data/Images/soldierPurple.png");
+  soldierBlue = loadImage("data/Images/soldierBlue.png");
+  soldierOrange = loadImage("data/Images/soldierOrange.png");
+  soldierYellow = loadImage("data/Images/soldierYellow.png");
+  soldierGreen = loadImage("data/Images/soldierGreen.png");
+  soldierPurple = loadImage("data/Images/soldierPurple.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.
