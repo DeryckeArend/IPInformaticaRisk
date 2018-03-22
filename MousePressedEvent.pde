@@ -213,6 +213,7 @@ void neighbourNodes(){
       activeNode = n;
       drawDistBox(n.x, n.y);
       drawTextDistBox(n.x,n.y);
+  
      }
   }
  
