@@ -4,6 +4,8 @@ int startMenuState = 0;
 
 void mousePressed(){
   
+  text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
+  
   if(isOver()) {
     lock = true;
   }
@@ -47,23 +49,14 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight)){
-      //drawGame();
-      //drawStartMenu();
-      state = "game";
-
       //buttonClicked();
-      //drawGame();
-      //state = "game";
-
       drawStartMenu();
       state = "startMenu";
     }
     
     //Tweede knop naar spelregels
     if(button1Height + 100 < mouseY && mouseY < (button1Height + buttonHeight + 100)){
-
       buttonClicked();
-
       drawInstructionMenu();
       state="instructionsMenu";
 
@@ -71,9 +64,7 @@ void mainMenu(){
     
     //Derde knop naar Opties
     if(button1Height + 200 < mouseY && mouseY < (button1Height + buttonHeight + 200)){
-
       buttonClicked();
-      
       drawOptionsMenu();
       drawSliderBox();
       updateSlider();
@@ -117,7 +108,7 @@ void returnMenuOptions() {
 
 void nextMenu(){
  if((width/2 - 120) < mouseX &&  mouseX < (width/2 + 120) && 800 < mouseY && mouseY < 875){
-   if(playerAmount != 0 && startMenuState == 0){
+   if(playerAmount != 0){
      r.remove();
      //r2.remove();
      drawPlayerSelectMenu();
@@ -158,7 +149,7 @@ void updateSlider(){
 }
 
 void startGameButton(){
-  if((width/2-120) < mouseX && mouseX < (width/2 + 120) && 912.5 < mouseY && mouseY < 987.5){
+  if((width/2-120) < mouseX && mouseX < (width/2 + 120) && 950 < mouseY && mouseY < 1025){
      loadPlayers();
      //Dit is tijdelijk, er zou een betere methode moeten zijn.
      try{
@@ -166,7 +157,6 @@ void startGameButton(){
      }catch(Exception e){
          println("Dit is een " + e.toString() + " exception, dit is normaal.");
        }
-     state="game";
      drawGame();
   }
 }
