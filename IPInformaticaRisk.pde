@@ -75,7 +75,9 @@ void draw(){
 
     break;
     case("game"):
-    
+      /*if(activeNode != null){
+        drawDistBox(activeNode.x,activeNode.y);
+      }*/
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
