@@ -160,10 +160,10 @@ void nextMenu(){
 }
   
 void mouseReleased() {
-    lock = false;
-    
+    lock = false;   
 }
 
+//begin slider event
 void updateSlider(){
   drawSliderBox();
   fill(0);
@@ -186,9 +186,12 @@ void updateSlider(){
   text("Music:", initialX -100, y+10);
   text(int(value) +"%", higherX +100, y+10);
   drawSliderBox();
-  
-  
 }
+
+boolean isOver(){
+    return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
+}
+//end slider event
 
 void startGameButton(){
   if((width/2-120) < mouseX && mouseX < (width/2 + 120) && 950 < mouseY && mouseY < 1025){
@@ -216,10 +219,6 @@ void startGameButton(){
     state = "startMenu";
   }
 }
-
-boolean isOver(){
-    return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
-  }
   
 void quitButton(){
     if((sqrt(((1870 - mouseX)*(1870 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){

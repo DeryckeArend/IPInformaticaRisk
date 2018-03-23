@@ -181,19 +181,18 @@ void drawStartMenu(){
   //.align(ControlP5.CENTER, ControlP5.TOP);
   cp5.setFont(font);
   
-  //Aanpassen 
-  
-  fill(color(89,68,39));
-  rect((width/2 -120),800, 240,75);
+  textSize(50);
+  stroke(10);
+  fill(89, 68, 39);
+  rect((width/2 -130),800, 260,75);
   fill(0);
   text("Volgende", width/2,850);
-  
-  fill(color(89,68,39));
-  rect(30, 20, 225, 75);
-  textAlign(CORNER);
+  fill(122, 105, 68, 100);
+  rect(10, 10, 200, 70);
   fill(0);
-  text("Terug", 70, 75);
+    
   textAlign(CENTER);
+  text("Terug", 110, 65);
   
 }
 
@@ -298,18 +297,18 @@ void drawPlayerSelectMenu(){
   
   //De knop onderaan die ons naar het volgende scherm brengt
   rectMode(CORNER);
-  fill(color(89,68,39));
+  textSize(50);
+  stroke(10);
+  fill(89, 68, 39);
   rect((width/2 -120),950, 240,75);
   fill(0);
-  textAlign(CENTER);
   text("Volgende", width/2,1005);
-  state = "startMenu";
-  
-  fill(color(89,68,39));
-  rect(30, 20, 225, 75);
-  textAlign(CORNER);
+  fill(122, 105, 68, 100);
+  rect(10, 10, 200, 70);
   fill(0);
-  text("Terug", 82, 75);
+    
+  textAlign(CENTER);
+  text("Terug", 110, 65);
  }
  
  
