@@ -95,8 +95,8 @@ void drawSidebar() {
       
       textAlign(LEFT);
       textSize(20);
-      text("Points: ", 1520, yPosT + 30);
-      text("Countries: ", 1520, yPosT + 70);
+      text("Punten: ", 1520, yPosT + 30);
+      text("Landen: ", 1520, yPosT + 70);
       
       textAlign(RIGHT);
       text(p.points, 1880, yPosT + 30);
@@ -107,7 +107,10 @@ void drawSidebar() {
       yPosT += 140;
       i++;
   } 
-      
+     
+     rectMode(CENTER);
+     rect(1525, 925, 150 , 50);
+     
      fill(91,89,87);
      rectMode(CENTER);
      rect(1700,1000,300,50,25);
@@ -115,8 +118,6 @@ void drawSidebar() {
      textAlign(CENTER);
      textSize(25);
      text("Volgende beurt",1700,1007.5);
-      
- 
 }
 
 void checkContinents(Continent continent){
