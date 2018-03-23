@@ -124,8 +124,7 @@ void mainMenu(){
 }
 
 void returnMenu() {
-  if(10 < mouseY && mouseY < 70 && 10 < mouseX && mouseX < 200){
-    //Het geluidje
+  if(10 < mouseX && mouseX < 200 && 10 < mouseY && mouseY < 80){
     buttonClicked();  
     drawMainMenu();
     state = "menu";
@@ -133,8 +132,7 @@ void returnMenu() {
 }
 
 void returnMenuOptions() {
-  if(10 < mouseY && mouseY < 70 && 10 < mouseX && mouseX < 200){
-    //Het geluidje
+  if(10 < mouseX && mouseX < 200 && 10 < mouseY && mouseY < 80){
     buttonClicked();  
     drawMainMenu();
     state = "menu";
@@ -153,7 +151,7 @@ void nextMenu(){
      startMenuState = 1;
    }
  }
- if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
+ if(10 < mouseX && mouseX < 200 && 10 < mouseY && mouseY < 80){
     r.remove(); 
     buttonClicked();
     drawMainMenu();
@@ -211,7 +209,7 @@ void startGameButton(){
      verdeelLanden();
      drawGame();
   }
-  if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
+  if(10 < mouseX && mouseX < 200 && 10 < mouseY && mouseY < 80){
     buttonClicked();
     try{
        cp5.remove(this);
@@ -225,7 +223,6 @@ void startGameButton(){
 }
   
 void quitButton(){
-    buttonClicked();
     if((sqrt(((1870 - mouseX)*(1870 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
       rectMode(CORNER);
       fill(206, 169, 99);

@@ -189,12 +189,12 @@ void drawDistBox(Node n) {
   cp5 = new ControlP5(this);
   cp5.addButton("plusButton")
      .setPosition(n.x+20, n.y-50)
-     .setImages(loadImage("data/Images/up.png"), loadImage("data/Images/up.png"), loadImage("data/Images/up.png"))
+     .setImages(upButton, upButton, upButton)
      .updateSize();
 
   cp5.addButton("minusButton")
      .setPosition(n.x+90, n.y-50)
-     .setImages(loadImage("data/Images/down.png"), loadImage("data/Images/down.png"), loadImage("data/Images/down.png"))
+     .setImages(downButton, downButton, downButton)
      .updateSize();
 }
 

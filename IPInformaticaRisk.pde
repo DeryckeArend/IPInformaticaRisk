@@ -43,7 +43,8 @@ PImage soldierYellow;
 PImage soldierOrange;
 PImage soldierGreen;
 PImage house;
-
+PImage upButton;
+PImage downButton;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -115,6 +116,8 @@ void loadImages(){
   soldierGreen = loadImage("data/Images/soldierGreen.png");
   soldierPurple = loadImage("data/Images/soldierPurple.png");
   house = loadImage("data/Images/house.png");
+  upButton = loadImage("data/Images/up.png");
+  downButton = loadImage("data/Images/down.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.

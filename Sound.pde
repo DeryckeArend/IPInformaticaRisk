@@ -22,7 +22,7 @@ void buttonClicked() {
   buttonClick = new SoundFile(this, "Music/buttonclick.mp3");
   buttonClick.play();
 }
-
+/*
 //muziekje wanneer je klikt op aanvallen
 void attackSound() {
   attackSound = new SoundFile(this, "");
@@ -32,4 +32,4 @@ void attackSound() {
 void nextPlayer() {
   nextPlayer = new SoundFile(this, "");
   nextPlayer.play();
-}
+}*/
