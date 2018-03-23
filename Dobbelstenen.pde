@@ -7,8 +7,8 @@
    PFont titleDice =createFont("Showcard Gothic",40);
    textFont(titleDice,40);
    textAlign(CENTER);
-   text("aanvaller",(width/2)-350,275); 
-   text("verdediger",(width/2)+350,275);
+   text("Aanvaller",(width/2)-350,275); 
+   text("Verdediger",(width/2)+350,275);
    
    //Afhankelijk van het aantal dobbelstenen van de verdediger worden de rechthoekjes en de cirkeltjes getekend in diceMaker
    

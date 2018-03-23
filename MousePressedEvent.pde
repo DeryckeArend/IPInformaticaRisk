@@ -3,7 +3,6 @@
 int startMenuState = 0;
 
 void mousePressed(){
-  
   //text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
   
   if(isOver()) {
@@ -58,22 +57,24 @@ void turnSystem(){
       refAttDis = "attack";
       cp5.remove("plusButton");
       cp5.remove("minusButton");
-      drawGame();
+      for(Node n : nodes){
+        n.soldiers = n.soldiers + n.soldiersRenDis;
+        n.soldiersRenDis = 0;
+      }
     }
-    if(refAttDis == "attack"){
+    else if(refAttDis == "attack"){
       refAttDis = "distribute";
-      drawGame();  
-  }
-    if(refAttDis == "distribute"){
+    }
+    else if(refAttDis == "distribute"){
       if(playerTurnInt == playerAmount){
-      playerTurnInt = 0;
-      globalTurn ++;
+        playerTurnInt = 0;
+        globalTurn ++;
       }
       playerTurnInt++;      
       playerTurn = players.get(playerTurnInt - 1);
       refAttDis = "reinforce";
-      drawGame();
     }
+    drawGame();
   }
   
   }
@@ -249,8 +250,8 @@ void neighbourNodes(){
         drawGame();
         cp5.remove("plusButton");
         cp5.remove("minusButton");
-        drawDistBox(n.x, n.y);
-        drawTextDistBox(n.x,n.y);
+        drawDistBox(n);
+        drawTextDistBox(n);
         activeNode = n;
       }
     }

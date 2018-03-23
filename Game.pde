@@ -20,6 +20,7 @@ void drawGame(){
   drawSidebar();
   //neighbourNodes();
   
+  noStroke();
   ellipse(1870, 45, 65, 65);
   image(house, 1844.5, 18, 50, 50);
 }
@@ -76,12 +77,10 @@ void drawSoldier(){
 void drawSidebar() {
   int yPos = 100;
   int yPosT = 130;
-  int playerTurnInt = 1;
   
   strokeWeight(3);
-  int i = 0;
   for (Player p : players) {
-    if (i == playerTurnInt - 1) {
+    if (p == playerTurn) {
       strokeWeight(10);
     }
     else {
@@ -108,9 +107,9 @@ void drawSidebar() {
       fill(255);
       yPos += 140;
       yPosT += 140;
-      i++;
   } 
 
+     strokeWeight(3);
      fill(91,89,87);
      rectMode(CENTER);
      rect(1700,1000,300,50,25);
@@ -177,52 +176,49 @@ void loadPlayers(){
 }
 
 void distributeSoldiers() {
-  placedSoldiers = 0;
+  activeNode.soldiersRenDis = 0;
   Player p = playerTurn;
   int soldierAmount = (p.points - p.countries) + p.countries/2;
   boolean endDistTurnButton = false;
-  while(placedSoldiers < soldierAmount && !endDistTurnButton) {
+  while(activeNode.soldiersRenDis < soldierAmount && !endDistTurnButton) {
     
   }
 }
 
-void drawDistBox(int xPos, int yPos) {
+void drawDistBox(Node n) {
   cp5 = new ControlP5(this);
   cp5.addButton("plusButton")
-     .setPosition(xPos+20, yPos-50)
+     .setPosition(n.x+20, n.y-50)
      .setImages(loadImage("data/Images/up.png"), loadImage("data/Images/up.png"), loadImage("data/Images/up.png"))
      .updateSize();
 
   cp5.addButton("minusButton")
-     .setPosition(xPos+90, yPos-50)
+     .setPosition(n.x+90, n.y-50)
      .setImages(loadImage("data/Images/down.png"), loadImage("data/Images/down.png"), loadImage("data/Images/down.png"))
      .updateSize();
 }
 
-void drawTextDistBox(int xPos, int yPos) {
+void drawTextDistBox(Node n) {
   //rect
   rectMode(CORNER);
   fill(0);
   stroke(255);
-  rect(xPos+17, yPos-45, 125, 40, 50);  
+  rect(n.x+17, n.y-45, 125, 40, 50);  
   //text
   textAlign(CENTER);
   textSize(30);
   fill(255);
-  text(placedSoldiers, xPos+80,yPos -15);
+  text(n.soldiersRenDis, n.x+80, n.y-15);
 }
 
 public void plusButton() {
-  placedSoldiers++;
-  drawTextDistBox(activeNode.x,activeNode.y);
+  activeNode.soldiersRenDis++;
+  drawTextDistBox(activeNode);
 }
 
 public void minusButton() {
-  if(placedSoldiers > 0){
-    placedSoldiers--;
-    drawTextDistBox(activeNode.x,activeNode.y);
+  if(activeNode.soldiersRenDis > 0){
+    activeNode.soldiersRenDis--;
   }
-  else{
-    drawTextDistBox(activeNode.x,activeNode.y);
-  }
+    drawTextDistBox(activeNode);
 }
