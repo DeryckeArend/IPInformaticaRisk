@@ -144,7 +144,7 @@ void loadPlayers(){
   //Hierin worden de naam van de speler, zijn kleur en de rest opgeladen en opgeslaan
   for(int i = 1; i <= playerAmount; i++){
     Player p = new Player();
-    p.name = cp5.get(Textfield.class, "Name player " + i + ":").getText();
+    p.name = cp5.get(Textfield.class, "Naam speler " + i + ":").getText();
     switch( (int) cp5.get(RadioButton.class, "ColorPicker" + i).getValue()){
       case 1:
         p.playerColor = color(183, 42, 42);

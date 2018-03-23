@@ -86,7 +86,7 @@ void mainMenu(){
     
     //Eerste knop start spel
     if(button1Height < mouseY && mouseY < (button1Height + buttonHeight)){
-      //buttonClicked();
+      buttonClicked();
       drawStartMenu();
       state = "startMenu";
     }
@@ -148,12 +148,14 @@ void nextMenu(){
    if(playerAmount != 0){
      r.remove();
      //r2.remove();
+     buttonClicked();
      drawPlayerSelectMenu();
      startMenuState = 1;
    }
  }
  if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
     r.remove(); 
+    buttonClicked();
     drawMainMenu();
     state = "menu";
  }
@@ -196,6 +198,7 @@ boolean isOver(){
 void startGameButton(){
   if((width/2-120) < mouseX && mouseX < (width/2 + 120) && 950 < mouseY && mouseY < 1025){
      loadPlayers();
+     buttonClicked();
      //Dit is tijdelijk, er zou een betere methode moeten zijn.
      try{
        cp5.remove(this);
@@ -209,6 +212,7 @@ void startGameButton(){
      drawGame();
   }
   if(30 < mouseX && mouseX < 255 && 20 < mouseY && mouseY < 95){
+    buttonClicked();
     try{
        cp5.remove(this);
      }catch(Exception e){
@@ -221,6 +225,7 @@ void startGameButton(){
 }
   
 void quitButton(){
+    buttonClicked();
     if((sqrt(((1870 - mouseX)*(1870 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
       rectMode(CORNER);
       fill(206, 169, 99);

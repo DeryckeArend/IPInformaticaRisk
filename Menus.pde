@@ -198,6 +198,7 @@ void drawStartMenu(){
 
 
 void drawPlayerSelectMenu(){
+   textSize(45);
    image(background, 0, 0, width, height);
    text("Selecteer de Spel-Instellingen",960,75);
    fill(153);
@@ -211,8 +212,8 @@ void drawPlayerSelectMenu(){
     rect(width/4,height/2,480,720,45);
     rect(width/2+width/4,height/2,480,720,45);
 
-    prepareTextField(t1, 280,250, "Name player 1:");
-    prepareTextField(t2, width/2+280,250, "Name player 2:");
+    prepareTextField(t1, 280,250, "Naam speler 1:");
+    prepareTextField(t2, width/2+280,250, "Naam speler 2:");
 
     prepareRadioButton(rcp1,280,400,"ColorPicker1");
     prepareRadioButton(rcp2,width/2+280,400,"ColorPicker2");
@@ -223,9 +224,9 @@ void drawPlayerSelectMenu(){
     rect(width/2,height/2,450,720,45);
     rect((width*3)/4,height/2,450,720,45);
     
-    prepareTextField(t1, 280,250, "Name player 1:");
-    prepareTextField(t2, (width/2)-200,250, "Name player 2:");
-    prepareTextField(t3, (width/2)+280,250, "Name player 3:");
+    prepareTextField(t1, 280,250, "Naam speler 1:");
+    prepareTextField(t2, (width/2)-200,250, "Naam speler 2:");
+    prepareTextField(t3, (width/2)+280,250, "Naam speler 3:");
     
     prepareRadioButton(rcp1,280,450, "ColorPicker1");
     prepareRadioButton(rcp2,(width/2)-200,450,"ColorPicker2");
@@ -238,10 +239,10 @@ void drawPlayerSelectMenu(){
     rect(width/4, height/4+height/2 -50,480,360,45);
     rect(width/2+width/4,height/2+height/4 -50,480,360,45); 
     
-    prepareTextField(t1, 280,250, "Name player 1:");
-    prepareTextField(t2, width/2+280,250, "Name player 2:");
-    prepareTextField(t3, 280,250 + height/2 -150, "Name player 3:");
-    prepareTextField(t4, width/2+280,250 + height/2 -150, "Name player 4:");
+    prepareTextField(t1, 280,250, "Naam speler 1:");
+    prepareTextField(t2, width/2+280,250, "Naam speler 2:");
+    prepareTextField(t3, 280,250 + height/2 -150, "Naam speler 3:");
+    prepareTextField(t4, width/2+280,250 + height/2 -150, "Naam speler 4:");
     
     prepareRadioButton(rcp1,280,398,"ColorPicker1");
     prepareRadioButton(rcp2,width/2+280,398,"ColorPicker2");
@@ -256,11 +257,11 @@ void drawPlayerSelectMenu(){
     rect(width/4+225, height/4+height/2 -50,480,360,45);
     rect((width*3)/4-225,height/2+height/4 -50,480,360,45); 
     
-    prepareTextField(t1, 280,250, "Name player 1:");
-    prepareTextField(t2, (width/2)-200,250, "Name player 2:");
-    prepareTextField(t3, (width/2)+280,250, "Name player 3:");
-    prepareTextField(t3, 500,250 + height/2 -150, "Name player 4:");
-    prepareTextField(t4, width/2+50,250 + height/2 -150, "Name player 5:");
+    prepareTextField(t1, 280,250, "Naam speler 1:");
+    prepareTextField(t2, (width/2)-200,250, "Naam speler 2:");
+    prepareTextField(t3, (width/2)+280,250, "Naam speler 3:");
+    prepareTextField(t3, 500,250 + height/2 -150, "Naam speler 4:");
+    prepareTextField(t4, width/2+50,250 + height/2 -150, "Naam speler 5:");
     
     prepareRadioButton(rcp1,280,398, "ColorPicker1");
     prepareRadioButton(rcp2,(width/2)-200,398,"ColorPicker2");
@@ -278,12 +279,12 @@ void drawPlayerSelectMenu(){
     rect(width/2,height/4+height/2-50,450,360,45);
     rect((width*3)/4,height/4 +height/2-50,450,360,45);
     
-    prepareTextField(t1, 280,250, "Name player 1:");
-    prepareTextField(t2, (width/2)-200,250, "Name player 2:");
-    prepareTextField(t3, (width/2)+280,250, "Name player 3:");
-    prepareTextField(t4, 280,250+height/2-150, "Name player 4:");
-    prepareTextField(t5, (width/2)-200,250+height/2-150, "Name player 5:");
-    prepareTextField(t6, (width/2)+280,250+height/2-150, "Name player 6:");
+    prepareTextField(t1, 280,250, "Naam speler 1:");
+    prepareTextField(t2, (width/2)-200,250, "Naam speler 2:");
+    prepareTextField(t3, (width/2)+280,250, "Naam speler 3:");
+    prepareTextField(t4, 280,250+height/2-150, "Naam speler 4:");
+    prepareTextField(t5, (width/2)-200,250+height/2-150, "Naam speler 5:");
+    prepareTextField(t6, (width/2)+280,250+height/2-150, "Naam speler 6:");
     
     prepareRadioButton(rcp1,280,398, "ColorPicker1");
     prepareRadioButton(rcp2,(width/2)-200,398,"ColorPicker2");
