@@ -19,6 +19,9 @@ void drawGame(){
   drawSoldier();
   drawSidebar();
   //neighbourNodes();
+  
+  ellipse(1870, 45, 65, 65);
+  image(house, 1844.5, 18, 50, 50);
 }
 
 void verdeelLanden() {
