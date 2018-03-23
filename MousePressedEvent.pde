@@ -248,8 +248,8 @@ void neighbourNodes(){
         drawGame();
         cp5.remove("plusButton");
         cp5.remove("minusButton");
-        drawDistBox(n.x, n.y);
-        drawTextDistBox(n.x,n.y);
+        drawDistBox(n);
+        drawTextDistBox(n);
         activeNode = n;
       }
     }
