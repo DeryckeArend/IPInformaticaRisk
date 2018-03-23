@@ -301,7 +301,7 @@ void drawPlayerSelectMenu(){
   fill(color(89,68,39));
   rect((width/2 -120),950, 240,75);
   fill(0);
-  textMode(CENTER);
+  textAlign(CENTER);
   text("Volgende", width/2,1005);
   state = "startMenu";
   

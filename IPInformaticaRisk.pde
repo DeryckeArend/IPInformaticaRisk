@@ -49,7 +49,6 @@ PImage house;
 void setup(){
   fullScreen();
   loadScreen();
-  frame.setResizable(true);
   //size(640, 620);
   state="menu";
   initiate();
