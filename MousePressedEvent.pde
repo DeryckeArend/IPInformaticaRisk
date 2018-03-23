@@ -223,6 +223,7 @@ boolean isOver(){
 void quitButton(){
     if((sqrt(((1870 - mouseX)*(1870 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
       rectMode(CORNER);
+      fill(206, 169, 99);
       rect(384, 316, 1151, 348);
       textAlign(CENTER);
       fill(0);
@@ -230,14 +231,14 @@ void quitButton(){
       rectMode(CENTER);
       fill(0,255,0);
       rect(684, 551.5, 203.5, 75, 25);
-      fill(255,0,0);
       textAlign(CENTER);
       fill(0);
-      text("YES", 684, 551.5);
+      text("YES", 684, 561.5);
+      fill(255,0,0);
       rect(1235, 551.5, 203.5, 75, 25);
       textAlign(CENTER);
       fill(0);
-      text("NO", 1235, 551.5);
+      text("NO", 1235, 561.5);
     }
 }
   
