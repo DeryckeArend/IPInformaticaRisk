@@ -65,7 +65,7 @@ void drawOptionsMenu(){
   fill(0);
   textSize(50);  
   textAlign(CENTER);
-  text("Return", 110, 65);
+  text("Terug", 110, 65);
 }  
 
 void drawSliderBox() {
@@ -115,7 +115,7 @@ void drawCreditsMenu(){
   fill(0);
   textSize(50);
   textAlign(CENTER);
-  text("Return", 110, 65);
+  text("Terug", 110, 65);
   
 }
 
@@ -130,7 +130,7 @@ void drawInstructionMenu(){
   fill(0);
   textSize(50);
   textAlign(CENTER);
-  text("Return", 110, 65);
+  text("Terug", 110, 65);
   
   textSize(40);
   textAlign(LEFT);
@@ -192,7 +192,7 @@ void drawStartMenu(){
   rect(30, 20, 225, 75);
   textAlign(CORNER);
   fill(0);
-  text("Return", 70, 75);
+  text("Terug", 70, 75);
   textAlign(CENTER);
   
 }
@@ -309,7 +309,7 @@ void drawPlayerSelectMenu(){
   rect(30, 20, 225, 75);
   textAlign(CORNER);
   fill(0);
-  text("Return", 82, 75);
+  text("Terug", 82, 75);
  }
  
  

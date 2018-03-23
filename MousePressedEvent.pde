@@ -227,18 +227,18 @@ void quitButton(){
       rect(384, 316, 1151, 348);
       textAlign(CENTER);
       fill(0);
-      text("Are you sure you want to return to the menu?", 959.5, 378);
+      text("Bent u zeker dat u naar het menu wil gaan? ", 959.5, 378);
       rectMode(CENTER);
       fill(0,255,0);
       rect(684, 551.5, 203.5, 75, 25);
       textAlign(CENTER);
       fill(0);
-      text("YES", 684, 561.5);
+      text("JA", 684, 561.5);
       fill(255,0,0);
       rect(1235, 551.5, 203.5, 75, 25);
       textAlign(CENTER);
       fill(0);
-      text("NO", 1235, 561.5);
+      text("NEE", 1235, 561.5);
     }
 }
   
