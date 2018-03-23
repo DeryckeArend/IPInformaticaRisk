@@ -7,4 +7,5 @@ class Node{
  int y;
  
  int soldiers;
+ int soldiersRenDis;
 }

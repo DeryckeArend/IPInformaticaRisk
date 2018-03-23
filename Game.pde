@@ -110,10 +110,7 @@ void drawSidebar() {
       yPosT += 140;
       i++;
   } 
-     
-     rectMode(CENTER);
-     rect(1525, 925, 150 , 50);
-     
+
      fill(91,89,87);
      rectMode(CENTER);
      rect(1700,1000,300,50,25);
