@@ -219,6 +219,27 @@ boolean isOver(){
     return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
   }
   
+  void quitButton(){
+    if((sqrt(((1870 - mouseX)*(1870 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
+      rectMode(CORNER);
+      rect(384, 316, 1151, 348);
+      textAlign(CENTER);
+      fill(0);
+      text("Are you sure you want to return to the menu?", 959.5, 378);
+      rectMode(CENTER);
+      fill(0,255,0);
+      rect(684, 551.5, 203.5, 75, 25);
+      fill(255,0,0);
+      textAlign(CENTER);
+      fill(0);
+      text("YES", 684, 551.5);
+      rect(1235, 551.5, 203.5, 75, 25);
+      textAlign(CENTER);
+      fill(0);
+      text("NO", 1235, 551.5);
+    }
+    }
+  
 void neighbourNodes(){
   for(Node n: nodes) {
     if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
