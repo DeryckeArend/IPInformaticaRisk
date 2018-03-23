@@ -109,6 +109,7 @@ void drawSidebar() {
       yPosT += 140;
   } 
 
+     strokeWeight(3);
      fill(91,89,87);
      rectMode(CENTER);
      rect(1700,1000,300,50,25);
