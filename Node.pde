@@ -8,4 +8,6 @@ class Node{
  
  int soldiers;
  int soldiersRenDis;
+ 
+ boolean active = false;
 }

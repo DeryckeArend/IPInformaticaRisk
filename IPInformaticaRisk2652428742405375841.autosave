@@ -166,7 +166,6 @@ void initiateCountries(){
         n.y = row.getInt(3);
         n.country = c;
         n.soldiers = 0;
-        n.active = false;
         nodes.add(n);
         c.node = n;
       }
