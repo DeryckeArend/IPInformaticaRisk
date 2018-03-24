@@ -26,15 +26,20 @@ void mousePressed(){
       returnMenu();
     break;
     case("game"):
-    if(refAttDis.equals("reinforce")){
+    if(globalTurn == 0) {
+      neighbourNodes();
+      firstRoundTurn();
+    }
+    if(refAttDis.equals("distribute")){
       neighbourNodes();
     }if(refAttDis.equals("attack")){
       
-    }if(refAttDis.equals("distribute")){
+    }if(refAttDis.equals("reinforce")){
       
     }
     turnSystem();
     quitButton();
+    
     break;
     case("startMenu"):
     if(startMenuState==0){
@@ -51,9 +56,26 @@ void mousePressed(){
   
 }
 
+void firstRoundTurn() {
+  if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
+    cp5.remove("plusButton");
+    cp5.remove("minusButton");
+    for(Node n : nodes){
+      n.soldiers = n.soldiers + n.soldiersRenDis;
+      n.soldiersRenDis = 0;
+    }
+    if(playerTurnInt == playerAmount){
+      playerTurnInt = 0;
+      globalTurn ++;
+    }
+    playerTurnInt++;
+    playerTurn = players.get(playerTurnInt - 1);
+  }
+}
+
 void turnSystem(){
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
-    if(refAttDis == "reinforce"){
+    if(refAttDis == "distribute"){
       refAttDis = "attack";
       cp5.remove("plusButton");
       cp5.remove("minusButton");
@@ -63,16 +85,16 @@ void turnSystem(){
       }
     }
     else if(refAttDis == "attack"){
-      refAttDis = "distribute";
+      refAttDis = "reinforce";
     }
-    else if(refAttDis == "distribute"){
+    else if(refAttDis == "reinforce"){
       if(playerTurnInt == playerAmount){
         playerTurnInt = 0;
         globalTurn ++;
       }
       playerTurnInt++;      
       playerTurn = players.get(playerTurnInt - 1);
-      refAttDis = "reinforce";
+      refAttDis = "distribute";
     }
     drawGame();
   }

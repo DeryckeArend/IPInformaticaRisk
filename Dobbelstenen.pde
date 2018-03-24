@@ -1,4 +1,4 @@
- int diceSize = 75;
+int diceSize = 75;
  
  void drawDice(int defenderAmount, int attackerAmount){
    fill(113, 125, 145);
