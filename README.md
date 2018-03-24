@@ -6,9 +6,6 @@
 - In-game screenshot
 - Wekelijkse vooruitgang
 
-### Processing:
-- Een systeem waarbij elke speler aan de beurt komt en als hij klaar is de volgende speler kan starten.
-
 ## Taakverdeling voor donderdag:
 - Egon: 1ste ronde soldaten verdelen + punten berekenen adhv aantal landen en continenten
 - Alex: Sound slider in het pop-up menu zetten
