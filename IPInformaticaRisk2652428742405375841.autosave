@@ -22,15 +22,15 @@ ControlP5 cp5;
 int playerAmount;
 int AIAmount = 0;
 
-//Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu", "gameAttack", "gamereinforce" . We beginnen met menu
+//Hierin slaan we de status op van het huidige scherm dat de game moet tonen. Oftewel "menu", "optionsMenu", "instructionsMenu", "creditMenu", "startMenu", "gameAttack", "gameReinforce" . We beginnen met menu
 String state = "loadScreen";
 //Welke speler aan de beurt is
 Player playerTurn;
-int playerTurnInt = 0;
+int playerTurnInt;
 //De hoeveelste beurt het is, met 1 beurt bedoel ik hier dat iedereen 1 keer aan de beurt is geweest
-int globalTurn = 0;
-//Hierin staat wat de speler aan het doen is, "distribute", "attack" of "reinforce", gebruik aub precies deze namen
-String refAttDis = "distribute";
+int globalTurn = 1;
+//Hierin staat wat de speler aan het doen is, "reinforce", "attack" of "distribute", gebruik aub precies deze namen
+String refAttDis = "reinforce";
 
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
 PImage background;
@@ -45,7 +45,6 @@ PImage soldierGreen;
 PImage house;
 PImage upButton;
 PImage downButton;
-PImage redCross;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -54,7 +53,7 @@ void setup(){
   state="menu";
   initiate();
   drawMainMenu();
-  drawDice(6,4);
+  //drawDice(6,4);
   setupSound();
   //state="game";
   //drawGame();
@@ -82,7 +81,7 @@ void draw(){
     case("gameAttack"):
 
     break;
-    case("gamereinforce"):
+    case("gameReinforce"):
 
     break;
     case("startMenu"):
@@ -119,7 +118,6 @@ void loadImages(){
   house = loadImage("data/Images/house.png");
   upButton = loadImage("data/Images/up.png");
   downButton = loadImage("data/Images/down.png");
-  redCross = loadImage("data/Images/redCross2.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.
@@ -168,7 +166,6 @@ void initiateCountries(){
         n.y = row.getInt(3);
         n.country = c;
         n.soldiers = 0;
-        n.active = false;
         nodes.add(n);
         c.node = n;
       }

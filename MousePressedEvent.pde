@@ -26,12 +26,17 @@ void mousePressed(){
       returnMenu();
     break;
     case("game"):
-    if(refAttDis.equals("reinforce")){
-      neighbourNodes();
-    }if(refAttDis.equals("attack")){
-      
-    }if(refAttDis.equals("distribute")){
-      
+    if(globalTurn == 0) {
+      //Hier zit nog ergens een foutje
+      //distributeNodes();
+      firstRoundTurn();
+    }
+    if(refAttDis.equals("distribute")){
+      distributeNodes();
+    }else if(refAttDis.equals("attack")){
+      attackNodes();
+    }else if(refAttDis.equals("reinforce")){
+      reinforceNodes();
     }
     turnSystem();
     quitButton();
@@ -51,9 +56,26 @@ void mousePressed(){
   
 }
 
+void firstRoundTurn() {
+  if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
+    cp5.remove("plusButton");
+    cp5.remove("minusButton");
+    for(Node n : nodes){
+      n.soldiers = n.soldiers + n.soldiersRenDis;
+      n.soldiersRenDis = 0;
+    }
+    if(playerTurnInt == playerAmount){
+      playerTurnInt = 0;
+      globalTurn ++;
+    }
+    playerTurnInt++;
+    playerTurn = players.get(playerTurnInt - 1);
+  }
+}
+
 void turnSystem(){
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
-    if(refAttDis == "reinforce"){
+    if(refAttDis == "distribute"){
       refAttDis = "attack";
       cp5.remove("plusButton");
       cp5.remove("minusButton");
@@ -63,16 +85,16 @@ void turnSystem(){
       }
     }
     else if(refAttDis == "attack"){
-      refAttDis = "distribute";
+      refAttDis = "reinforce";
     }
-    else if(refAttDis == "distribute"){
+    else if(refAttDis == "reinforce"){
       if(playerTurnInt == playerAmount){
         playerTurnInt = 0;
         globalTurn ++;
       }
       playerTurnInt++;      
       playerTurn = players.get(playerTurnInt - 1);
-      refAttDis = "reinforce";
+      refAttDis = "distribute";
     }
     drawGame();
   }
@@ -243,9 +265,48 @@ void quitButton(){
       text("NEE", 1235, 561.5);
     }
 }
-  
-void neighbourNodes(){
+
+void attackNodes(){
+  drawGame();
   for(Node n: nodes) {
+    n.active = false;
+    if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
+      Country c = n.country;
+       for(int i = 0; i < c.neighbours.length; i++){
+         Node node = getCountry(c.neighbours[i]).node;
+         if(!(getCountry(c.neighbours[i]).owner == c.owner)){
+           n.active = true;
+           strokeWeight(7);
+           stroke(204, 79, 102);
+           line(n.x, n.y, node.x, node.y);
+         } 
+       }
+     }
+  }
+}
+
+void reinforceNodes(){
+  drawGame();
+    for(Node n: nodes) {
+      n.active = false;
+    if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
+      Country c = n.country;
+       for(int i = 0; i < c.neighbours.length; i++){
+         Node node = getCountry(c.neighbours[i]).node;
+         if(getCountry(c.neighbours[i]).owner == c.owner){
+           n.active = true;
+           strokeWeight(7);
+           stroke(80, 126, 201);
+           line(n.x, n.y, node.x, node.y);
+         }
+       }
+     }
+  }
+}
+
+void distributeNodes(){
+  for(Node n: nodes) {
+    n.active = false;
     if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
       if(n.country.owner == playerTurn){
         drawGame();
