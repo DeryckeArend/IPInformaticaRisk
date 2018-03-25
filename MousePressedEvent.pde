@@ -27,25 +27,20 @@ void mousePressed(){
     break;
     case("game"):
     if(globalTurn == 0) {
-      neighbourNodes();
+      reinforceNodes();
       firstRoundTurn();
     }
-    if(refAttDis.equals("distribute")){
-      neighbourNodes();
-    }if(refAttDis.equals("attack")){
-      
-    }if(refAttDis.equals("reinforce")){
-      
-    if(refAttDis.equals("reinforce")){
+    else if(refAttDis.equals("reinforce")){
       reinforceNodes();
-    }if(refAttDis.equals("attack")){
+      turnSystem();
+    }else if(refAttDis.equals("attack")){
       attackNodes();
-    }if(refAttDis.equals("distribute")){
+      turnSystem();
+    }else if(refAttDis.equals("distribute")){
       distributeNodes();
+      turnSystem();
     }
-    turnSystem();
     quitButton();
-    
     break;
     case("startMenu"):
     if(startMenuState==0){

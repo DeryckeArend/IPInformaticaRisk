@@ -29,8 +29,8 @@ Player playerTurn;
 int playerTurnInt = 0;
 //De hoeveelste beurt het is, met 1 beurt bedoel ik hier dat iedereen 1 keer aan de beurt is geweest
 int globalTurn = 0;
-//Hierin staat wat de speler aan het doen is, "reinforce", "attack" of "reinforce", gebruik aub precies deze namen
-String refAttDis = "distribute";
+//Hierin staat wat de speler aan het doen is, "reinforce", "attack" of "distribute", gebruik aub precies deze namen
+String refAttDis = "reinforce";
 
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
 PImage background;
