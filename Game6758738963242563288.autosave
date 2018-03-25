@@ -1,4 +1,4 @@
-int placedSoldiers;
+  int placedSoldiers;
 Node activeNode;
 
 void drawGame(){
@@ -19,10 +19,6 @@ void drawGame(){
   drawSoldier();
   drawSidebar();
   //neighbourNodes();
-  
-  noStroke();
-  ellipse(1870, 45, 65, 65);
-  image(house, 1844.5, 18, 50, 50);
 }
 
 void verdeelLanden() {
@@ -75,12 +71,14 @@ void drawSoldier(){
 }
 
 void drawSidebar() {
-  int yPos = 90;
-  int yPosT = 120;
+  int yPos = 100;
+  int yPosT = 130;
+  int playerTurnInt = 1;
   
   strokeWeight(3);
+  int i = 0;
   for (Player p : players) {
-    if (p == playerTurn) {
+    if (i == playerTurnInt - 1) {
       strokeWeight(10);
     }
     else {
@@ -97,19 +95,19 @@ void drawSidebar() {
       
       textAlign(LEFT);
       textSize(20);
-      text("Punten: ", 1520, yPosT + 30);
-      text("Landen: ", 1520, yPosT + 70);
+      text("Points: ", 1520, yPosT + 30);
+      text("Countries: ", 1520, yPosT + 70);
       
       textAlign(RIGHT);
       text(p.points, 1880, yPosT + 30);
       text(p.countries, 1880, yPosT + 70);
       
       fill(255);
-      yPos += 140;
-      yPosT += 140;
+      yPos += 150;
+      yPosT += 150;
+      i++;
   } 
-
-     strokeWeight(3);
+      
      fill(91,89,87);
      rectMode(CENTER);
      rect(1700,1000,300,50,25);
@@ -119,15 +117,9 @@ void drawSidebar() {
      text("Volgende beurt",1700,1007.5);
      
      fill(91,89,87);
-     rect(1590,945,100,50,25);
-     rect(1700,945,100,50,25);
-     rect(1810,945,100,50,25);
-     textAlign(CENTER);
-     textSize(20);
-     fill(255);
-     text("Versterk",1590,952.5);
-     text("Verdeel",1700,952.5);
-     text("Aanval",1810,952.5);
+     rect(1590,925,100,50,25);
+     rect(1700,925,100,50,25);
+     rect(1810,925,100,50,25);
 }
 
 void checkContinents(Continent continent){
@@ -155,7 +147,7 @@ void loadPlayers(){
   //Hierin worden de naam van de speler, zijn kleur en de rest opgeladen en opgeslaan
   for(int i = 1; i <= playerAmount; i++){
     Player p = new Player();
-    p.name = cp5.get(Textfield.class, "Naam speler " + i + ":").getText();
+    p.name = cp5.get(Textfield.class, "Name player " + i + ":").getText();
     switch( (int) cp5.get(RadioButton.class, "ColorPicker" + i).getValue()){
       case 1:
         p.playerColor = color(183, 42, 42);
@@ -187,49 +179,52 @@ void loadPlayers(){
 }
 
 void distributeSoldiers() {
-  activeNode.soldiersRenDis = 0;
+  placedSoldiers = 0;
   Player p = playerTurn;
   int soldierAmount = (p.points - p.countries) + p.countries/2;
   boolean endDistTurnButton = false;
-  while(activeNode.soldiersRenDis < soldierAmount && !endDistTurnButton) {
+  while(placedSoldiers < soldierAmount && !endDistTurnButton) {
     
   }
 }
 
-void drawDistBox(Node n) {
+void drawDistBox(int xPos, int yPos) {
   cp5 = new ControlP5(this);
   cp5.addButton("plusButton")
-     .setPosition(n.x+20, n.y-50)
-     .setImages(upButton, upButton, upButton)
+     .setPosition(xPos+20, yPos-50)
+     .setImages(loadImage("data/Images/up.png"), loadImage("data/Images/up.png"), loadImage("data/Images/up.png"))
      .updateSize();
 
   cp5.addButton("minusButton")
-     .setPosition(n.x+90, n.y-50)
-     .setImages(downButton, downButton, downButton)
+     .setPosition(xPos+90, yPos-50)
+     .setImages(loadImage("data/Images/down.png"), loadImage("data/Images/down.png"), loadImage("data/Images/down.png"))
      .updateSize();
 }
 
-void drawTextDistBox(Node n) {
+void drawTextDistBox(int xPos, int yPos) {
   //rect
   rectMode(CORNER);
   fill(0);
   stroke(255);
-  rect(n.x+17, n.y-45, 125, 40, 50);  
+  rect(xPos+17, yPos-45, 125, 40, 50);  
   //text
   textAlign(CENTER);
   textSize(30);
   fill(255);
-  text(n.soldiersRenDis, n.x+80, n.y-15);
+  text(placedSoldiers, xPos+80,yPos -15);
 }
 
 public void plusButton() {
-  activeNode.soldiersRenDis++;
-  drawTextDistBox(activeNode);
+  placedSoldiers++;
+  drawTextDistBox(activeNode.x,activeNode.y);
 }
 
 public void minusButton() {
-  if(activeNode.soldiersRenDis > 0){
-    activeNode.soldiersRenDis--;
+  if(placedSoldiers > 0){
+    placedSoldiers--;
+    drawTextDistBox(activeNode.x,activeNode.y);
   }
-    drawTextDistBox(activeNode);
+  else{
+    drawTextDistBox(activeNode.x,activeNode.y);
+  }
 }
