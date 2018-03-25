@@ -28,8 +28,9 @@ void mousePressed(){
     case("game"):
     if(globalTurn == 0) {
       //Hier zit nog ergens een foutje
-      //distributeNodes();
+      distributeNodes();
       firstRoundTurn();
+      return;
     }
     if(refAttDis.equals("distribute")){
       distributeNodes();
@@ -67,9 +68,11 @@ void firstRoundTurn() {
     if(playerTurnInt == playerAmount){
       playerTurnInt = 0;
       globalTurn ++;
+      playerTurn = players.get(0);
+      return;
     }
+    playerTurn = players.get(playerTurnInt);
     playerTurnInt++;
-    playerTurn = players.get(playerTurnInt - 1);
   }
 }
 

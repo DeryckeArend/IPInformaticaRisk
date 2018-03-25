@@ -18,7 +18,6 @@ void drawGame(){
   }
   drawSoldier();
   drawSidebar();
-  //neighbourNodes();
   
   noStroke();
   ellipse(1870, 45, 65, 65);
@@ -119,15 +118,27 @@ void drawSidebar() {
      text("Volgende beurt",1700,1007.5);
      
      fill(91,89,87);
+     if(refAttDis.equals("distribute")){
+       strokeWeight(5);
+     }
      rect(1590,945,100,50,25);
+     strokeWeight(3);
+     if(refAttDis.equals("attack")){
+       strokeWeight(5);
+     }
      rect(1700,945,100,50,25);
+     strokeWeight(3);
+     if(refAttDis.equals("reinforce")){
+       strokeWeight(5);
+     }
      rect(1810,945,100,50,25);
+     strokeWeight(3);
      textAlign(CENTER);
      textSize(20);
      fill(255);
-     text("Versterk",1590,952.5);
-     text("Verdeel",1700,952.5);
-     text("Aanval",1810,952.5);
+     text("Verdeel",1590,952.5);
+     text("Aanval",1700,952.5);
+     text("Versterk",1810,952.5);
 }
 
 void checkContinents(Continent continent){
