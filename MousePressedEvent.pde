@@ -27,19 +27,18 @@ void mousePressed(){
     break;
     case("game"):
     if(globalTurn == 0) {
-      reinforceNodes();
+      //Hier zit nog ergens een foutje
+      //distributeNodes();
       firstRoundTurn();
     }
-    else if(refAttDis.equals("reinforce")){
-      reinforceNodes();
-      turnSystem();
+    if(refAttDis.equals("distribute")){
+      distributeNodes();
     }else if(refAttDis.equals("attack")){
       attackNodes();
-      turnSystem();
-    }else if(refAttDis.equals("distribute")){
-      distributeNodes();
-      turnSystem();
+    }else if(refAttDis.equals("reinforce")){
+      reinforceNodes();
     }
+    turnSystem();
     quitButton();
     break;
     case("startMenu"):
@@ -266,22 +265,6 @@ void quitButton(){
       text("NEE", 1235, 561.5);
     }
 }
-  
-void reinforceNodes(){
-  for(Node n: nodes) {
-    n.active = false;
-    if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
-      if(n.country.owner == playerTurn){
-        drawGame();
-        cp5.remove("plusButton");
-        cp5.remove("minusButton");
-        drawDistBox(n);
-        drawTextDistBox(n);
-        activeNode = n;
-      }
-    }
-  }
-}
 
 void attackNodes(){
   drawGame();
@@ -302,7 +285,7 @@ void attackNodes(){
   }
 }
 
-void distributeNodes(){
+void reinforceNodes(){
   drawGame();
     for(Node n: nodes) {
       n.active = false;
@@ -318,5 +301,21 @@ void distributeNodes(){
          }
        }
      }
+  }
+}
+
+void distributeNodes(){
+  for(Node n: nodes) {
+    n.active = false;
+    if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
+      if(n.country.owner == playerTurn){
+        drawGame();
+        cp5.remove("plusButton");
+        cp5.remove("minusButton");
+        drawDistBox(n);
+        drawTextDistBox(n);
+        activeNode = n;
+      }
+    }
   }
 }
