@@ -34,6 +34,16 @@
     diceMaker(rollsAtt.get(i), width/2 + 350, 350 + 100*i, color(183, 42, 42));
   }
   
+  for (int i = 0; i < rollsAtt.size(); i++){  
+  if(rollsDef.get(i) > rollsAtt.get(i)){
+    imageMode(CENTER);    
+    image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
+     }
+    if(rollsDef.get(i) <= rollsAtt.get(i)){
+     imageMode(CENTER);         
+     image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
+    } 
+  } 
  }
   
  void diceMaker(int side, int x, int y, color c){
