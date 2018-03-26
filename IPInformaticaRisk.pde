@@ -54,7 +54,7 @@ void setup(){
   state="menu";
   initiate();
   drawMainMenu();
-  drawDice(6,4);
+  drawDice(3,4);
   setupSound();
   //state="game";
   //drawGame();
