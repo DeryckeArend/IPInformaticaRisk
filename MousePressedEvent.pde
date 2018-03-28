@@ -76,8 +76,12 @@ void firstRoundTurn() {
   }
 }
 
+//Het beurtensysteem is opgebouwd uit 3 delen per beurt: "distribute" waar je nieuwe soldaatjes kan plaatsen, "attack" waar je andere spelers kan aanvallen, 
+//en "reinforce" waar je de soldaten kan verplaatsen van het ene naar het andere land
 void turnSystem(){
+  //Dit is de knop waar je op drukt om naar het volgende deel van je beurt te gaan of het einde van je beurt aan te geven
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
+    
     if(refAttDis == "distribute"){
       refAttDis = "attack";
       cp5.remove("plusButton");
@@ -87,9 +91,11 @@ void turnSystem(){
         n.soldiersRenDis = 0;
       }
     }
+    
     else if(refAttDis == "attack"){
       refAttDis = "reinforce";
     }
+    
     else if(refAttDis == "reinforce"){
       if(playerTurnInt == playerAmount){
         playerTurnInt = 0;
@@ -99,10 +105,10 @@ void turnSystem(){
       playerTurn = players.get(playerTurnInt - 1);
       refAttDis = "distribute";
     }
+    //Hier wordt het scherm opnieuw getekend zodat alle wijzigingen, soldaten die verplaatst zijn enz. kunnen worden getoond
     drawGame();
   }
-  
-  }
+}
 
 //Deze methode controleert waar de muis is en of je op een rechthoek(knop) klikt in het hoofdmenu
 void mainMenu(){
