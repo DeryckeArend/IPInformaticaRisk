@@ -6,4 +6,5 @@ class Player{
   color playerColor = 255;
   int points;
   int countries;
+  boolean alive;
 }

@@ -1,7 +1,6 @@
-//Dit is de enige class waarin mousePressed gebruikt mag worden, anders flip ik ... you're warned ...
+//Dit is de enige class waarin mousePressed gebruikt mag worden, anders flip ik ... you're warned
 
 int startMenuState = 0;
-boolean menuActive = false;
 
 void mousePressed(){
   //text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
@@ -26,12 +25,10 @@ void mousePressed(){
       drawCreditsMenu();
       returnMenu();
     break;
-    case("tutorial"):
-      state="game";
-      drawGame();
-      
-    break;
     case("game"):
+      //Hier zit nog ergens een foutje
+      //firstRoundTurn();
+
     if(refAttDis.equals("distribute")){
       distributeNodes();
     }else if(refAttDis.equals("attack")){
@@ -41,10 +38,6 @@ void mousePressed(){
     }
     turnSystem();
     quitButton();
-    if(menuActive){
-      popUp();
-    }
-    musicButton();
     break;
     case("startMenu"):
     if(startMenuState==0){
@@ -61,16 +54,31 @@ void mousePressed(){
   
 }
 
+void firstRoundTurn() {
+  if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
+    cp5.remove("plusButton");
+    cp5.remove("minusButton");
+    drawGame();
+    for(Node n : nodes){
+      n.soldiers = n.soldiers + n.soldiersRenDis;
+      n.soldiersRenDis = 0;
+    }
+    if(playerTurnInt == playerAmount){
+      playerTurnInt = 0;
+      globalTurn ++;
+      playerTurn = players.get(0);
+      return;
+    }
+    playerTurn = players.get(playerTurnInt);
+    playerTurnInt++;
+  }
+}
+
 //Het beurtensysteem is opgebouwd uit 3 delen per beurt: "distribute" waar je nieuwe soldaatjes kan plaatsen, "attack" waar je andere spelers kan aanvallen, 
 //en "reinforce" waar je de soldaten kan verplaatsen van het ene naar het andere land
 void turnSystem(){
   //Dit is de knop waar je op drukt om naar het volgende deel van je beurt te gaan of het einde van je beurt aan te geven
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
-    /*for (Player p : players){
-    if (p.points == 0){
-      players.remove(p);
-    }
-    }*/
     if(globalTurn != 0){
       if(refAttDis == "distribute"){
         refAttDis = "attack";
@@ -84,7 +92,6 @@ void turnSystem(){
     
       else if(refAttDis == "attack"){
         refAttDis = "reinforce";
-        pointSystem();
       }
     
       else if(refAttDis == "reinforce"){
@@ -95,7 +102,6 @@ void turnSystem(){
         playerTurnInt++;      
         playerTurn = players.get(playerTurnInt - 1);
         refAttDis = "distribute";
-        pointSystem();
       }
       //Hier wordt het scherm opnieuw getekend zodat alle wijzigingen, soldaten die verplaatst zijn enz. kunnen worden getoond
       drawGame();
@@ -107,7 +113,7 @@ void turnSystem(){
           n.soldiersRenDis = 0;
         }
         if(playerTurnInt == playerAmount){
-          playerTurnInt = 1;
+          playerTurnInt = 0;
           globalTurn ++;
           playerTurn = players.get(0);
           drawGame();
@@ -115,7 +121,6 @@ void turnSystem(){
         }
       playerTurn = players.get(playerTurnInt);
       playerTurnInt++;
-      pointSystem();
       drawGame();
     }
   }
@@ -245,11 +250,11 @@ void startGameButton(){
      }catch(Exception e){
          println("Dit is een " + e.toString() + " exception, dit is normaal.");
        }
-     state="tutorial";
+     state="game";
      playerTurnInt = 1;
      playerTurn = players.get(0);
      verdeelLanden();
-     //drawTutorial();
+     drawGame();
   }
   if(10 < mouseX && mouseX < 200 && 10 < mouseY && mouseY < 80){
     buttonClicked();
@@ -283,24 +288,6 @@ void quitButton(){
       textAlign(CENTER);
       fill(0);
       text("NEE", 1235, 561.5);
-      menuActive = true;
-    }
-}
-
-void musicButton(){
-  if((sqrt(((1790 - mouseX)*(1790 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
-      rectMode(CORNER);
-      fill(206, 169, 99);
-      rect(384, 316, 1151, 348);
-      textAlign(CENTER);
-      fill(0);
-      text("Bent u zeker dat u naar het menu wil gaan? ", 959.5, 378);
-      rectMode(CENTER);
-      fill(0,255,0);
-      rect(959.5, 591.5, 203.5, 75, 25);
-      textAlign(CENTER);
-      fill(0);
-      text("terug", 959.5, 601.5);
     }
 }
 
@@ -310,21 +297,16 @@ void attackNodes(){
     n.active = false;
     if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
       Country c = n.country;
-      if(n.country.owner == playerTurn){
-        for(int i = 0; i < c.neighbours.length; i++){
-          Node node = getCountry(c.neighbours[i]).node;
-          if(!(getCountry(c.neighbours[i]).owner == c.owner)){
-            n.active = true;
-            strokeWeight(7);
-            stroke(204, 79, 102);
-            line(n.x, n.y, node.x, node.y);
-            noFill();
-            ellipse(node.x, node.y, straal + 5, straal + 5);
-            c.owner.points = 0;
-          }
-        }
-      }
-    }
+       for(int i = 0; i < c.neighbours.length; i++){
+         Node node = getCountry(c.neighbours[i]).node;
+         if(!(getCountry(c.neighbours[i]).owner == c.owner)){
+           n.active = true;
+           strokeWeight(7);
+           stroke(204, 79, 102);
+           line(n.x, n.y, node.x, node.y);
+         } 
+       }
+     }
   }
 }
 
@@ -334,20 +316,16 @@ void reinforceNodes(){
       n.active = false;
     if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
       Country c = n.country;
-      if(n.country.owner == playerTurn){
-        for(int i = 0; i < c.neighbours.length; i++){
-          Node node = getCountry(c.neighbours[i]).node;
-          if(getCountry(c.neighbours[i]).owner == c.owner){
-            n.active = true;
-            strokeWeight(7);
-            stroke(80, 126, 201);
-            line(n.x, n.y, node.x, node.y);
-            noFill();
-            ellipse(node.x, node.y, straal + 5, straal + 5);
-          }
-        }
-      }
-    }
+       for(int i = 0; i < c.neighbours.length; i++){
+         Node node = getCountry(c.neighbours[i]).node;
+         if(getCountry(c.neighbours[i]).owner == c.owner){
+           n.active = true;
+           strokeWeight(7);
+           stroke(80, 126, 201);
+           line(n.x, n.y, node.x, node.y);
+         }
+       }
+     }
   }
 }
 
@@ -365,20 +343,4 @@ void distributeNodes(){
       }
     }
   }
-}
-
-void popUp(){
-  if(582.75 < mouseX && mouseX < 785.25 && 514 < mouseY && mouseY < 589){
-    buttonClicked();  
-    drawMainMenu();
-    state = "menu";
-    menuActive = false;
-    startMenuState = 0;
-  }
-  if(1133.25 < mouseX && mouseX < 1336.75 && 514 < mouseY && mouseY < 589){
-    buttonClicked();
-    drawGame();
-    state = "game";
-    menuActive = false;
- }
 }
