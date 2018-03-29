@@ -48,6 +48,7 @@ void verdeelLanden() {
     verdeeldeLanden++;
   }
   pointSystem();
+  temp();
 }
 
 void drawSoldier(){
@@ -163,12 +164,6 @@ void checkContinents(Continent continent){
       }
     }
   }
-  /*if(player == owner){
-    return owner.points;
-  }
-  else {
-    return 0;
-  }*/
 }
 
 void pointSystem() {
@@ -217,11 +212,13 @@ void loadPlayers(){
  
 }
 
-void drawSoldierBox() {
+void temp() {
   soldierAmount = 0;
   Player p = playerTurn;
-  soldierAmount = p.points + p.countries/3;
-  
+  soldierAmount = p.countries*2 + (p.points - p.countries);
+}
+
+void drawSoldierBox() {
   rectMode(CENTER);
   rect(700,1000,210,80);
   textAlign(CENTER);
@@ -261,11 +258,13 @@ void drawTextDistBox(Node n) {
 public void plusButton() {
   activeNode.soldiersRenDis++;
   drawTextDistBox(activeNode);
+  soldierAmount--;
 }
 
 public void minusButton() {
-  if(activeNode.soldiersRenDis > 0){
+  if(activeNode.soldiersRenDis > 0 && soldierAmount > 0){
     activeNode.soldiersRenDis--;
+    soldierAmount++;
   }
     drawTextDistBox(activeNode);
 }
