@@ -26,8 +26,6 @@ void mousePressed(){
       returnMenu();
     break;
     case("game"):
-      //Hier zit nog ergens een foutje
-      //firstRoundTurn();
 
     if(refAttDis.equals("distribute")){
       distributeNodes();
@@ -52,26 +50,6 @@ void mousePressed(){
     break;
   }
   
-}
-
-void firstRoundTurn() {
-  if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
-    cp5.remove("plusButton");
-    cp5.remove("minusButton");
-    drawGame();
-    for(Node n : nodes){
-      n.soldiers = n.soldiers + n.soldiersRenDis;
-      n.soldiersRenDis = 0;
-    }
-    if(playerTurnInt == playerAmount){
-      playerTurnInt = 0;
-      globalTurn ++;
-      playerTurn = players.get(0);
-      return;
-    }
-    playerTurn = players.get(playerTurnInt);
-    playerTurnInt++;
-  }
 }
 
 //Het beurtensysteem is opgebouwd uit 3 delen per beurt: "distribute" waar je nieuwe soldaatjes kan plaatsen, "attack" waar je andere spelers kan aanvallen, 
@@ -113,7 +91,7 @@ void turnSystem(){
           n.soldiersRenDis = 0;
         }
         if(playerTurnInt == playerAmount){
-          playerTurnInt = 0;
+          playerTurnInt = 1;
           globalTurn ++;
           playerTurn = players.get(0);
           drawGame();
