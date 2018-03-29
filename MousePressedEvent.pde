@@ -32,7 +32,6 @@ void mousePressed(){
       
     break;
     case("game"):
-
     if(refAttDis.equals("distribute")){
       distributeNodes();
     }else if(refAttDis.equals("attack")){
@@ -80,6 +79,7 @@ void turnSystem(){
     
       else if(refAttDis == "attack"){
         refAttDis = "reinforce";
+        pointSystem();
       }
     
       else if(refAttDis == "reinforce"){
@@ -90,6 +90,7 @@ void turnSystem(){
         playerTurnInt++;      
         playerTurn = players.get(playerTurnInt - 1);
         refAttDis = "distribute";
+        pointSystem();
       }
       //Hier wordt het scherm opnieuw getekend zodat alle wijzigingen, soldaten die verplaatst zijn enz. kunnen worden getoond
       drawGame();
@@ -109,6 +110,7 @@ void turnSystem(){
         }
       playerTurn = players.get(playerTurnInt);
       playerTurnInt++;
+      pointSystem();
       drawGame();
     }
   }
@@ -242,7 +244,7 @@ void startGameButton(){
      playerTurnInt = 1;
      playerTurn = players.get(0);
      verdeelLanden();
-     drawTutorial();
+     //drawTutorial();
   }
   if(10 < mouseX && mouseX < 200 && 10 < mouseY && mouseY < 80){
     buttonClicked();

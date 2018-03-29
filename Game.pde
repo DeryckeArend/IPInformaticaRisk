@@ -17,7 +17,6 @@ void drawGame(){
     fill(pcolor);
     ellipse(n.x, n.y, straal, straal);
   }
-  pointSystem();
   drawSoldier();
   drawSidebar();
   if(refAttDis == "distribute"){
@@ -48,6 +47,7 @@ void verdeelLanden() {
     }
     verdeeldeLanden++;
   }
+  pointSystem();
 }
 
 void drawSoldier(){
@@ -145,7 +145,7 @@ void drawSidebar() {
      text("Versterk",1810,952.5);
 }
 
-void checkContinents(Continent continent){
+int checkContinents(Continent continent, Player player){
   List<Country> countryInContinent = new ArrayList<Country>();
   for(Country c : countries){
    if(c.continent == continent){
@@ -163,18 +163,25 @@ void checkContinents(Continent continent){
       }
     }
   }
+  if(player == owner){
+    return owner.points;
+  }
+  else {
+    return 0;
+  }
 }
-/*
+
 void pointSystem() {
-  Player owner = countryInContinent.get(0).owner;
+  int continent = 0;
   for(Player p : players){
     p.points = 0;
     for(Continent c : continents) {
-      p.points = checkContinents(c);
+      continent = checkContinents(c, p);
     }
+    p.points = continent + p.countries;
   }
-  
-}*/
+ 
+}
 
 void loadPlayers(){
   //Na dat er op de 'Volgende' knop wordt gedrukt wordt deze methode opgeroepen
@@ -215,7 +222,7 @@ void loadPlayers(){
 void drawSoldierBox() {
   soldierAmount = 0;
   Player p = playerTurn;
-  soldierAmount = p.points + p.countries/2;
+  soldierAmount = p.points + p.countries/3;
   
   rectMode(CENTER);
   rect(700,1000,210,80);
