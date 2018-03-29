@@ -1,7 +1,11 @@
 int placedSoldiers;
 Node activeNode;
 
-void drawGame(){
+void drawTutorial(){
+  image(tutorial,0,0,width,height);
+}
+
+void drawGame(){  
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
   background(0);
   noStroke();

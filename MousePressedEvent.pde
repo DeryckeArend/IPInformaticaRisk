@@ -26,9 +26,12 @@ void mousePressed(){
       drawCreditsMenu();
       returnMenu();
     break;
+    case("tutorial"):
+      state="game";
+      drawGame();
+      
+    break;
     case("game"):
-      //Hier zit nog ergens een foutje
-      //firstRoundTurn();
 
     if(refAttDis.equals("distribute")){
       distributeNodes();
@@ -57,26 +60,6 @@ void mousePressed(){
     break;
   }
   
-}
-
-void firstRoundTurn() {
-  if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
-    cp5.remove("plusButton");
-    cp5.remove("minusButton");
-    drawGame();
-    for(Node n : nodes){
-      n.soldiers = n.soldiers + n.soldiersRenDis;
-      n.soldiersRenDis = 0;
-    }
-    if(playerTurnInt == playerAmount){
-      playerTurnInt = 0;
-      globalTurn ++;
-      playerTurn = players.get(0);
-      return;
-    }
-    playerTurn = players.get(playerTurnInt);
-    playerTurnInt++;
-  }
 }
 
 //Het beurtensysteem is opgebouwd uit 3 delen per beurt: "distribute" waar je nieuwe soldaatjes kan plaatsen, "attack" waar je andere spelers kan aanvallen, 
@@ -118,7 +101,7 @@ void turnSystem(){
           n.soldiersRenDis = 0;
         }
         if(playerTurnInt == playerAmount){
-          playerTurnInt = 0;
+          playerTurnInt = 1;
           globalTurn ++;
           playerTurn = players.get(0);
           drawGame();
@@ -255,11 +238,11 @@ void startGameButton(){
      }catch(Exception e){
          println("Dit is een " + e.toString() + " exception, dit is normaal.");
        }
-     state="game";
+     state="tutorial";
      playerTurnInt = 1;
      playerTurn = players.get(0);
      verdeelLanden();
-     drawGame();
+     drawTutorial();
   }
   if(10 < mouseX && mouseX < 200 && 10 < mouseY && mouseY < 80){
     buttonClicked();
@@ -320,16 +303,20 @@ void attackNodes(){
     n.active = false;
     if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
       Country c = n.country;
-       for(int i = 0; i < c.neighbours.length; i++){
-         Node node = getCountry(c.neighbours[i]).node;
-         if(!(getCountry(c.neighbours[i]).owner == c.owner)){
-           n.active = true;
-           strokeWeight(7);
-           stroke(204, 79, 102);
-           line(n.x, n.y, node.x, node.y);
-         } 
-       }
-     }
+      if(n.country.owner == playerTurn){
+        for(int i = 0; i < c.neighbours.length; i++){
+          Node node = getCountry(c.neighbours[i]).node;
+          if(!(getCountry(c.neighbours[i]).owner == c.owner)){
+            n.active = true;
+            strokeWeight(7);
+            stroke(204, 79, 102);
+            line(n.x, n.y, node.x, node.y);
+            noFill();
+            ellipse(node.x, node.y, straal + 5, straal + 5);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -339,16 +326,20 @@ void reinforceNodes(){
       n.active = false;
     if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
       Country c = n.country;
-       for(int i = 0; i < c.neighbours.length; i++){
-         Node node = getCountry(c.neighbours[i]).node;
-         if(getCountry(c.neighbours[i]).owner == c.owner){
-           n.active = true;
-           strokeWeight(7);
-           stroke(80, 126, 201);
-           line(n.x, n.y, node.x, node.y);
-         }
-       }
-     }
+      if(n.country.owner == playerTurn){
+        for(int i = 0; i < c.neighbours.length; i++){
+          Node node = getCountry(c.neighbours[i]).node;
+          if(getCountry(c.neighbours[i]).owner == c.owner){
+            n.active = true;
+            strokeWeight(7);
+            stroke(80, 126, 201);
+            line(n.x, n.y, node.x, node.y);
+            noFill();
+            ellipse(node.x, node.y, straal + 5, straal + 5);
+          }
+        }
+      }
+    }
   }
 }
 
