@@ -2,6 +2,7 @@
 
 int startMenuState = 0;
 boolean menuActive = false;
+boolean soundActive = false;
 
 void mousePressed(){
   //text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
@@ -46,6 +47,9 @@ void mousePressed(){
       popUp();
     }
     musicButton();
+    musicWeg();
+    stopSound();
+    setupSound();
     break;
     case("startMenu"):
     if(startMenuState==0){
@@ -242,7 +246,7 @@ void startGameButton(){
      playerTurnInt = 1;
      playerTurn = players.get(0);
      verdeelLanden();
-     drawTutorial();
+    /* drawTutorial();*/
   }
   if(10 < mouseX && mouseX < 200 && 10 < mouseY && mouseY < 80){
     buttonClicked();
@@ -261,7 +265,7 @@ void quitButton(){
     if((sqrt(((1870 - mouseX)*(1870 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
       rectMode(CORNER);
       fill(206, 169, 99);
-      rect(384, 316, 1151, 348);
+      rect(384, 316, 1151, 348, 25);
       textAlign(CENTER);
       fill(0);
       text("Bent u zeker dat u naar het menu wil gaan? ", 959.5, 378);
@@ -277,23 +281,6 @@ void quitButton(){
       fill(0);
       text("NEE", 1235, 561.5);
       menuActive = true;
-    }
-}
-
-void musicButton(){
-  if((sqrt(((1790 - mouseX)*(1790 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
-      rectMode(CORNER);
-      fill(206, 169, 99);
-      rect(384, 316, 1151, 348);
-      textAlign(CENTER);
-      fill(0);
-      text("Bent u zeker dat u naar het menu wil gaan? ", 959.5, 378);
-      rectMode(CENTER);
-      fill(0,255,0);
-      rect(959.5, 591.5, 203.5, 75, 25);
-      textAlign(CENTER);
-      fill(0);
-      text("terug", 959.5, 601.5);
     }
 }
 
@@ -373,4 +360,35 @@ void popUp(){
     state = "game";
     menuActive = false;
  }
+}
+
+void musicButton(){
+  if((sqrt(((1790 - mouseX)*(1790 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
+      rectMode(CORNER);
+      fill(206, 169, 99);
+      rect(384, 356, 1151, 348, 25);
+      textAlign(CENTER);
+      fill(0);
+      text("Muziek", 959.5, 418);
+      rectMode(CENTER);
+      fill(0,255,0);
+      rect(959.5, 661.5, 233.5,50, 25);
+      textAlign(CENTER);
+      fill(0);
+      text("Terug", 959.5, 671.5);
+      rectMode(CORNER);
+      soundActive = true;
+    }
+}
+
+void musicWeg(){
+  if(857.75 < mouseX && mouseX < 1061.25 && 636.5 < mouseY && mouseY < 686.5){
+    buttonClicked();
+    drawGame();
+    state = "game";
+    menuActive = false;
+    soundActive = false;
+    stopSound();
+    setupSound();
+  }
 }

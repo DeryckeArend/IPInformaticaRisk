@@ -86,7 +86,10 @@ void draw(){
 
     break;
     case("game"):
-
+      if(soundActive){
+        drawSliderBox();
+        updateSlider();
+      }
     break;
     default:
       println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
