@@ -154,16 +154,16 @@ void checkContinents(Continent continent){
   }
   
   Player owner = countryInContinent.get(0).owner;
-  int countryOwnerPoints = 0;
+  int countryOwnerPoints = owner.points;
   for(Country c : countryInContinent){
     if(c.owner == owner){
       countryOwnerPoints++;
       if(countryOwnerPoints == countryInContinent.size()){
-        owner.points = owner.points + continent.points;
+        owner.points += continent.points;
       }
     }
   }
-  /*if(player == owner){
+/*  if(player == owner){
     return owner.points;
   }
   else {
@@ -176,7 +176,7 @@ void pointSystem() {
     p.points = 0;
     p.points = p.countries;
   }
-  for(Continent c : continents) {
+  for(Continent c: continents){
     checkContinents(c);
   }
 }
