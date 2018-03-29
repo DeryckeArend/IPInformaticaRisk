@@ -47,6 +47,7 @@ PImage upButton;
 PImage downButton;
 PImage redCross;
 PImage tutorial;
+PImage musicOn;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -55,13 +56,8 @@ void setup(){
   state="menu";
   initiate();
   drawMainMenu();
-  //setupSound();
-  
-  Node nd = new Node();
-  Node na = new Node();
-  nd.soldiers = 6;
-  na.soldiers = 4;
-  drawDice(nd,na);
+  setupSound();
+  //drawDice(4,5);
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
