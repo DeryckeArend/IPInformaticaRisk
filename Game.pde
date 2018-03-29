@@ -1,4 +1,5 @@
 int placedSoldiers;
+int soldierAmount;
 Node activeNode;
 
 void drawGame(){
@@ -16,9 +17,12 @@ void drawGame(){
     fill(pcolor);
     ellipse(n.x, n.y, straal, straal);
   }
+  pointSystem();
   drawSoldier();
   drawSidebar();
-  
+  if(refAttDis == "distribute"){
+    drawSoldierBox();
+  }
   noStroke();
   ellipse(1870, 45, 65, 65);
   image(house, 1844.5, 18, 50, 50);
@@ -155,11 +159,22 @@ void checkContinents(Continent continent){
     if(c.owner == owner){
       countryOwnerPoints++;
       if(countryOwnerPoints == countryInContinent.size()){
-        owner.points = owner.points + continent.points;
+        owner.points = continent.points;
       }
     }
   }
 }
+/*
+void pointSystem() {
+  Player owner = countryInContinent.get(0).owner;
+  for(Player p : players){
+    p.points = 0;
+    for(Continent c : continents) {
+      p.points = checkContinents(c);
+    }
+  }
+  
+}*/
 
 void loadPlayers(){
   //Na dat er op de 'Volgende' knop wordt gedrukt wordt deze methode opgeroepen
@@ -197,14 +212,19 @@ void loadPlayers(){
  
 }
 
-void distributeSoldiers() {
-  activeNode.soldiersRenDis = 0;
+void drawSoldierBox() {
+  soldierAmount = 0;
   Player p = playerTurn;
-  int soldierAmount = (p.points - p.countries) + p.countries/2;
-  boolean endDistTurnButton = false;
-  while(activeNode.soldiersRenDis < soldierAmount && !endDistTurnButton) {
-    
-  }
+  soldierAmount = p.points + p.countries/2;
+  
+  rectMode(CENTER);
+  rect(700,1000,210,80);
+  textAlign(CENTER);
+  fill(0);
+  text("Beschikbare soldaten:",700,985);
+  textSize(30);
+  text(soldierAmount,700, 1020);
+  fill(255);
 }
 
 void drawDistBox(Node n) {

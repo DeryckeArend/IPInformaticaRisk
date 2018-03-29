@@ -54,11 +54,7 @@ void setup(){
   state="menu";
   initiate();
   drawMainMenu();
-  drawDice(3,4);
-  setupSound();
-  //state="game";
-  //drawGame();
-
+  //setupSound();
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd

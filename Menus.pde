@@ -16,13 +16,13 @@ RadioButton rcp5;
 RadioButton rcp6;
 
 //De variabelen voor de slider
-float x = 650;
+float x = 750;
 float y = 540;
 float w = 20;
 float h = 20;
-float initialX = x;
+float initialX = 650;
 float higherX = 1250;
-float value2;
+float value2 = 0.16;
 boolean lock = false;
 
 //De variabelen voor de textfields in het playerSelectMenu
