@@ -275,16 +275,20 @@ void attackNodes(){
     n.active = false;
     if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
       Country c = n.country;
-       for(int i = 0; i < c.neighbours.length; i++){
-         Node node = getCountry(c.neighbours[i]).node;
-         if(!(getCountry(c.neighbours[i]).owner == c.owner)){
-           n.active = true;
-           strokeWeight(7);
-           stroke(204, 79, 102);
-           line(n.x, n.y, node.x, node.y);
-         } 
-       }
-     }
+      if(n.country.owner == playerTurn){
+        for(int i = 0; i < c.neighbours.length; i++){
+          Node node = getCountry(c.neighbours[i]).node;
+          if(!(getCountry(c.neighbours[i]).owner == c.owner)){
+            n.active = true;
+            strokeWeight(7);
+            stroke(204, 79, 102);
+            line(n.x, n.y, node.x, node.y);
+            noFill();
+            ellipse(node.x, node.y, straal + 5, straal + 5);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -294,16 +298,20 @@ void reinforceNodes(){
       n.active = false;
     if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
       Country c = n.country;
-       for(int i = 0; i < c.neighbours.length; i++){
-         Node node = getCountry(c.neighbours[i]).node;
-         if(getCountry(c.neighbours[i]).owner == c.owner){
-           n.active = true;
-           strokeWeight(7);
-           stroke(80, 126, 201);
-           line(n.x, n.y, node.x, node.y);
-         }
-       }
-     }
+      if(n.country.owner == playerTurn){
+        for(int i = 0; i < c.neighbours.length; i++){
+          Node node = getCountry(c.neighbours[i]).node;
+          if(getCountry(c.neighbours[i]).owner == c.owner){
+            n.active = true;
+            strokeWeight(7);
+            stroke(80, 126, 201);
+            line(n.x, n.y, node.x, node.y);
+            noFill();
+            ellipse(node.x, node.y, straal + 5, straal + 5);
+          }
+        }
+      }
+    }
   }
 }
 
