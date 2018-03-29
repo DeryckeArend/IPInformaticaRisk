@@ -16,13 +16,13 @@ RadioButton rcp5;
 RadioButton rcp6;
 
 //De variabelen voor de slider
-float x = 750;
+float x = 650;
 float y = 540;
 float w = 20;
 float h = 20;
-float initialX = 650;
+float initialX = x;
 float higherX = 1250;
-float value2 = 0.16;
+float value2;
 boolean lock = false;
 
 //De variabelen voor de textfields in het playerSelectMenu
@@ -316,12 +316,12 @@ void drawPlayerSelectMenu(){
  Textfield prepareTextField(Textfield t, int x, int y, String label){
    PFont lettertypeInhoud = createFont("arial", 50);
    PFont lettertypeTitel= createFont("arial",25);
-   
+      
    t = cp5.addTextfield(label)
     .setPosition(x,y)
     .setSize(400,90)
     .setColorForeground(color(0))
-    .setColorBackground(color(114,113,89))
+    .setColorBackground(color(114,113,89))    
     .setColorActive(color(0))
     .setColorLabel(color(0))
     .setColor(255)
@@ -368,7 +368,6 @@ void drawPlayerSelectMenu(){
         PFont titleColor =createFont("arial",40);
         textFont(titleColor,40);
         text("Kies je kleur:",x+205,y-15);
-    
     
    return r;
  }
