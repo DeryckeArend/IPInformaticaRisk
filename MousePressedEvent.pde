@@ -303,6 +303,7 @@ void attackNodes(){
     n.active = false;
     if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
       Country c = n.country;
+      Arrays.asList(yourArray).contains(yourValue);
       if(n.country.owner == playerTurn){
         for(int i = 0; i < c.neighbours.length; i++){
           Node node = getCountry(c.neighbours[i]).node;
@@ -315,6 +316,8 @@ void attackNodes(){
             ellipse(node.x, node.y, straal + 5, straal + 5);
           }
         }
+      }else if(n.country.neighbours.contains){
+        
       }
     }
   }

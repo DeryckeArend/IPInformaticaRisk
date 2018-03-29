@@ -10,6 +10,7 @@
 import java.util.List;
 import controlP5.*;
 import java.util.Collections;
+import java.util.Arrays;
 
 //Hier bovenaan slaan we enkele variabelen op zodat we ze later gemakkelijk terugvinden en veranderen
 List<Country> countries = new ArrayList<Country>();
@@ -47,6 +48,7 @@ PImage upButton;
 PImage downButton;
 PImage redCross;
 PImage musicOn;
+PImage tutorial;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -118,6 +120,7 @@ void loadImages(){
   downButton = loadImage("data/Images/down.png");
   redCross = loadImage("data/Images/redCross2.png");
   musicOn = loadImage("data/Images/musicon.png");
+  tutorial = loadImage("data/Images/tutorial.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.
