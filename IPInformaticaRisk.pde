@@ -47,6 +47,7 @@ PImage upButton;
 PImage downButton;
 PImage redCross;
 PImage tutorial;
+PImage musicOn;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -55,7 +56,7 @@ void setup(){
   state="menu";
   initiate();
   drawMainMenu();
-  //setupSound();
+  setupSound();
   //drawDice(4,5);
 }
 
