@@ -57,7 +57,11 @@ void setup(){
   initiate();
   drawMainMenu();
   setupSound();
-  //drawDice(4,5);
+  Node ndef = new Node();
+  Node natt = new Node();
+  ndef.soldiers = 6;
+  natt.soldiers = 4;
+  drawDice(ndef,natt);
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd

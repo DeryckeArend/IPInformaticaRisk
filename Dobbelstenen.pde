@@ -17,7 +17,7 @@ int diceSize = 75;
    //Afhankelijk van het aantal dobbelstenen van de verdediger worden de rechthoekjes en de cirkeltjes getekend in diceMaker
    
   List<Integer> rollsDef = new ArrayList<Integer>();
-   for(int i = 0; i < defNode.soldiers && defNode.soldiers >= 6; i++){
+   for(int i = 0; i < defNode.soldiers ; i++){
      int rollDef = (int) random(1,7);
      rollsDef.add(rollDef);
    }   
@@ -40,7 +40,6 @@ int diceSize = 75;
   
   if(attNode.soldiers < defNode.soldiers){
   for (int i = 0; i < attNode.soldiers && attNode.soldiers <= 6; i++){
-    println(rollsDef.get(i));
   if(rollsDef.get(i) >= rollsAtt.get(i)){
     imageMode(CENTER);    
     image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
