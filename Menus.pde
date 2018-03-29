@@ -40,6 +40,8 @@ void drawMainMenu(){
   image(logo, (width/2) - 250, 100, 500, 150);
   stroke(10);
   fill(122, 105, 68, 100);
+  rectMode(CORNER);
+  strokeWeight(2);
   rect((width/2) - (buttonWidth/2), button1Height, buttonWidth, buttonHeight);
   rect((width/2) - (buttonWidth/2), button1Height + 100, buttonWidth, buttonHeight);
   rect((width/2) - (buttonWidth/2), button1Height + 200, buttonWidth, buttonHeight);

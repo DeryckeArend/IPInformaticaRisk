@@ -22,6 +22,10 @@ void drawGame(){
   noStroke();
   ellipse(1870, 45, 65, 65);
   image(house, 1844.5, 18, 50, 50);
+  
+  ellipse(1790, 45, 65, 65);
+  image(musicOn, 1763.5, 20, 50, 50);
+  
 }
 
 void verdeelLanden() {

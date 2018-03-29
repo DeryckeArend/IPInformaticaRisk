@@ -1,6 +1,7 @@
 //Dit is de enige class waarin mousePressed gebruikt mag worden, anders flip ik ... you're warned
 
 int startMenuState = 0;
+boolean menuActive = false;
 
 void mousePressed(){
   //text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
@@ -38,6 +39,10 @@ void mousePressed(){
     }
     turnSystem();
     quitButton();
+    if(menuActive){
+      popUp();
+    }
+    musicButton();
     break;
     case("startMenu"):
     if(startMenuState==0){
@@ -288,6 +293,24 @@ void quitButton(){
       textAlign(CENTER);
       fill(0);
       text("NEE", 1235, 561.5);
+      menuActive = true;
+    }
+}
+
+void musicButton(){
+  if((sqrt(((1790 - mouseX)*(1790 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
+      rectMode(CORNER);
+      fill(206, 169, 99);
+      rect(384, 316, 1151, 348);
+      textAlign(CENTER);
+      fill(0);
+      text("Bent u zeker dat u naar het menu wil gaan? ", 959.5, 378);
+      rectMode(CENTER);
+      fill(0,255,0);
+      rect(959.5, 591.5, 203.5, 75, 25);
+      textAlign(CENTER);
+      fill(0);
+      text("terug", 959.5, 601.5);
     }
 }
 
@@ -343,4 +366,20 @@ void distributeNodes(){
       }
     }
   }
+}
+
+void popUp(){
+  if(582.75 < mouseX && mouseX < 785.25 && 514 < mouseY && mouseY < 589){
+    buttonClicked();  
+    drawMainMenu();
+    state = "menu";
+    menuActive = false;
+    startMenuState = 0;
+  }
+  if(1133.25 < mouseX && mouseX < 1336.75 && 514 < mouseY && mouseY < 589){
+    buttonClicked();
+    drawGame();
+    state = "game";
+    menuActive = false;
+ }
 }
