@@ -25,6 +25,11 @@ void mousePressed(){
       drawCreditsMenu();
       returnMenu();
     break;
+    case("tutorial"):
+      state="game";
+      drawGame();
+      
+    break;
     case("game"):
 
     if(refAttDis.equals("distribute")){
@@ -228,11 +233,11 @@ void startGameButton(){
      }catch(Exception e){
          println("Dit is een " + e.toString() + " exception, dit is normaal.");
        }
-     state="game";
+     state="tutorial";
      playerTurnInt = 1;
      playerTurn = players.get(0);
      verdeelLanden();
-     drawGame();
+     drawTutorial();
   }
   if(10 < mouseX && mouseX < 200 && 10 < mouseY && mouseY < 80){
     buttonClicked();
