@@ -1,6 +1,7 @@
 int diceSize = 75;
  
  void drawDice(int defenderAmount, int attackerAmount){
+   rectMode(CORNER);
    fill(113, 125, 145);
    rect(460,200,1000,750,50);
    fill(50);
@@ -59,6 +60,9 @@ int diceSize = 75;
     } 
   } 
   }
+  PFont ingameText= createFont("arial",25);
+  textFont(ingameText,25);
+  
  }
   
  void diceMaker(int side, int x, int y, color c){

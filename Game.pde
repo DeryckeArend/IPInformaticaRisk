@@ -17,7 +17,7 @@ void drawGame(){
     fill(pcolor);
     ellipse(n.x, n.y, straal, straal);
   }
-  pointSystem();
+  //pointSystem();
   drawSoldier();
   drawSidebar();
   if(refAttDis == "distribute"){
