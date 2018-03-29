@@ -44,7 +44,8 @@ int diceSize = 75;
     if(rollsDef.get(i) < rollsAtt.get(i)){
      imageMode(CENTER);         
      image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
-    } 
+    }
+    imageMode(CORNER);
   } 
   }
   
@@ -57,12 +58,12 @@ int diceSize = 75;
     if(rollsDef.get(i) < rollsAtt.get(i)){
      imageMode(CENTER);         
      image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
-    } 
+    }
+    imageMode(CORNER);
   } 
-  }
-  PFont ingameText= createFont("arial",25);
-  textFont(ingameText,25);
-  
+  }  
+  PFont ingameFont= createFont("arial",25);
+  textFont(ingameFont,40);
  }
   
  void diceMaker(int side, int x, int y, color c){

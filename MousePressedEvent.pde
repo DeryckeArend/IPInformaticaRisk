@@ -227,6 +227,10 @@ boolean isOver(){
     return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
 }
 //end slider event
+void drawTutorial(){
+  image(tutorial,0,0,width,height);
+}
+
 
 void startGameButton(){
   if((width/2-120) < mouseX && mouseX < (width/2 + 120) && 950 < mouseY && mouseY < 1025){
@@ -316,7 +320,7 @@ void attackNodes(){
           }
         }
       }else if(Arrays.asList(c.neighbours).contains(activeNode.country.name)){
-        drawDice(n.soldiers,activeNode.soldiers  );
+        drawDice(n.soldiers,activeNode.soldiers);
       }
     }
   }
