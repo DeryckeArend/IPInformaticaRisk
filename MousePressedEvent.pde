@@ -1,4 +1,4 @@
-//Dit is de enige class waarin mousePressed gebruikt mag worden, anders flip ik ... you're warned
+//Dit is de enige class waarin mousePressed gebruikt mag worden, anders flip ik ... you're warned ...
 
 int startMenuState = 0;
 boolean menuActive = false;
