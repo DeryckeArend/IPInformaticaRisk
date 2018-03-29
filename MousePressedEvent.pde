@@ -26,11 +26,9 @@ void mousePressed(){
       returnMenu();
     break;
     case("game"):
-    if(globalTurn == 0) {
       //Hier zit nog ergens een foutje
-      //distributeNodes();
-      firstRoundTurn();
-    }
+      //firstRoundTurn();
+
     if(refAttDis.equals("distribute")){
       distributeNodes();
     }else if(refAttDis.equals("attack")){
@@ -60,6 +58,7 @@ void firstRoundTurn() {
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
     cp5.remove("plusButton");
     cp5.remove("minusButton");
+    drawGame();
     for(Node n : nodes){
       n.soldiers = n.soldiers + n.soldiersRenDis;
       n.soldiersRenDis = 0;
@@ -67,39 +66,65 @@ void firstRoundTurn() {
     if(playerTurnInt == playerAmount){
       playerTurnInt = 0;
       globalTurn ++;
+      playerTurn = players.get(0);
+      return;
     }
+    playerTurn = players.get(playerTurnInt);
     playerTurnInt++;
-    playerTurn = players.get(playerTurnInt - 1);
   }
 }
 
+//Het beurtensysteem is opgebouwd uit 3 delen per beurt: "distribute" waar je nieuwe soldaatjes kan plaatsen, "attack" waar je andere spelers kan aanvallen, 
+//en "reinforce" waar je de soldaten kan verplaatsen van het ene naar het andere land
 void turnSystem(){
+  //Dit is de knop waar je op drukt om naar het volgende deel van je beurt te gaan of het einde van je beurt aan te geven
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
-    if(refAttDis == "distribute"){
-      refAttDis = "attack";
-      cp5.remove("plusButton");
-      cp5.remove("minusButton");
-      for(Node n : nodes){
-        n.soldiers = n.soldiers + n.soldiersRenDis;
-        n.soldiersRenDis = 0;
+    if(globalTurn != 0){
+      if(refAttDis == "distribute"){
+        refAttDis = "attack";
+        cp5.remove("plusButton");
+        cp5.remove("minusButton");
+        for(Node n : nodes){
+          n.soldiers = n.soldiers + n.soldiersRenDis;
+          n.soldiersRenDis = 0;
+        }
       }
-    }
-    else if(refAttDis == "attack"){
-      refAttDis = "reinforce";
-    }
-    else if(refAttDis == "reinforce"){
-      if(playerTurnInt == playerAmount){
-        playerTurnInt = 0;
-        globalTurn ++;
+    
+      else if(refAttDis == "attack"){
+        refAttDis = "reinforce";
       }
-      playerTurnInt++;      
-      playerTurn = players.get(playerTurnInt - 1);
-      refAttDis = "distribute";
+    
+      else if(refAttDis == "reinforce"){
+        if(playerTurnInt == playerAmount){
+          playerTurnInt = 0;
+          globalTurn ++;
+        }
+        playerTurnInt++;      
+        playerTurn = players.get(playerTurnInt - 1);
+        refAttDis = "distribute";
+      }
+      //Hier wordt het scherm opnieuw getekend zodat alle wijzigingen, soldaten die verplaatst zijn enz. kunnen worden getoond
+      drawGame();
+    }else{
+        cp5.remove("plusButton");
+        cp5.remove("minusButton");
+        for(Node n : nodes){
+          n.soldiers = n.soldiers + n.soldiersRenDis;
+          n.soldiersRenDis = 0;
+        }
+        if(playerTurnInt == playerAmount){
+          playerTurnInt = 0;
+          globalTurn ++;
+          playerTurn = players.get(0);
+          drawGame();
+          return;
+        }
+      playerTurn = players.get(playerTurnInt);
+      playerTurnInt++;
+      drawGame();
     }
-    drawGame();
   }
-  
-  }
+}
 
 //Deze methode controleert waar de muis is en of je op een rechthoek(knop) klikt in het hoofdmenu
 void mainMenu(){
