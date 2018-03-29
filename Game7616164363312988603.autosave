@@ -1,11 +1,7 @@
 int placedSoldiers;
 Node activeNode;
 
-/*void drawTutorial(){
-  image(tutorial,0,0,width,height);
-}*/
-
-void drawGame(){  
+void drawGame(){
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
   background(0);
   noStroke();
@@ -26,10 +22,6 @@ void drawGame(){
   noStroke();
   ellipse(1870, 45, 65, 65);
   image(house, 1844.5, 18, 50, 50);
-  
-  ellipse(1790, 45, 65, 65);
-  image(musicOn, 1763.5, 20, 50, 50);
-  
 }
 
 void verdeelLanden() {
@@ -87,13 +79,18 @@ void drawSidebar() {
   
   strokeWeight(3);
   for (Player p : players) {
-    if (p == playerTurn) {
+    if (p == playerTurn  ) {
       strokeWeight(10);
     }
     else {
       strokeWeight(3);
     }
+    if (p.alive == true){
       fill(p.playerColor);
+    }
+    else{
+      fill(113,121,135);
+    }
       stroke(0);
       rect(1500, yPos, 400, 125, 30);
       
@@ -200,6 +197,7 @@ void loadPlayers(){
     p.points = 0;
     p.countries = 0;
     p.AI = false;
+    p.alive = true;
     players.add(p);
   }
  

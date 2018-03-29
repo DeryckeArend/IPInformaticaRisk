@@ -1,11 +1,8 @@
 int placedSoldiers;
+int soldierAmount;
 Node activeNode;
 
-/*void drawTutorial(){
-  image(tutorial,0,0,width,height);
-}*/
-
-void drawGame(){  
+void drawGame(){
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
   background(0);
   noStroke();
@@ -22,14 +19,12 @@ void drawGame(){
   }
   drawSoldier();
   drawSidebar();
-  
+  if(refAttDis == "distribute"){
+    drawSoldierBox();
+  }
   noStroke();
   ellipse(1870, 45, 65, 65);
   image(house, 1844.5, 18, 50, 50);
-  
-  ellipse(1790, 45, 65, 65);
-  image(musicOn, 1763.5, 20, 50, 50);
-  
 }
 
 void verdeelLanden() {
@@ -52,6 +47,7 @@ void verdeelLanden() {
     }
     verdeeldeLanden++;
   }
+  pointSystem();
 }
 
 void drawSoldier(){
@@ -158,14 +154,30 @@ void checkContinents(Continent continent){
   }
   
   Player owner = countryInContinent.get(0).owner;
-  int countryOwnerPoints = 0;
+  int countryOwnerPoints = owner.points;
   for(Country c : countryInContinent){
     if(c.owner == owner){
       countryOwnerPoints++;
       if(countryOwnerPoints == countryInContinent.size()){
-        owner.points = owner.points + continent.points;
+        owner.points += continent.points;
       }
     }
+  }
+/*  if(player == owner){
+    return owner.points;
+  }
+  else {
+    return 0;
+  }*/
+}
+
+void pointSystem() {
+  for(Player p : players){
+    p.points = 0;
+    p.points = p.countries;
+  }
+  for(Continent c: continents){
+    checkContinents(c);
   }
 }
 
@@ -205,14 +217,19 @@ void loadPlayers(){
  
 }
 
-void distributeSoldiers() {
-  activeNode.soldiersRenDis = 0;
+void drawSoldierBox() {
+  soldierAmount = 0;
   Player p = playerTurn;
-  int soldierAmount = (p.points - p.countries) + p.countries/2;
-  boolean endDistTurnButton = false;
-  while(activeNode.soldiersRenDis < soldierAmount && !endDistTurnButton) {
-    
-  }
+  soldierAmount = p.points + p.countries/3;
+  
+  rectMode(CENTER);
+  rect(700,1000,210,80);
+  textAlign(CENTER);
+  fill(0);
+  text("Beschikbare soldaten:",700,985);
+  textSize(30);
+  text(soldierAmount,700, 1020);
+  fill(255);
 }
 
 void drawDistBox(Node n) {

@@ -1,6 +1,10 @@
 int diceSize = 75;
  
- void drawDice(int defenderAmount, int attackerAmount){
+ String drawDice(Node defNode, Node attNode){
+   
+   int defSurvivor = 0;
+   int attSurvivor = 0;
+   
    fill(113, 125, 145);
    rect(460,200,1000,750,50);
    fill(50);
@@ -13,7 +17,7 @@ int diceSize = 75;
    //Afhankelijk van het aantal dobbelstenen van de verdediger worden de rechthoekjes en de cirkeltjes getekend in diceMaker
    
   List<Integer> rollsDef = new ArrayList<Integer>();
-   for(int i = 0; i < defenderAmount; i++){
+   for(int i = 0; i < defNode.soldiers && defNode.soldiers >= 6; i++){
      int rollDef = (int) random(1,7);
      rollsDef.add(rollDef);
    }   
@@ -24,41 +28,47 @@ int diceSize = 75;
   }
   
   List<Integer> rollsAtt = new ArrayList<Integer>();
-  for(int i= 0; i< attackerAmount; i++){
+  for(int i= 0; i< attNode.soldiers; i++){
      int rollAtt = (int) random(1,7);
      rollsAtt.add(rollAtt);
   }
   Collections.sort(rollsAtt, Collections.reverseOrder());
   
-  for(int i = 0; i < attackerAmount; i++){
+  for(int i = 0; i < attNode.soldiers; i++){
     diceMaker(rollsAtt.get(i), width/2 + 350, 350 + 100*i, color(183, 42, 42));
   }
   
-  if(attackerAmount < defenderAmount){
-  for (int i = 0; i < attackerAmount; i++){  
+  if(attNode.soldiers < defNode.soldiers){
+  for (int i = 0; i < attNode.soldiers && attNode.soldiers <= 6; i++){
+    println(rollsDef.get(i));
   if(rollsDef.get(i) >= rollsAtt.get(i)){
     imageMode(CENTER);    
     image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
+    defSurvivor++;
      }
     if(rollsDef.get(i) < rollsAtt.get(i)){
      imageMode(CENTER);         
      image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
+     attSurvivor++;
     } 
   } 
   }
   
-  if (attackerAmount >= defenderAmount){
-  for (int i = 0; i < defenderAmount; i++){  
+  if (attNode.soldiers >= defNode.soldiers){
+  for (int i = 0; i < defNode.soldiers && defNode.soldiers <= 6; i++){  
   if(rollsDef.get(i) >= rollsAtt.get(i)){
     imageMode(CENTER);    
     image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
+    defSurvivor++;
      }
     if(rollsDef.get(i) < rollsAtt.get(i)){
      imageMode(CENTER);         
      image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
+     attSurvivor++;
     } 
-  } 
   }
+  }
+  return (defSurvivor + "," + attSurvivor);
  }
   
  void diceMaker(int side, int x, int y, color c){
