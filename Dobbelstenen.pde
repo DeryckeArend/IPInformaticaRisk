@@ -1,6 +1,6 @@
 int diceSize = 75;
  
- void drawDice(int defenderAmount, int attackerAmount){
+ void drawDice(Node defNode, Node attNode){
    fill(113, 125, 145);
    rect(460,200,1000,750,50);
    fill(50);
@@ -13,7 +13,7 @@ int diceSize = 75;
    //Afhankelijk van het aantal dobbelstenen van de verdediger worden de rechthoekjes en de cirkeltjes getekend in diceMaker
    
   List<Integer> rollsDef = new ArrayList<Integer>();
-   for(int i = 0; i < defenderAmount; i++){
+   for(int i = 0; i < defNode.soldiers && defNode.soldiers >= 6; i++){
      int rollDef = (int) random(1,7);
      rollsDef.add(rollDef);
    }   
@@ -24,18 +24,18 @@ int diceSize = 75;
   }
   
   List<Integer> rollsAtt = new ArrayList<Integer>();
-  for(int i= 0; i< attackerAmount; i++){
+  for(int i= 0; i< attNode.soldiers; i++){
      int rollAtt = (int) random(1,7);
      rollsAtt.add(rollAtt);
   }
   Collections.sort(rollsAtt, Collections.reverseOrder());
   
-  for(int i = 0; i < attackerAmount; i++){
+  for(int i = 0; i < attNode.soldiers; i++){
     diceMaker(rollsAtt.get(i), width/2 + 350, 350 + 100*i, color(183, 42, 42));
   }
   
-  if(attackerAmount < defenderAmount){
-  for (int i = 0; i < attackerAmount; i++){  
+  if(attNode.soldiers < defNode.soldiers){
+  for (int i = 0; i < attNode.soldiers; i++){  
   if(rollsDef.get(i) >= rollsAtt.get(i)){
     imageMode(CENTER);    
     image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
@@ -47,8 +47,8 @@ int diceSize = 75;
   } 
   }
   
-  if (attackerAmount >= defenderAmount){
-  for (int i = 0; i < defenderAmount; i++){  
+  if (attNode.soldiers >= defNode.soldiers){
+  for (int i = 0; i < defNode.soldiers; i++){  
   if(rollsDef.get(i) >= rollsAtt.get(i)){
     imageMode(CENTER);    
     image(redCross, width/2 + 350, 350 + 100*i, 90, 90);

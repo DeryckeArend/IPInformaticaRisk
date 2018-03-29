@@ -17,7 +17,7 @@ void drawGame(){
     fill(pcolor);
     ellipse(n.x, n.y, straal, straal);
   }
-  pointSystem();
+  //pointSystem();
   drawSoldier();
   drawSidebar();
   if(refAttDis == "distribute"){
@@ -263,4 +263,8 @@ public void minusButton() {
     activeNode.soldiersRenDis--;
   }
     drawTextDistBox(activeNode);
+}
+
+void drawTutorial(){
+  image(tutorial,0,0,width,height);
 }

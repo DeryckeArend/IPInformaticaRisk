@@ -67,6 +67,11 @@ void mousePressed(){
 void turnSystem(){
   //Dit is de knop waar je op drukt om naar het volgende deel van je beurt te gaan of het einde van je beurt aan te geven
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
+    /*for (Player p : players){
+    if (p.points == 0){
+      players.remove(p);
+    }
+    }*/
     if(globalTurn != 0){
       if(refAttDis == "distribute"){
         refAttDis = "attack";
@@ -313,6 +318,7 @@ void attackNodes(){
             line(n.x, n.y, node.x, node.y);
             noFill();
             ellipse(node.x, node.y, straal + 5, straal + 5);
+            c.owner.points = 0;
           }
         }
       }
