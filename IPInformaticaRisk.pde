@@ -56,6 +56,7 @@ void setup(){
   initiate();
   drawMainMenu();
   setupSound();
+  //drawDice(6,4);
 }
 
 //Deze methode wordt ongeveer 10x per seconde uitgevoerd
