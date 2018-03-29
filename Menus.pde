@@ -16,13 +16,13 @@ RadioButton rcp5;
 RadioButton rcp6;
 
 //De variabelen voor de slider
-float x = 650;
+float x = 750;
 float y = 540;
 float w = 20;
 float h = 20;
-float initialX = x;
+float initialX = 650;
 float higherX = 1250;
-float value2;
+float value2 = 0.16;
 boolean lock = false;
 
 //De variabelen voor de textfields in het playerSelectMenu
@@ -40,8 +40,6 @@ void drawMainMenu(){
   image(logo, (width/2) - 250, 100, 500, 150);
   stroke(10);
   fill(122, 105, 68, 100);
-  rectMode(CORNER);
-  strokeWeight(2);
   rect((width/2) - (buttonWidth/2), button1Height, buttonWidth, buttonHeight);
   rect((width/2) - (buttonWidth/2), button1Height + 100, buttonWidth, buttonHeight);
   rect((width/2) - (buttonWidth/2), button1Height + 200, buttonWidth, buttonHeight);
