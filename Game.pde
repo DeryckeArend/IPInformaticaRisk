@@ -52,6 +52,8 @@ void verdeelLanden() {
     }
     verdeeldeLanden++;
   }
+  pointSystem();
+  temp();
 }
 
 void drawSoldier(){
@@ -169,6 +171,16 @@ void checkContinents(Continent continent){
   }
 }
 
+void pointSystem() {
+  for(Player p : players){
+    p.points = 0;
+    p.points = p.countries;
+  }
+  for(Continent c : continents) {
+    checkContinents(c);
+  }
+}
+
 void loadPlayers(){
   //Na dat er op de 'Volgende' knop wordt gedrukt wordt deze methode opgeroepen
   //Hierin worden de naam van de speler, zijn kleur en de rest opgeladen en opgeslaan
@@ -213,6 +225,22 @@ void distributeSoldiers() {
   while(activeNode.soldiersRenDis < soldierAmount && !endDistTurnButton) {
     
   }
+
+void temp() {
+  soldierAmount = 0;
+  Player p = playerTurn;
+  soldierAmount = p.countries*2 + (p.points - p.countries);
+}
+
+void drawSoldierBox() {
+  rectMode(CENTER);
+  rect(700,1000,210,80);
+  textAlign(CENTER);
+  fill(0);
+  text("Beschikbare soldaten:",700,985);
+  textSize(30);
+  text(soldierAmount,700, 1020);
+  fill(255);
 }
 
 void drawDistBox(Node n) {
@@ -244,11 +272,13 @@ void drawTextDistBox(Node n) {
 public void plusButton() {
   activeNode.soldiersRenDis++;
   drawTextDistBox(activeNode);
+  soldierAmount--;
 }
 
 public void minusButton() {
-  if(activeNode.soldiersRenDis > 0){
+  if(activeNode.soldiersRenDis > 0 && soldierAmount > 0){
     activeNode.soldiersRenDis--;
+    soldierAmount++;
   }
     drawTextDistBox(activeNode);
 }
