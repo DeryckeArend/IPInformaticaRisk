@@ -12,10 +12,9 @@ void startup() {
 }
  
 void load() {
-  
-  background(255,0,0);
+  background(0);
   //image(logo, (width/2) - 250, 100, 500, 150);
-  fill(0);
+  fill(255);
   textAlign(CENTER);
   textSize(60);
   text("DMCV presents:", width/2,350);

@@ -54,6 +54,7 @@ PImage musicOn;
 void setup(){
   fullScreen();
   loadScreen();
+  surface.setResizable(true);
   state="menu";
   initiate();
   drawMainMenu();
