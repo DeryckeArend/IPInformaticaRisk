@@ -5,6 +5,7 @@ int diceSize = 75;
    int defSurvivor = 0;
    int attSurvivor = 0;
    
+   rectMode(CORNER);
    fill(113, 125, 145);
    rect(460,200,1000,750,50);
    fill(50);
@@ -17,7 +18,7 @@ int diceSize = 75;
    //Afhankelijk van het aantal dobbelstenen van de verdediger worden de rechthoekjes en de cirkeltjes getekend in diceMaker
    
   List<Integer> rollsDef = new ArrayList<Integer>();
-   for(int i = 0; i < defNode.soldiers && defNode.soldiers >= 6; i++){
+   for(int i = 0; i < defNode.soldiers; i++){
      int rollDef = (int) random(1,7);
      rollsDef.add(rollDef);
    }   
@@ -50,7 +51,8 @@ int diceSize = 75;
      imageMode(CENTER);         
      image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
      attSurvivor++;
-    } 
+    }
+    imageMode(CORNER);
   } 
   }
   
@@ -65,10 +67,14 @@ int diceSize = 75;
      imageMode(CENTER);         
      image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
      attSurvivor++;
-    } 
+    }
+    imageMode(CORNER);
   }
   }
+  PFont ingameText = createFont("arial", 25); 
+  textFont(ingameText, 25);
   return (defSurvivor + "," + attSurvivor);
+  
  }
   
  void diceMaker(int side, int x, int y, color c){

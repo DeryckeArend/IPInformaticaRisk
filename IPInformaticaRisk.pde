@@ -10,6 +10,7 @@
 import java.util.List;
 import controlP5.*;
 import java.util.Collections;
+import java.util.Arrays;
 
 //Hier bovenaan slaan we enkele variabelen op zodat we ze later gemakkelijk terugvinden en veranderen
 List<Country> countries = new ArrayList<Country>();
@@ -93,9 +94,6 @@ void draw(){
         updateSlider();
       }
     break;
-    default:
-      println("EMERGENCY: THERE'S SOMETHING WRONG WITH THE GAME STATE! CAN'T START GAME");
-    break;
   }
 }
 
@@ -123,6 +121,7 @@ void loadImages(){
   downButton = loadImage("data/Images/down.png");
   redCross = loadImage("data/Images/redCross2.png");
   tutorial = loadImage("data/Images/tutorial.png");
+  musicOn = loadImage("data/Images/musicon.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.

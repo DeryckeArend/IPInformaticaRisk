@@ -1,9 +1,9 @@
-int placedSoldiers;
 Node activeNode;
+int soldierAmount;
 
-/*void drawTutorial(){
+void drawTutorial(){
   image(tutorial,0,0,width,height);
-}*/
+}
 
 void drawGame(){  
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
@@ -20,13 +20,20 @@ void drawGame(){
     fill(pcolor);
     ellipse(n.x, n.y, straal, straal);
   }
+  pointSystem();
   drawSoldier();
   drawSidebar();
   
+  if(refAttDis == "distribute"){
+    drawSoldierBox(); 
+  }
+  
+  //De home-button
   noStroke();
   ellipse(1870, 45, 65, 65);
   image(house, 1844.5, 18, 50, 50);
   
+  //De music-button
   ellipse(1790, 45, 65, 65);
   image(musicOn, 1763.5, 20, 50, 50);
   
@@ -168,7 +175,7 @@ void checkContinents(Continent continent){
         owner.points = owner.points + continent.points;
       }
     }
-  }
+  } 
 }
 
 void pointSystem() {
@@ -217,15 +224,6 @@ void loadPlayers(){
  
 }
 
-void distributeSoldiers() {
-  activeNode.soldiersRenDis = 0;
-  Player p = playerTurn;
-  int soldierAmount = (p.points - p.countries) + p.countries/2;
-  boolean endDistTurnButton = false;
-  while(activeNode.soldiersRenDis < soldierAmount && !endDistTurnButton) {
-    
-  }
-
 void temp() {
   soldierAmount = 0;
   Player p = playerTurn;
@@ -233,6 +231,8 @@ void temp() {
 }
 
 void drawSoldierBox() {
+  Player p = playerTurn;
+  soldierAmount = p.points +  p.countries/3;
   rectMode(CENTER);
   rect(700,1000,210,80);
   textAlign(CENTER);
