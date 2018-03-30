@@ -47,8 +47,6 @@ void mousePressed(){
     }
     musicButton();
     musicWeg();
-    stopSound();
-    setupSound();
     break;
     case("startMenu"):
     if(startMenuState==0){
