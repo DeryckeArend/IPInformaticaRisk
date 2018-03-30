@@ -56,7 +56,7 @@ void setup(){
   loadScreen();
   surface.setResizable(true);
   state="menu";
-  initiate();
+  initiate(); 
   drawMainMenu();
   setupSound();
   //drawDice(4,5);
@@ -109,7 +109,6 @@ void initiate(){
 //Alle afbeeldingen die gebruikt worden, moeten hier geladen worden voor het spel start. Let erop dat je geen .png of .jpg vergeet
 void loadImages(){
   background = loadImage("data/Images/mainMenuPlaceholder.jpg");
-  logo = loadImage("data/Images/logoDMCV.png");
   riskMap = loadImage("data/Images/mapLaatsteVersieAangepast.png");
   soldierRed = loadImage("data/Images/soldierRed.png");
   soldierBlue = loadImage("data/Images/soldierBlue.png");
