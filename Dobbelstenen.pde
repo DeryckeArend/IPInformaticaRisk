@@ -1,6 +1,7 @@
 int diceSize = 75;
  
  String drawDice(Node defNode, Node attNode){
+   defendingNode = defNode;
    
    int defSurvivor = 0;
    int attSurvivor = 0;
@@ -71,10 +72,18 @@ int diceSize = 75;
     imageMode(CORNER);
   }
   }
+  
+  rectMode(CENTER);
+  rect(width/2, 700, 320, 100, 25);
+  rect(width/2, 820, 320, 100, 25);
+  fill(113, 125, 145);
+  text("Nieuwe Aanval", width/2, 720);
+  text("Stop", width/2, 850);
+  rectMode(CORNER);
+  
   PFont ingameText = createFont("arial", 25); 
   textFont(ingameText, 25);
   return (defSurvivor + "," + attSurvivor);
-  
  }
   
  void diceMaker(int side, int x, int y, color c){

@@ -1,5 +1,7 @@
 Node activeNode;
+Node defendingNode;
 int soldierAmount;
+boolean inDiceScreen = false;
 
 void drawTutorial(){
   image(tutorial,0,0,width,height);
@@ -24,10 +26,6 @@ void drawGame(){
   drawSoldier();
   drawSidebar();
   
-  if(refAttDis == "distribute"){
-    drawSoldierBox(); 
-  }
-  
   //De home-button
   noStroke();
   ellipse(1870, 45, 65, 65);
@@ -37,6 +35,91 @@ void drawGame(){
   ellipse(1790, 45, 65, 65);
   image(musicOn, 1763.5, 20, 50, 50);
   
+}
+
+void attackNodes(){
+  for(Node n: nodes) {
+    n.active = false;
+    if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal) && !inDiceScreen){
+      drawGame();
+      Country c = n.country;
+      List<String> neighbours = Arrays.asList(c.neighbours);
+      if(n.country.owner == playerTurn){
+        for(int i = 0; i < c.neighbours.length; i++){
+          Node node = getCountry(c.neighbours[i]).node;
+          if(!(getCountry(c.neighbours[i]).owner == c.owner)){
+            n.active = true;
+            strokeWeight(7);
+            stroke(204, 79, 102);
+            line(n.x, n.y, node.x, node.y);
+            noFill();
+            ellipse(node.x, node.y, straal + 5, straal + 5);
+            activeNode = n;
+          }
+        }
+      }else if(neighbours.contains(activeNode.country.name) && activeNode.soldiers >= 2){
+        String result = drawDice(n,activeNode);
+        inDiceScreen = true;
+        String[] resultList = result.split(",");
+        int defRemaining = Integer.parseInt(resultList[0]);
+        int attRemaining = Integer.parseInt(resultList[1]);
+        if(defRemaining == 0){
+          n.country.owner = activeNode.country.owner;
+          n.soldiers = activeNode.soldiers - 1;
+          activeNode.soldiers = 1;
+          //Delay, drawgame, inDiceScreen, proficiat, rect over knoppen
+        }
+        if(attRemaining == 0){
+          
+        }
+        Node tempNode = new Node();
+        tempNode.soldiers = 0;
+        tempNode.x = 0;
+        tempNode.y = 0;
+        activeNode = tempNode;
+      }
+    }
+  }
+}
+
+void reinforceNodes(){
+  drawGame();
+    for(Node n: nodes) {
+      n.active = false;
+    if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
+      Country c = n.country;
+      if(n.country.owner == playerTurn){
+        for(int i = 0; i < c.neighbours.length; i++){
+          Node node = getCountry(c.neighbours[i]).node;
+          if(getCountry(c.neighbours[i]).owner == c.owner){
+            n.active = true;
+            strokeWeight(7);
+            stroke(80, 126, 201);
+            line(n.x, n.y, node.x, node.y);
+            noFill();
+            ellipse(node.x, node.y, straal + 5, straal + 5);
+            activeNode = n;
+          }
+        }
+      }
+    }
+  }
+}
+
+void distributeNodes(){
+  for(Node n: nodes) {
+    n.active = false;
+    if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
+      if(n.country.owner == playerTurn){
+        drawGame();
+        cp5.remove("plusButton");
+        cp5.remove("minusButton");
+        drawDistBox(n);
+        drawTextDistBox(n);
+        activeNode = n;
+      }
+    }
+  }
 }
 
 void verdeelLanden() {
@@ -237,9 +320,18 @@ void drawSoldierBox() {
   rect(700,1000,210,80);
   textAlign(CENTER);
   fill(0);
+  textSize(20);
   text("Beschikbare soldaten:",700,985);
   textSize(30);
-  text(soldierAmount,700, 1020);
+  
+  int disSoldiers = 0;
+  for(Node n : nodes){
+   if(n.country.owner == playerTurn){
+     disSoldiers += n.soldiersRenDis;
+   }
+  }
+  
+  text(soldierAmount - disSoldiers,700, 1020);
   fill(255);
 }
 
@@ -270,9 +362,17 @@ void drawTextDistBox(Node n) {
 }
 
 public void plusButton() {
+  int disSoldiers = 0;
+  for(Node n : nodes){
+    println("ya??" + disSoldiers);
+    println(soldierAmount);
+    disSoldiers += n.soldiersRenDis;
+  }
+  if(disSoldiers != soldierAmount){
   activeNode.soldiersRenDis++;
   drawTextDistBox(activeNode);
   soldierAmount--;
+  }
 }
 
 public void minusButton() {

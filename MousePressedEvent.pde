@@ -35,11 +35,16 @@ void mousePressed(){
 
     if(refAttDis.equals("distribute")){
       distributeNodes();
-    }else if(refAttDis.equals("attack")){
+    }else if(refAttDis.equals("attack") && inDiceScreen == false){
       attackNodes();
     }else if(refAttDis.equals("reinforce")){
       reinforceNodes();
     }
+    
+    if(inDiceScreen == true){
+      diceScreenButtons();
+    }
+    
     turnSystem();
     quitButton();
     if(menuActive){
@@ -284,65 +289,17 @@ void quitButton(){
     }
 }
 
-void attackNodes(){
-  drawGame();
-  for(Node n: nodes) {
-    n.active = false;
-    if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
-      Country c = n.country;
-      if(n.country.owner == playerTurn){
-        for(int i = 0; i < c.neighbours.length; i++){
-          Node node = getCountry(c.neighbours[i]).node;
-          if(!(getCountry(c.neighbours[i]).owner == c.owner)){
-            n.active = true;
-            strokeWeight(7);
-            stroke(204, 79, 102);
-            line(n.x, n.y, node.x, node.y);
-            noFill();
-            ellipse(node.x, node.y, straal + 5, straal + 5);
-          }
-        }
-      }
-    }
-  }
-}
-
-void reinforceNodes(){
-  drawGame();
-    for(Node n: nodes) {
-      n.active = false;
-    if(mousePressed && (sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
-      Country c = n.country;
-      if(n.country.owner == playerTurn){
-        for(int i = 0; i < c.neighbours.length; i++){
-          Node node = getCountry(c.neighbours[i]).node;
-          if(getCountry(c.neighbours[i]).owner == c.owner){
-            n.active = true;
-            strokeWeight(7);
-            stroke(80, 126, 201);
-            line(n.x, n.y, node.x, node.y);
-            noFill();
-            ellipse(node.x, node.y, straal + 5, straal + 5);
-          }
-        }
-      }
-    }
-  }
-}
-
-void distributeNodes(){
-  for(Node n: nodes) {
-    n.active = false;
-    if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
-      if(n.country.owner == playerTurn){
-        drawGame();
-        cp5.remove("plusButton");
-        cp5.remove("minusButton");
-        drawDistBox(n);
-        drawTextDistBox(n);
-        activeNode = n;
-      }
-    }
+void diceScreenButtons(){
+  if(width/2 - 160 < mouseX && mouseX < width/2 + 160){
+    //Nieuwe aanval knop
+     if(700 < mouseY && mouseY < 800){
+       drawDice(defendingNode, activeNode);
+     }
+     //Stop knop
+     if(820 < mouseY && mouseY < 920){
+       inDiceScreen = false;
+       drawGame();
+     }
   }
 }
 

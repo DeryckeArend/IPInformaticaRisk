@@ -90,6 +90,10 @@ void draw(){
 
     break;
     case("game"):
+      if(refAttDis == "distribute"){
+        drawSoldierBox(); 
+      }
+      
       if(soundActive){
         drawSliderBox();
         updateSlider();
@@ -169,7 +173,7 @@ void initiateCountries(){
         n.x = row.getInt(2);
         n.y = row.getInt(3);
         n.country = c;
-        n.soldiers = 0;
+        n.soldiers = 1;
         n.active = false;
         nodes.add(n);
         c.node = n;
