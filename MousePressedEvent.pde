@@ -292,10 +292,6 @@ void quitButton(){
 
 void diceScreenButtons(){
   if(width/2 - 160 < mouseX && mouseX < width/2 + 160){
-    //Nieuwe aanval knop
-     if(700 < mouseY && mouseY < 800){
-       drawDice(defendingNode, activeNode);
-     }
      //Stop knop
      if(820 < mouseY && mouseY < 920){
        inDiceScreen = false;

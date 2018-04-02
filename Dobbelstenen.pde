@@ -1,8 +1,6 @@
 int diceSize = 75;
  
  String drawDice(Node defNode, Node attNode){
-   defendingNode = defNode;
-   
    int defSurvivor = 0;
    int attSurvivor = 0;
    
@@ -30,13 +28,13 @@ int diceSize = 75;
   }
   
   List<Integer> rollsAtt = new ArrayList<Integer>();
-  for(int i= 0; i< attNode.soldiers && i < 6; i++){
+  for(int i= 0; i< attNode.soldiers - 1 && i < 6; i++){
      int rollAtt = (int) random(1,7);
      rollsAtt.add(rollAtt);
   }
   Collections.sort(rollsAtt, Collections.reverseOrder());
   
-  for(int i = 0; i < attNode.soldiers && i < 6; i++){
+  for(int i = 0; i < attNode.soldiers - 1 && i < 6; i++){
     diceMaker(rollsAtt.get(i), width/2 + 350, 350 + 100*i, color(183, 42, 42));
   }
   
@@ -47,11 +45,13 @@ int diceSize = 75;
     imageMode(CENTER);    
     image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
     defSurvivor++;
+    println("def++");
      }
     if(rollsDef.get(i) < rollsAtt.get(i)){
      imageMode(CENTER);         
      image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
      attSurvivor++;
+     println("att++");
     }
     imageMode(CORNER);
   } 
@@ -63,26 +63,35 @@ int diceSize = 75;
     imageMode(CENTER);    
     image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
     defSurvivor++;
+    println("def++");
      }
     if(rollsDef.get(i) < rollsAtt.get(i)){
      imageMode(CENTER);         
      image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
      attSurvivor++;
+     println("att++");
     }
     imageMode(CORNER);
   }
   }
   
   rectMode(CENTER);
-  rect(width/2, 700, 320, 100, 25);
   rect(width/2, 820, 320, 100, 25);
+  rect(width/2, 700, 320, 100, 25);
   fill(113, 125, 145);
-  text("Nieuwe Aanval", width/2, 720);
-  text("Stop", width/2, 850);
+  textSize(25);
+  if(defSurvivor != 0){
+    textAlign(CENTER);
+    text("Verdediger", width/2, 690);
+  }else{text("Aanvaller", width/2, 690);}
+  text("heeft gewonnen", width/2, 720);
+  textSize(40);
+  text("Sluiten", width/2, 840);
   rectMode(CORNER);
   
   PFont ingameText = createFont("arial", 25); 
   textFont(ingameText, 25);
+  println(defSurvivor + "," + attSurvivor);
   return (defSurvivor + "," + attSurvivor);
  }
   

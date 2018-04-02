@@ -1,5 +1,4 @@
 Node activeNode;
-Node defendingNode;
 int soldierAmount;
 boolean inDiceScreen = false;
 
@@ -63,23 +62,13 @@ void attackNodes(){
         String[] resultList = result.split(",");
         int defRemaining = Integer.parseInt(resultList[0]);
         int attRemaining = Integer.parseInt(resultList[1]);
+        activeNode.soldiers = 1 + attRemaining;
+        n.soldiers = defRemaining;
         if(defRemaining == 0){
           n.country.owner = activeNode.country.owner;
           n.soldiers = activeNode.soldiers - 1;
           activeNode.soldiers = 1;
-          //Delay, drawgame, inDiceScreen, proficiat, rect over knoppen
-          rectMode(CENTER);
-          fill(113, 125, 145);
-          rect(width/2, 500, 200, 300);
         }
-        if(attRemaining == 0){
-          
-        }
-        /*Node tempNode = new Node();
-        tempNode.soldiers = 0;
-        tempNode.x = 0;
-        tempNode.y = 0;
-        activeNode = tempNode;*/
       }
     }
   }
