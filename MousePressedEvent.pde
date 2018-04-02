@@ -211,6 +211,7 @@ void mouseReleased() {
 void updateSlider(){
   drawSliderBox();
   fill(0);
+  rectMode(CORNER);
   rect(660, 540, 600, 4);
   fill(200);
   rect(x, y-8, 20, 20);

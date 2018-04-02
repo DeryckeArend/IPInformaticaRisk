@@ -73,6 +73,7 @@ void drawOptionsMenu(){
 void drawSliderBox() {
   noStroke();
   fill(206,169,99,50);
+  rectMode(CORNER);
   rect(480,500,920,80);
 }
 

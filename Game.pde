@@ -68,15 +68,18 @@ void attackNodes(){
           n.soldiers = activeNode.soldiers - 1;
           activeNode.soldiers = 1;
           //Delay, drawgame, inDiceScreen, proficiat, rect over knoppen
+          rectMode(CENTER);
+          fill(113, 125, 145);
+          rect(width/2, 500, 200, 300);
         }
         if(attRemaining == 0){
           
         }
-        Node tempNode = new Node();
+        /*Node tempNode = new Node();
         tempNode.soldiers = 0;
         tempNode.x = 0;
         tempNode.y = 0;
-        activeNode = tempNode;
+        activeNode = tempNode;*/
       }
     }
   }
@@ -317,6 +320,7 @@ void drawSoldierBox() {
   Player p = playerTurn;
   soldierAmount = p.points +  p.countries/3;
   rectMode(CENTER);
+  fill(255,255,255);
   rect(700,1000,210,80);
   textAlign(CENTER);
   fill(0);
@@ -364,8 +368,6 @@ void drawTextDistBox(Node n) {
 public void plusButton() {
   int disSoldiers = 0;
   for(Node n : nodes){
-    println("ya??" + disSoldiers);
-    println(soldierAmount);
     disSoldiers += n.soldiersRenDis;
   }
   if(disSoldiers != soldierAmount){

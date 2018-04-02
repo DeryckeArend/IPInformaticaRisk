@@ -19,24 +19,24 @@ int diceSize = 75;
    //Afhankelijk van het aantal dobbelstenen van de verdediger worden de rechthoekjes en de cirkeltjes getekend in diceMaker
    
   List<Integer> rollsDef = new ArrayList<Integer>();
-   for(int i = 0; i < defNode.soldiers; i++){
+   for(int i = 0; i < defNode.soldiers && i < 6; i++){
      int rollDef = (int) random(1,7);
      rollsDef.add(rollDef);
    }   
   Collections.sort(rollsDef, Collections.reverseOrder());
    
-  for(int i = 0; i < rollsDef.size(); i++){
+  for(int i = 0; i < rollsDef.size() && i < 6; i++){
     diceMaker(rollsDef.get(i), width/2 - 350, 350 + 100*i, color(85, 134, 214));   
   }
   
   List<Integer> rollsAtt = new ArrayList<Integer>();
-  for(int i= 0; i< attNode.soldiers; i++){
+  for(int i= 0; i< attNode.soldiers && i < 6; i++){
      int rollAtt = (int) random(1,7);
      rollsAtt.add(rollAtt);
   }
   Collections.sort(rollsAtt, Collections.reverseOrder());
   
-  for(int i = 0; i < attNode.soldiers; i++){
+  for(int i = 0; i < attNode.soldiers && i < 6; i++){
     diceMaker(rollsAtt.get(i), width/2 + 350, 350 + 100*i, color(183, 42, 42));
   }
   
