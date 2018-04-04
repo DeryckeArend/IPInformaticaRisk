@@ -13,6 +13,6 @@
 
 ### [__Menos importante__](https://www.youtube.com/watch?v=dP9Wp6QVbsk)
 - Spelregels aanpassen, duidelijk maken hoe we werken met de 3 stappen, en dobbelstenen uitleggen mbhv fotos
-- Maken we een video als 'tutorial'? == extra punten?
+- Step 1: make a video tutorial! Step 2: ???? Step 3: Profit 	//Maken we een video als 'tutorial'? == extra punten?
 - Eventueel UI redesign, nieuwe afbeelding, kleuren enzo...
 - Eindscherm voor overwinaar maken, liefst met explosies en vuurwerk, bedankt
