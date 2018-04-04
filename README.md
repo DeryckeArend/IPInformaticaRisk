@@ -2,7 +2,7 @@
 
 ## TODO:
 
-### Muy importante [Link Text](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+### [Muy importante](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 - Aanvalsysteem goed afwerken
 - 3de stap in een beurt (reinforce) maken, kijk anders s naar de code voor aanval, zou redelijk simpel moeten zijn
 - Logo voor het spel maken
@@ -11,7 +11,7 @@
 - Zoeken naar een oplossing voor het kleur keuze scherm, aanduiding kleuren
 - Wat als 2 spelers het zelfde kleur kiezen?
 
-### Menos importante
+### [Menos importante] (https://www.youtube.com/watch?v=dP9Wp6QVbsk)
 - Spelregels aanpassen, duidelijk maken hoe we werken met de 3 stappen, en dobbelstenen uitleggen mbhv fotos
 - Maken we een video als 'tutorial'? == extra punten?
 - Eventueel UI redesign, nieuwe afbeelding, kleuren enzo...
