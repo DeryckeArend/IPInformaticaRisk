@@ -2,15 +2,17 @@
 
 ## TODO:
 
-### Website:
-- In-game screenshot
-- Wekelijkse vooruitgang
+### Muy importante
+- Aanvalsysteem goed afwerken
+- 3de stap in een beurt (reinforce) maken, kijk anders s naar de code voor aanval, zou redelijk simpel moeten zijn
+- Logo voor het spel maken
+- Oplossing vinden voor verbinding oranje en groen landen
+- Testen of alle landen deftig met elkaar zijn verbonden, via lijntjes bij aanval
+- Zoeken naar een oplossing voor het kleur keuze scherm, aanduiding kleuren
+- Wat als 2 spelers het zelfde kleur kiezen?
 
-## Taakverdeling voor donderdag:
-- Egon: 1ste ronde soldaten verdelen + punten berekenen adhv aantal landen en continenten
-- Alex: Sound slider in het pop-up menu zetten
-- Arend: Aanval + soldaatjes herverdelen op het einde van de ronde
-- Leonie: Introductiescherm waar met pijlen alles wordt op uitgelegd kan evt een afbeelding appart zijn.
-          Rechtsonder drie vakjes waarop staat wat je aan het doen bent versterken, aanval of herverdelen
-- Arne: Als een speler 0 punten heeft zou die uit het spel moeten gezet worden, evt een boolean maken in de player klasse of gwn            verwijderen uit de players list (dan zal hij ook weggaan uit de sidebar)
-
+### Menos importante
+- Spelregels aanpassen, duidelijk maken hoe we werken met de 3 stappen, en dobbelstenen uitleggen mbhv fotos
+- Maken we een video als 'tutorial'? == extra punten?
+- Eventueel UI redesign, nieuwe afbeelding, kleuren enzo...
+- Eindscherm voor overwinaar maken, liefst met explosies en vuurwerk, bedankt
