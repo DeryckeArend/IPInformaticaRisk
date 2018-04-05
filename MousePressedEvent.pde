@@ -338,7 +338,7 @@ void musicButton(){
 }
 
 void musicWeg(){
-  if(857.75 < mouseX && mouseX < 1061.25 && 636.5 < mouseY && mouseY < 686.5){
+  if(857.75 < mouseX && mouseX < 1061.25 && 636.5 < mouseY && mouseY < 686.5 && soundActive){
     buttonClicked();
     drawGame();
     state = "game";

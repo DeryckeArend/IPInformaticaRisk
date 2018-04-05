@@ -158,7 +158,7 @@ void verdeelLanden() {
     verdeeldeLanden++;
   }
   pointSystem();
-  temp();
+  soldaatVerdeling();
 }
 
 void drawSoldier(){
@@ -323,7 +323,7 @@ void loadPlayers(){
  
 }
 
-void temp() {
+void soldaatVerdeling() {
   soldierAmount = 0;
   Player p = playerTurn;
   soldierAmount = p.countries*2 + (p.points - p.countries);
