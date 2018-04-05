@@ -3,7 +3,7 @@ float buttonWidth = 400;
 float buttonHeight = 75;
 float button1Height = 300;
 float namenCreditsX = width/2; 
-float namenCreditsY = height/2 + 400;
+float namenCreditsY = height/2 + 900;
 float straal = 20;
 
 //De variabelen voor de radiobuttons, ze staan hier zodat ze globaal zouden zijn
@@ -87,7 +87,7 @@ void drawCreditsMenu(){
   text("Credits:", width/2, namenCreditsY-100);
   textAlign(RIGHT);
   textSize(35);
-  text("Game code:", width/2-100, namenCreditsY+100);
+  text("Code van het spel:", width/2-100, namenCreditsY+100);
   textAlign(LEFT);
   text("Arend Derycke", width/2+100, namenCreditsY+100);
   text("Egon Vanhoenacker", width/2+100, namenCreditsY+150);
@@ -96,7 +96,7 @@ void drawCreditsMenu(){
   text("Leonie Van Renterghem", width/2+100, namenCreditsY+300);
   
   textAlign(RIGHT);
-  text("Map:", width/2-100, namenCreditsY+400);
+  text("Kaart:", width/2-100, namenCreditsY+400);
   textAlign(LEFT);
   text("Alex Moens", width/2+100, namenCreditsY+400);
   text("Egon Vanhoenacker", width/2+100, namenCreditsY+450);
@@ -107,11 +107,8 @@ void drawCreditsMenu(){
   textAlign(RIGHT);
   text("Muziek:", width/2-100, namenCreditsY+700);
   textAlign(LEFT);
-  text("Alex Moens", width/2+100, namenCreditsY+700);
-  text("Arne Callaert", width/2+100, namenCreditsY+750);
-  text("Arend Derycke", width/2+100, namenCreditsY+800);
-  text("Egon Vanhoenacker", width/2+100, namenCreditsY+850);
-  text("Leonie Van Renterghem", width/2+100, namenCreditsY+900);
+  text("Naruto Shippuden", width/2+100, namenCreditsY+700);
+  text(" - Departure To The Front Lines", width/2+100, namenCreditsY+750);
   
   fill(122, 105, 68, 100);
   rect(10,10,200,70);
@@ -135,20 +132,21 @@ void drawInstructionMenu(){
   textAlign(CENTER);
   text("Terug", 110, 65);
   
-  textSize(40);
+  fill(255);
+  textSize(35);
   textAlign(LEFT);
   String d="Het doel: Verover de hele wereld en versla alle tegenstanders.";
-  fill(0);
-  text(d, width/2 -850, 200);
+ // fill(255);
+  text(d, width/2 -650, 100);
   String e="Het begin: Iedereen start met een bepaald aantal gebieden en een aantal soldaten. De gebieden zijn willekeurig verdeeld over alle spelers.";
-  fill(0);
-  text(e, width/2 -850, 250, 1700,700);
+  //fill(255);
+  text(e, width/2 -650, 150, 1440,700);
   String f="Het verloop: Speler één begint met zijn eerste zet door op zijn eigen land te klikken en erna op een van zijn buren. Dan zal het duel starten, het stopt pas wanneer een van de teams overblijft en dus op het gebied mag blijven staan. Dan mag deze speler nog andere duels starten en/of zijn soldaten verplaatsen. Erna drukt de speler op *volgende speler* als deze klaar is met zijn zet.";
-  fill(0);
-  text(f,width/2-850, 400, 1700,1500);
+ // fill(0);
+  text(f,width/2-650, 300, 1440,1500);
   String g="Het duel: Als een duel is gestart door speler één (de aanvaller) tegen speler twee (de verdediger), zullen er dobbelstenen gegooid worden. Het aantal dobbelstenen correspondeert met het aantal soldaten iemand heeft (Max 6 dobbelstenen als er meer dan 6 soldaten zijn). Wanneer er gelijke cijfers worden gegooid wint de verdediger.";
-  fill(0);
-  text(g,width/2-850, 750, 1700, 1500);
+ // fill(0);
+  text(g,width/2-650, 600, 1440, 1500);
     
 }
 
