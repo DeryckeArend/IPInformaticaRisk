@@ -244,7 +244,7 @@ void checkContinents(Continent continent){
   Player owner = countryInContinent.get(0).owner;
   int countryOwnerPoints = 0;
   for(Country c : countryInContinent){
-    if(c.owner == owner){
+    if(c.owner == owner){  
       countryOwnerPoints++;
       if(countryOwnerPoints == countryInContinent.size()){
         owner.points = owner.points + continent.points;
@@ -265,7 +265,7 @@ void pointSystem() {
 
 void loadPlayers(){
   //Na dat er op de 'Volgende' knop wordt gedrukt wordt deze methode opgeroepen
-  //Hierin worden de naam van de speler, zijn kleur en de rest opgeladen en opgeslaan
+  //Hierin worden de naam van de speler, zijn kleur en de rest opgeladen en opgeslaan  
   for(int i = 1; i <= playerAmount; i++){
     Player p = new Player();
     p.name = cp5.get(Textfield.class, "Naam speler " + i + ":").getText();
