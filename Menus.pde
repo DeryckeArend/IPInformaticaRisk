@@ -214,7 +214,7 @@ void drawPlayerSelectMenu(){
     case 2:
     rect(width/4,height/2,480,720,45);
     rect(width/2+width/4,height/2,480,720,45);
-
+    
     prepareTextField(t1, 280,250, "Naam speler 1:");
     prepareTextField(t2, width/2+280,250, "Naam speler 2:");
 
@@ -319,12 +319,12 @@ void drawPlayerSelectMenu(){
  Textfield prepareTextField(Textfield t, int x, int y, String label){
    PFont lettertypeInhoud = createFont("arial", 50);
    PFont lettertypeTitel= createFont("arial",25);
-   
+     
    t = cp5.addTextfield(label)
     .setPosition(x,y)
     .setSize(400,90)
     .setColorForeground(color(0))
-    .setColorBackground(color(114,113,89))
+    .setColorBackground(color(114,113,89))    
     .setColorActive(color(0))
     .setColorLabel(color(0))
     .setColor(255)
@@ -380,3 +380,106 @@ void drawPlayerSelectMenu(){
    playerAmount = a;
  }
  
+ void colorSelectPlayer(){
+color[] kleuren = new color[playerAmount+1];
+ for(int i = 1; i <= playerAmount; i++){
+    switch( (int) cp5.get(RadioButton.class, "ColorPicker" + i).getValue()){
+      case 1:
+        kleuren[i]= color(183, 42, 42);
+      break;
+      case 2:
+        kleuren[i] = color(44, 115, 163);
+      break;
+      case 3:
+        kleuren[i] = color(43, 162, 47);
+      break;
+      case 4:
+        kleuren[i] = color(219, 221, 73);
+      break;
+      case 5:
+        kleuren[i] = color(255, 165, 0);
+      break;
+      case 6:
+        kleuren[i] = color(188, 64, 182);
+      break;
+      default:
+      kleuren[i] =color(153);
+      break;
+    } 
+    
+    switch (playerAmount){
+     
+      case 2:
+      rectMode(CENTER);
+      fill(kleuren[1]);
+      rect(width/4,height/2,480,720,45);
+      fill(kleuren[2]);
+      rect(width/2+width/4,height/2,480,720,45);
+      /*
+      fill(0);
+      PFont titleColor =createFont("arial",35);
+      textFont(titleColor,35);
+      text("Kies je kleur:",280+205,400-15);
+      text("Kies je kleur:",width/2+280+205,400-15);  
+      */
+      break;
+      
+      case 3: 
+      rectMode(CENTER);
+      fill(kleuren[1]);
+      rect(width/4,height/2,450,720,45);
+      fill(kleuren[2]);
+      rect(width/2,height/2,450,720,45);
+      fill(kleuren[3]);
+      rect((width*3)/4,height/2,450,720,45);
+      /*text("Kies je kleur:",280+205,450-15);
+      text("Kies je kleur:",(width/2)+5,450-15);
+      */
+      break;
+      
+      case 4:
+      rectMode(CENTER);      
+      fill(kleuren[1]);
+      rect(width/4,height/4 + 100,480,360,45);
+      fill(kleuren[2]);
+      rect(width/2+width/4,height/4 + 100,480,360,45);
+      fill(kleuren[3]);
+      rect(width/4, height/4+height/2 -50,480,360,45);
+      fill(kleuren[4]);
+      rect(width/2+width/4,height/2+height/4 -50,480,360,45); 
+      break;
+      
+      case 5:
+      rectMode(CENTER);
+      fill(kleuren[1]);
+      rect(width/4,height/4+100,450,360,45);
+      fill(kleuren[2]);
+      rect(width/2,height/4+100,450,360,45);
+      fill(kleuren[3]);
+      rect((width*3)/4,height/4 +100,450,360,45);
+      fill(kleuren[4]);
+      rect(width/4+225, height/4+height/2 -50,480,360,45);
+      fill(kleuren[5]);
+      rect((width*3)/4-225,height/2+height/4 -50,480,360,45);
+      break;
+      
+      case 6:
+      rectMode(CENTER);
+      fill(kleuren[1]);
+      rect(width/4,height/4+100,450,360,45);
+      fill(kleuren[2]);
+      rect(width/2,height/4+100,450,360,45);
+      fill(kleuren[3]);
+      rect((width*3)/4,height/4 +100,450,360,45);
+      fill(kleuren[4]);
+      rect(width/4,height/4+height/2-50,450,360,45);
+      fill(kleuren[5]);
+      rect(width/2,height/4+height/2-50,450,360,45);
+      fill(kleuren[6]);
+      rect((width*3)/4,height/4 +height/2-50,450,360,45);
+      break;
+    }
+    rectMode(CORNER);
+    fill(0);
+ }
+ }

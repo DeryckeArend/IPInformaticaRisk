@@ -11,6 +11,9 @@ import java.util.List;
 import controlP5.*;
 import java.util.Collections;
 import java.util.Arrays;
+//import java.awt.Color;
+//import java.awt.Graphics;
+//import javax.swing.JFrame;
 
 //Hier bovenaan slaan we enkele variabelen op zodat we ze later gemakkelijk terugvinden en veranderen
 List<Country> countries = new ArrayList<Country>();
@@ -87,7 +90,9 @@ void draw(){
 
     break;
     case("startMenu"):
-
+      if(startMenuState == 1){
+        colorSelectPlayer();        
+      }
     break;
     case("game"):
       if(refAttDis == "distribute"){
