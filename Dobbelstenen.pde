@@ -15,7 +15,6 @@ int diceSize = 75;
    text("Aanvaller",(width/2)+350,275);
    
    //Afhankelijk van het aantal dobbelstenen van de verdediger worden de rechthoekjes en de cirkeltjes getekend in diceMaker
-   
   List<Integer> rollsDef = new ArrayList<Integer>();
    for(int i = 0; i < defNode.soldiers && i < 6; i++){
      int rollDef = (int) random(1,7);
@@ -23,8 +22,8 @@ int diceSize = 75;
    }   
   Collections.sort(rollsDef, Collections.reverseOrder());
    
-  for(int i = 0; i < rollsDef.size() && i < 6; i++){
-    diceMaker(rollsDef.get(i), width/2 - 350, 350 + 100*i, color(85, 134, 214));   
+  for(int i = 0; i < rollsDef.size(); i++){
+    diceMaker(rollsDef.get(i), width/2 - 350, 350 + 100*i, defNode.country.owner.playerColor);   
   }
   
   List<Integer> rollsAtt = new ArrayList<Integer>();
@@ -34,45 +33,58 @@ int diceSize = 75;
   }
   Collections.sort(rollsAtt, Collections.reverseOrder());
   
-  for(int i = 0; i < attNode.soldiers - 1 && i < 6; i++){
-    diceMaker(rollsAtt.get(i), width/2 + 350, 350 + 100*i, color(183, 42, 42));
+  for(int i = 0; i < rollsAtt.size(); i++){
+    diceMaker(rollsAtt.get(i), width/2 + 350, 350 + 100*i, attNode.country.owner.playerColor);
   }
   
-  if(attNode.soldiers < defNode.soldiers){
-  for (int i = 0; i < attNode.soldiers && attNode.soldiers <= 6; i++){
-    println(rollsDef.get(i));
-  if(rollsDef.get(i) >= rollsAtt.get(i)){
-    imageMode(CENTER);    
-    image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
-    defSurvivor++;
-    println("def++");
-     }
-    if(rollsDef.get(i) < rollsAtt.get(i)){
-     imageMode(CENTER);         
-     image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
-     attSurvivor++;
-     println("att++");
+  if(rollsAtt.size() < rollsDef.size()){
+    for (int i = 0; i < rollsAtt.size(); i++){
+      if(rollsDef.get(i) >= rollsAtt.get(i)){
+        imageMode(CENTER);    
+        image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
+        defSurvivor++;
+      }
+      if(rollsDef.get(i) < rollsAtt.get(i)){
+        imageMode(CENTER);         
+        image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
+        attSurvivor++;
+      }
+      imageMode(CORNER);
     }
-    imageMode(CORNER);
-  } 
+    defSurvivor += rollsDef.size() - rollsAtt.size();
   }
   
-  if (attNode.soldiers >= defNode.soldiers){
-  for (int i = 0; i < defNode.soldiers && defNode.soldiers <= 6; i++){  
-  if(rollsDef.get(i) >= rollsAtt.get(i)){
-    imageMode(CENTER);    
-    image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
-    defSurvivor++;
-    println("def++");
-     }
-    if(rollsDef.get(i) < rollsAtt.get(i)){
-     imageMode(CENTER);         
-     image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
-     attSurvivor++;
-     println("att++");
+  if (rollsAtt.size() > rollsDef.size()){
+    for (int i = 0; i < rollsDef.size(); i++){  
+      if(rollsDef.get(i) >= rollsAtt.get(i)){
+        imageMode(CENTER);    
+        image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
+        defSurvivor++;
+      }
+      if(rollsDef.get(i) < rollsAtt.get(i)){
+       imageMode(CENTER);         
+       image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
+       attSurvivor++;
+      }
+      imageMode(CORNER);
     }
-    imageMode(CORNER);
+    attSurvivor += rollsAtt.size() - rollsDef.size();
   }
+  
+  if (rollsAtt.size() == rollsDef.size()){
+    for (int i = 0; i < rollsDef.size(); i++){  
+      if(rollsDef.get(i) >= rollsAtt.get(i)){
+        imageMode(CENTER);    
+        image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
+        defSurvivor++;
+      }
+      if(rollsDef.get(i) < rollsAtt.get(i)){
+       imageMode(CENTER);         
+       image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
+       attSurvivor++;
+      }
+      imageMode(CORNER);
+    }
   }
   
   rectMode(CENTER);

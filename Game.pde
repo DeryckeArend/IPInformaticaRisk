@@ -62,12 +62,13 @@ void attackNodes(){
         String[] resultList = result.split(",");
         int defRemaining = Integer.parseInt(resultList[0]);
         int attRemaining = Integer.parseInt(resultList[1]);
-        activeNode.soldiers = 1 + attRemaining;
+        activeNode.soldiers = attRemaining + 1;
         n.soldiers = defRemaining;
         if(defRemaining == 0){
           n.country.owner = activeNode.country.owner;
           n.soldiers = activeNode.soldiers - 1;
           activeNode.soldiers = 1;
+          n.country.owner.countries++;
         }
       }
     }
@@ -168,6 +169,7 @@ void drawSoldier(){
 void drawSidebar() {
   int yPos = 90;
   int yPosT = 120;
+  pointSystem();
   
   strokeWeight(3);
   for (Player p : players) {
