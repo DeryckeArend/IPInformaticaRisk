@@ -52,6 +52,7 @@ PImage downButton;
 PImage redCross;
 PImage tutorial;
 PImage musicOn;
+PImage logoWhite;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -117,7 +118,7 @@ void initiate(){
 
 //Alle afbeeldingen die gebruikt worden, moeten hier geladen worden voor het spel start. Let erop dat je geen .png of .jpg vergeet
 void loadImages(){
-  background = loadImage("data/Images/mainMenuPlaceholder.jpg");
+  background = loadImage("data/Images/mainMenuPlaceholder.png");
   riskMap = loadImage("data/Images/mapLaatsteVersieAangepast.png");
   soldierRed = loadImage("data/Images/soldierRed.png");
   soldierBlue = loadImage("data/Images/soldierBlue.png");
@@ -131,6 +132,8 @@ void loadImages(){
   redCross = loadImage("data/Images/redCross2.png");
   tutorial = loadImage("data/Images/tutorial.png");
   musicOn = loadImage("data/Images/musicon.png");
+  logoWhite = loadImage("data/Images/logoDMCV2.png");
+  logo = loadImage("data/Images/logoDMCV.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.
