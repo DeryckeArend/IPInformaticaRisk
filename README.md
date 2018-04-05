@@ -5,7 +5,6 @@
 ### [__Muy importante__](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 - Aanvalsysteem goed afwerken
 - 3de stap in een beurt (reinforce) maken, kijk anders s naar de code voor aanval, zou redelijk simpel moeten zijn
-- Logo voor het spel maken
 - Oplossing vinden voor verbinding oranje en groen landen
 - Testen of alle landen deftig met elkaar zijn verbonden, via lijntjes bij aanval
 - Zoeken naar een oplossing voor het kleur keuze scherm, aanduiding kleuren
@@ -16,3 +15,4 @@
 - Step 1: make a video tutorial! Step 2: ???? Step 3: Profit 	//Maken we een video als 'tutorial'? == extra punten?
 - Eventueel UI redesign, nieuwe afbeelding, kleuren enzo...
 - Eindscherm voor overwinaar maken, liefst met explosies en vuurwerk, bedankt
+(- Logo voor het spel maken)
