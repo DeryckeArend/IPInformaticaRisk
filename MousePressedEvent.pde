@@ -90,6 +90,8 @@ void turnSystem(){
       }
     
       else if(refAttDis == "reinforce"){
+        cp5.remove("plusReinforce");
+        cp5.remove("minusReinforce");
         if(playerTurnInt == playerAmount){
           playerTurnInt = 0;
           globalTurn ++;

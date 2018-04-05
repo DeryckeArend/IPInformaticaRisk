@@ -1,10 +1,8 @@
 Node activeNode;
+Node reinforceNode;
 int soldierAmount;
 boolean inDiceScreen = false;
-
-void drawTutorial(){
-  image(tutorial,0,0,width,height);
-}
+boolean inReinforce = false;
 
 void drawGame(){  
   //We maken eerst heel het scherm schoon, door alle knoppen enzo te overschrijven
@@ -76,23 +74,47 @@ void attackNodes(){
 }
 
 void reinforceNodes(){
-  drawGame();
-    for(Node n: nodes) {
-      n.active = false;
+  for(Node n: nodes) {
+    n.active = false;
     if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
+      if(activeNode == null){
+       Country tempC = new Country();
+       tempC.name = "ya";
+       activeNode = new Node();
+       activeNode.country = tempC;
+      }
       Country c = n.country;
       if(n.country.owner == playerTurn){
-        for(int i = 0; i < c.neighbours.length; i++){
-          Node node = getCountry(c.neighbours[i]).node;
-          if(getCountry(c.neighbours[i]).owner == c.owner){
-            n.active = true;
-            strokeWeight(7);
-            stroke(80, 126, 201);
-            line(n.x, n.y, node.x, node.y);
-            noFill();
-            ellipse(node.x, node.y, straal + 5, straal + 5);
-            activeNode = n;
+        if(!inReinforce || !Arrays.asList(n.country.neighbours).contains(activeNode.country.name)){
+          for(int i = 0; i < c.neighbours.length; i++){
+            Node node = getCountry(c.neighbours[i]).node;
+            if(getCountry(c.neighbours[i]).owner == c.owner){
+              n.active = true;
+              strokeWeight(7);
+              stroke(80, 126, 201);
+              line(n.x, n.y, node.x, node.y);
+              noFill();
+              ellipse(node.x, node.y, straal + 5, straal + 5);
+              activeNode = n;
+              inReinforce = true;
+            }
           }
+        }else{
+          reinforceNode = n;
+          cp5.remove("plusReinforce");
+          cp5.remove("minusReinforce");
+          cp5 = new ControlP5(this);
+          strokeWeight(2);
+          drawTextRefBox(n);
+          cp5.addButton("plusReinforce")
+             .setPosition(n.x+20, n.y-75)
+             .setImages(upButton, upButton, upButton)
+             .updateSize();
+
+          cp5.addButton("minusReinforce")
+             .setPosition(n.x+90, n.y-75)
+             .setImages(downButton, downButton, downButton)
+             .updateSize();
         }
       }
     }
@@ -356,6 +378,18 @@ void drawTextDistBox(Node n) {
   text(n.soldiersRenDis, n.x+80, n.y-15);
 }
 
+void drawTextRefBox(Node n) {
+  //rect
+  rectMode(CORNER);
+  fill(0);
+  stroke(255);
+  rect(n.x+17, n.y-70, 125, 40, 50);  
+}
+
+void drawTutorial(){
+  image(tutorial,0,0,width,height);
+}
+
 public void plusButton() {
   int disSoldiers = 0;
   for(Node n : nodes){
@@ -374,4 +408,24 @@ public void minusButton() {
     soldierAmount++;
   }
     drawTextDistBox(activeNode);
+}
+
+public void plusReinforce(){
+  if(activeNode.soldiers > 1){
+     reinforceNode.soldiers++;
+     activeNode.soldiers--;
+     drawGame();
+  }
+  strokeWeight(2);
+  drawTextRefBox(reinforceNode);
+}
+
+public void minusReinforce(){
+  if(reinforceNode.soldiers > 1){
+     reinforceNode.soldiers--;
+     activeNode.soldiers++;
+     drawGame();
+  }
+  strokeWeight(2);
+  drawTextRefBox(reinforceNode);
 }
