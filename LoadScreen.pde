@@ -1,5 +1,5 @@
 void loadScreen() {
-  logo = loadImage("data/Images/logoDMCV.png");
+  logoWhite = loadImage("data/Images/logoDMCV2.png");
   if(millis() > 3000) {
     startup();
   } else {
@@ -14,7 +14,7 @@ void startup() {
  
 void load() {
   background(0);
-  image(logo, (width/2) - 250, 100, 500, 150);
+  image(logoWhite, (width/2) - 250, 100, 500, 150);
   fill(255);
   textAlign(CENTER);
   textSize(60);
