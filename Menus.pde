@@ -78,11 +78,11 @@ void drawSliderBox() {
 }
 
 void drawCreditsMenu(){
-  namenCreditsY = namenCreditsY - 10;
+  namenCreditsY = namenCreditsY - 5;
   background(0);
   image(background, 0, 0, width, height);
   textAlign(CENTER);
-  fill(0);
+  fill(255);
   textSize(50);
   text("Credits:", width/2, namenCreditsY-100);
   textAlign(RIGHT);
@@ -339,7 +339,7 @@ void drawPlayerSelectMenu(){
  
  RadioButton prepareRadioButton(RadioButton rc, int x, int y, String label){
         rc = cp5.addRadioButton(label)
-         .setPosition(x+90,y)
+         .setPosition(x+90,y-25)
          .setSize(60,60)
          .setColorForeground(color(0))
          .setColorBackground(color(89,68,39))
