@@ -8,7 +8,6 @@ void mousePressed(){
   //fill(0);
   //text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
   
-  
   if(isOver()) {
     lock = true;
   }
@@ -34,31 +33,30 @@ void mousePressed(){
       drawGame();
     break;
     case("game"):
-
-    if(refAttDis.equals("distribute")){
-      distributeNodes();
-    }else if(refAttDis.equals("attack") && inDiceScreen == false){
-      attackNodes();
-    }else if(refAttDis.equals("reinforce")){
-      reinforceNodes();
-    }
+      if(refAttDis.equals("distribute")){
+        distributeNodes();
+      }else if(refAttDis.equals("attack") && inDiceScreen == false){
+        attackNodes();
+      }else if(refAttDis.equals("reinforce")){
+        reinforceNodes();
+      }
     
-    if(inDiceScreen == true){
-      diceScreenButtons();
-    }
-    
-    turnSystem();
-    quitButton();
-    if(menuActive){
-      popUp();
-    }
-    musicButton();
-    musicWeg();
+      if(inDiceScreen == true){
+        diceScreenButtons();
+      }
+      
+      turnSystem();
+      quitButton();
+      if(menuActive){
+        popUp();
+      }
+      musicButton();
+      musicWeg();
     break;
     case("startMenu"):
-    if(startMenuState==0){
-      nextMenu();
-    }else{startGameButton();}
+      if(startMenuState==0){
+        nextMenu();
+      }else{startGameButton();}
     break;
     case("loadscreen"):
     
@@ -268,6 +266,7 @@ void startGameButton(){
   
 void quitButton(){
     if((sqrt(((1870 - mouseX)*(1870 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
+      buttonClicked();
       rectMode(CORNER);
       fill(206, 169, 99);
       rect(384, 316, 1151, 348, 25);
@@ -317,6 +316,7 @@ void popUp(){
 
 void musicButton(){
   if((sqrt(((1790 - mouseX)*(1790 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
+      buttonClicked();
       rectMode(CORNER);
       fill(206, 169, 99);
       rect(384, 356, 1151, 348, 25);
