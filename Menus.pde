@@ -87,7 +87,7 @@ void drawCreditsMenu(){
   background(0);
   image(background, 0, 0, width, height);
   textAlign(CENTER);
-  fill(255);
+  fill(0);
   textSize(50);
   text("Credits:", width/2, namenCreditsY-100);
   textAlign(RIGHT);

@@ -184,8 +184,6 @@ void returnMenuOptions() {
     buttonClicked();  
     drawMainMenu();
     state = "menu";
-    stopSound();
-    setupSound();
   }
 }
 
@@ -231,6 +229,7 @@ void updateSlider(){
   textAlign(CENTER);
   text("Music:", initialX -100, y+10);
   text(int(value) +"%", higherX +100, y+10);
+  changeSound();
 }
 
 boolean isOver(){
@@ -342,7 +341,5 @@ void musicWeg(){
     state = "game";
     menuActive = false;
     soundActive = false;
-    stopSound();
-    setupSound();
   }
 }
