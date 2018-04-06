@@ -1,5 +1,5 @@
 void loadScreen() {
-  logoWhite = loadImage("data/Images/logoDMCV2.png");
+  logoWhite = loadImage("data/Images/logoConWhite.png");
   if(millis() > 3000) {
     startup();
   } else {

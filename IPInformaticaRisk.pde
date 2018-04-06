@@ -56,6 +56,8 @@ PImage logoWhite;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
+  PImage titleBarIcon = loadImage("data/Images/titleBarIcon.png");
+  surface.setIcon(titleBarIcon);
   fullScreen();
   loadScreen();
   surface.setResizable(true);
@@ -118,8 +120,8 @@ void initiate(){
 
 //Alle afbeeldingen die gebruikt worden, moeten hier geladen worden voor het spel start. Let erop dat je geen .png of .jpg vergeet
 void loadImages(){
-  background = loadImage("data/Images/mainMenuPlaceholder.png");
-  riskMap = loadImage("data/Images/mapLaatsteVersieAangepast.png");
+  background = loadImage("data/Images/mainMenu.png");
+  riskMap = loadImage("data/Images/map.png");
   soldierRed = loadImage("data/Images/soldierRed.png");
   soldierBlue = loadImage("data/Images/soldierBlue.png");
   soldierOrange = loadImage("data/Images/soldierOrange.png");
@@ -129,11 +131,11 @@ void loadImages(){
   house = loadImage("data/Images/house.png");
   upButton = loadImage("data/Images/up.png");
   downButton = loadImage("data/Images/down.png");
-  redCross = loadImage("data/Images/redCross2.png");
+  redCross = loadImage("data/Images/redCross.png");
   tutorial = loadImage("data/Images/tutorial.png");
   musicOn = loadImage("data/Images/musicon.png");
-  logoWhite = loadImage("data/Images/logoDMCV2.png");
-  logo = loadImage("data/Images/logoDMCV.png");
+  logoWhite = loadImage("data/Images/logoCoNWhite.png");
+  logo = loadImage("data/Images/logoCoN.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.
