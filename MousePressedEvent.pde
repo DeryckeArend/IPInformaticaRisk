@@ -219,13 +219,10 @@ void updateSlider(){
   rect(660, 540, 600, 4);
   fill(200);
   rect(x, y-8, 20, 20);
-  drawSliderBox();
   float my = constrain(mouseX, initialX, higherX);
-  //((x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y))
   if(lock) { 
     x = my; 
   }
-  drawSliderBox();
   float value = map(x, initialX, higherX, 0, 100);
   value2 = map(value, 0, 100, 0.0, 1.0);
   // display text
@@ -234,7 +231,6 @@ void updateSlider(){
   textAlign(CENTER);
   text("Music:", initialX -100, y+10);
   text(int(value) +"%", higherX +100, y+10);
-  drawSliderBox();
 }
 
 boolean isOver(){
