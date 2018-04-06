@@ -73,6 +73,7 @@ void mousePressed(){
 void turnSystem(){
   //Dit is de knop waar je op drukt om naar het volgende deel van je beurt te gaan of het einde van je beurt aan te geven
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
+    buttonClicked();
     if(globalTurn != 0){
       if(refAttDis == "distribute"){
         refAttDis = "attack";
