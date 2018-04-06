@@ -184,7 +184,12 @@ void drawSoldier(){
   
   textSize(25);
   fill(0);
-  text(n.soldiers, n.x + 30, n.y);
+  if(n.country == getCountry("blauw9")){
+    text(n.soldiers, n.x - 13, n.y + 35);
+  }
+  else {
+    text(n.soldiers, n.x + 30, n.y);
+  }
  }
 }
 
@@ -333,6 +338,7 @@ void drawSoldierBox() {
   Player p = playerTurn;
   soldierAmount = p.points +  p.countries/3;
   rectMode(CENTER);
+  stroke(0);
   fill(255,255,255);
   rect(700,1000,210,80);
   textAlign(CENTER);

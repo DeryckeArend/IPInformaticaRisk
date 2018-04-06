@@ -10,6 +10,10 @@ void setupSound() {
   // Load a soundfile from the /data folder of the sketch and play it back
   music = new SoundFile(this, "Music/soundtrack.mp3");
   music.loop();
+  changeSound();
+}
+
+void changeSound() {
   music.amp(value2);
 }
 

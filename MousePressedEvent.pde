@@ -8,7 +8,6 @@ void mousePressed(){
   //fill(0);
   //text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
   
-  
   if(isOver()) {
     lock = true;
   }
@@ -34,31 +33,30 @@ void mousePressed(){
       drawGame();
     break;
     case("game"):
-
-    if(refAttDis.equals("distribute")){
-      distributeNodes();
-    }else if(refAttDis.equals("attack") && inDiceScreen == false){
-      attackNodes();
-    }else if(refAttDis.equals("reinforce")){
-      reinforceNodes();
-    }
+      if(refAttDis.equals("distribute")){
+        distributeNodes();
+      }else if(refAttDis.equals("attack") && inDiceScreen == false){
+        attackNodes();
+      }else if(refAttDis.equals("reinforce")){
+        reinforceNodes();
+      }
     
-    if(inDiceScreen == true){
-      diceScreenButtons();
-    }
-    
-    turnSystem();
-    quitButton();
-    if(menuActive){
-      popUp();
-    }
-    musicButton();
-    musicWeg();
+      if(inDiceScreen == true){
+        diceScreenButtons();
+      }
+      
+      turnSystem();
+      quitButton();
+      if(menuActive){
+        popUp();
+      }
+      musicButton();
+      musicWeg();
     break;
     case("startMenu"):
-    if(startMenuState==0){
-      nextMenu();
-    }else{startGameButton();}
+      if(startMenuState==0){
+        nextMenu();
+      }else{startGameButton();}
     break;
     case("loadscreen"):
     
@@ -75,6 +73,7 @@ void mousePressed(){
 void turnSystem(){
   //Dit is de knop waar je op drukt om naar het volgende deel van je beurt te gaan of het einde van je beurt aan te geven
   if((1550) < mouseX && mouseX < (1850) && (975) < mouseY && mouseY < (1025)){
+    buttonClicked();
     if(globalTurn != 0){
       if(refAttDis == "distribute"){
         refAttDis = "attack";
@@ -184,8 +183,6 @@ void returnMenuOptions() {
     buttonClicked();  
     drawMainMenu();
     state = "menu";
-    stopSound();
-    setupSound();
   }
 }
 
@@ -219,13 +216,10 @@ void updateSlider(){
   rect(660, 540, 600, 4);
   fill(200);
   rect(x, y-8, 20, 20);
-  drawSliderBox();
   float my = constrain(mouseX, initialX, higherX);
-  //((x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y))
   if(lock) { 
     x = my; 
   }
-  drawSliderBox();
   float value = map(x, initialX, higherX, 0, 100);
   value2 = map(value, 0, 100, 0.0, 1.0);
   // display text
@@ -234,7 +228,7 @@ void updateSlider(){
   textAlign(CENTER);
   text("Music:", initialX -100, y+10);
   text(int(value) +"%", higherX +100, y+10);
-  drawSliderBox();
+  changeSound();
 }
 
 boolean isOver(){
@@ -273,6 +267,7 @@ void startGameButton(){
   
 void quitButton(){
     if((sqrt(((1870 - mouseX)*(1870 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
+      buttonClicked();
       rectMode(CORNER);
       fill(206, 169, 99);
       rect(384, 316, 1151, 348, 25);
@@ -322,6 +317,7 @@ void popUp(){
 
 void musicButton(){
   if((sqrt(((1790 - mouseX)*(1790 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
+      buttonClicked();
       rectMode(CORNER);
       fill(206, 169, 99);
       rect(384, 356, 1151, 348, 25);
@@ -346,7 +342,5 @@ void musicWeg(){
     state = "game";
     menuActive = false;
     soundActive = false;
-    stopSound();
-    setupSound();
   }
 }
