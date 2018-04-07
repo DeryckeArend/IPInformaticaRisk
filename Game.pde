@@ -25,12 +25,12 @@ void drawGame(){
   
   //De home-button
   noStroke();
-  ellipse(1870, 45, 65, 65);
-  image(house, 1844.5, 18, 50, 50);
+  ellipse(width-50, 45, 65, 65);
+  image(house, width-75.5, 18, 50, 50);
   
   //De music-button
-  ellipse(1790, 45, 65, 65);
-  image(musicOn, 1763.5, 20, 50, 50);
+  ellipse(width-130, 45, 65, 65);
+  image(musicOn, width-156.5, 20, 50, 50);
   
 }
 
@@ -200,8 +200,8 @@ void drawSoldier(){
 }
 
 void drawSidebar() {
-  int yPos = 90;
-  int yPosT = 120;
+  int yPos = height/2-450;
+  int yPosT = height/2-420;
   pointSystem();
   
   strokeWeight(3);
@@ -214,21 +214,21 @@ void drawSidebar() {
     }
       fill(p.playerColor);
       stroke(0);
-      rect(1500, yPos, 400, 125, 30);
+      rect(width-420, yPos, 400, 125, 30);
       
       fill(0);
       textAlign(CENTER);
       textSize(25);
-      text(p.name, 1700, yPosT);
+      text(p.name, width-220, yPosT);
       
       textAlign(LEFT);
       textSize(20);
-      text("Punten: ", 1520, yPosT + 30);
-      text("Landen: ", 1520, yPosT + 70);
+      text("Punten: ", width-400, yPosT + 30);
+      text("Landen: ", width-400, yPosT + 70);
       
       textAlign(RIGHT);
-      text(p.points, 1880, yPosT + 30);
-      text(p.countries, 1880, yPosT + 70);
+      text(p.points, width-40, yPosT + 30);
+      text(p.countries, width-40, yPosT + 70);
       
       fill(255);
       yPos += 140;
@@ -238,34 +238,34 @@ void drawSidebar() {
      strokeWeight(3);
      fill(91,89,87);
      rectMode(CENTER);
-     rect(1700,1000,300,50,25);
+     rect(width-220,height-80,300,50,25);
      fill(255);
      textAlign(CENTER);
      textSize(25);
-     text("Volgende beurt",1700,1007.5);
+     text("Volgende beurt",width-220,height-72.5);
      
      fill(91,89,87);
      if(refAttDis.equals("distribute")){
        strokeWeight(5);
      }
-     rect(1590,945,100,50,25);
+     rect(width-330,height-135,100,50,25);
      strokeWeight(3);
      if(refAttDis.equals("attack")){
        strokeWeight(5);
      }
-     rect(1700,945,100,50,25);
+     rect(width-220,height-135,100,50,25);
      strokeWeight(3);
      if(refAttDis.equals("reinforce")){
        strokeWeight(5);
      }
-     rect(1810,945,100,50,25);
+     rect(width-110,height-135,100,50,25);
      strokeWeight(3);
      textAlign(CENTER);
      textSize(20);
      fill(255);
-     text("Verdeel",1590,952.5);
-     text("Aanval",1700,952.5);
-     text("Versterk",1810,952.5);
+     text("Verdeel",width-330,height-127.5);
+     text("Aanval",width-220,height-127.5);
+     text("Versterk",width-110,height-127.5);
 }
 
 void checkContinents(Continent continent){
@@ -345,11 +345,11 @@ void drawSoldierBox() {
   soldierAmount = p.points +  p.countries/3;
   rectMode(CENTER);
   fill(255,255,255);
-  rect(700,1000,210,80);
+  rect((width/2)-260,height-80,210,80);
   textAlign(CENTER);
   fill(0);
   textSize(20);
-  text("Beschikbare soldaten:",700,985);
+  text("Beschikbare soldaten:",(width/2)-260,height-95);
   textSize(30);
   
   int disSoldiers = 0;
@@ -359,7 +359,7 @@ void drawSoldierBox() {
    }
   }
   
-  text(soldierAmount - disSoldiers,700, 1020);
+  text(soldierAmount - disSoldiers,(width/2)-260,height-60);
   fill(255);
 }
 
