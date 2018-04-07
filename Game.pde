@@ -48,7 +48,13 @@ void attackNodes(){
             n.active = true;
             strokeWeight(7);
             stroke(204, 79, 102);
-            line(n.x, n.y, node.x, node.y);
+            println(n.country.name);
+            println(node.country.name);
+            if((n.country.name == "oranje1" && node.country.name == "groen3") || (node.country.name == "oranje1" && n.country.name == "groen3")){
+              line(getCountry("oranje1").node.x, getCountry("oranje1").node.y, 10,10);
+            }else{
+              line(n.x, n.y, node.x, node.y);
+            }
             noFill();
             ellipse(node.x, node.y, straal + 5, straal + 5);
             activeNode = n;

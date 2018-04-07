@@ -103,7 +103,6 @@ int diceSize = 75;
   
   PFont ingameText = createFont("arial", 25); 
   textFont(ingameText, 25);
-  println(defSurvivor + "," + attSurvivor);
   return (defSurvivor + "," + attSurvivor);
  }
   

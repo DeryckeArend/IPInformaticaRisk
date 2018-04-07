@@ -5,8 +5,8 @@ boolean menuActive = false;
 boolean soundActive = false;
 
 void mousePressed(){
-  //fill(0);
-  //text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
+  fill(0);
+  text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
   
   
   if(isOver()) {
