@@ -134,7 +134,7 @@ void loadImages(){
   tutorial = loadImage("data/Images/tutorial.png");
   musicOn = loadImage("data/Images/musicon.png");
   logoWhite = loadImage("data/Images/logoDMCV2.png");
-  logo = loadImage("data/Images/logoDMCV.png");
+  logo = loadImage("data/Images/logoDMCV3.png");
   achtergrondSlider = loadImage("data/Images/achtergrondSlider.png");
 }
 
