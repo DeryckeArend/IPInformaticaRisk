@@ -7,6 +7,7 @@
 *Arend Derycke
 **/
 
+import processing.net.*;
 import java.util.List;
 import controlP5.*;
 import java.util.Collections;
