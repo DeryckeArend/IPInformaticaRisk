@@ -41,6 +41,7 @@ String refAttDis = "distribute";
 int port = 10002;
 boolean gameServerRunning;
 Server gameServer;
+Client gameClient;
 
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
 PImage background;
@@ -102,7 +103,9 @@ void draw(){
     break;
     case("startMenu"):
       if(startMenuState == 0 && gameServerRunning){
-        drawMultiplayerBox();        
+        drawMultiplayerBox();
+        gameClient = gameServer.available();
+        println(gameClient.ip());
       }  
       if(startMenuState == 1){
         colorSelectPlayer();        

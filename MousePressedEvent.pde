@@ -195,6 +195,14 @@ void startMenu(){
  if((width/2 - 130) < mouseX &&  mouseX < (width/2 + 130) && 800 < mouseY && mouseY < 875){
    if(joinActive){
      drawMPWait();
+     r.remove();
+     String ip = ipTF.getText();
+     println(ip);
+     try{
+      gameClient = new Client(this,ip,port); 
+     }catch(Exception e){
+       
+     }
    }
    if(playerAmount != 0){
      r.remove();
