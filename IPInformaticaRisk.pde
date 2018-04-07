@@ -108,11 +108,15 @@ void draw(){
         if(gameClient != null){
           println(gameClient.ip());
           String input = gameClient.readString();
-          input = input.substring(0, input.indexOf("\n")); // Only up to the newline
+          input = input.substring(0, input.indexOf("\n"));
+          println(input);
         }
       }  
       if(startMenuState == 1){
         colorSelectPlayer();        
+      }
+      if(joinActive){
+        gameClient.write("Am here, no worries");
       }
     break;
     case("game"):
