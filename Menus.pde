@@ -159,12 +159,12 @@ void drawInstructionMenu(){
 void drawStartMenu(){
   background(0);
   image(background, 0, 0, width, height);
-  cp5 = new ControlP5(this);
   textAlign(CENTER);
   textSize(45);
   text("Selecteer de Spel-Instellingen",960,75);
   text("Aantal spelers:", 960, 250);
-  //text("Aantal computer-spelers:", 960, 500);
+
+  cp5 = new ControlP5(this);
   r = cp5.addRadioButton("radioButtonPlayers")
          .setPosition(590,300)
          .setSize(60,60)
@@ -191,15 +191,37 @@ void drawStartMenu(){
   stroke(10);
   fill(89, 68, 39);
   rect((width/2 -130),800, 260,75);
+  rect((width/2 -150),400, 300,75);
+  rect((width/2 -140),550, 280,75);
   fill(0);
   text("Volgende", width/2,850);
+  text("Start Server", width/2, 450);
+  text("Meedoen", width/2, 600);
+  
+  //Terug-knop
   fill(122, 105, 68, 100);
   rect(10, 10, 200, 70);
-  fill(0);
-    
+  fill(0); 
   textAlign(CENTER);
   text("Terug", 110, 65);
   
+}
+
+void drawMultiplayerBox(){
+  rectMode(CENTER);
+     stroke(0);
+     fill(255,255,255);
+     rect(width/2, 600, 600,100);
+     textAlign(CORNER);
+     fill(0);
+     textSize(30);
+     text("IP: " + Server.ip(), width/2 - 280, 590);
+     text("PORT: " + port, width/2 - 280, 625);
+     
+     
+     
+     rectMode(CORNER);
+     textAlign(CENTER);
 }
 
 

@@ -196,6 +196,25 @@ void nextMenu(){
      startMenuState = 1;
    }
  }
+ if((width/2 - 1500) < mouseX &&  mouseX < (width/2 + 150) && 550 < mouseY && mouseY < 625){
+   if(!gameServerRunning){
+     
+     gameServer = new Server(this, port);
+     println("Server started on: " + Server.ip());
+     gameServerRunning = true;
+
+     drawMultiplayerBox();
+   }else{
+     gameServerRunning = false;
+     gameServer.stop();
+     gameServer = null;
+     r.remove();
+     drawStartMenu();
+   }
+ }
+ if((width/2 - 120) < mouseX &&  mouseX < (width/2 + 120) && 400 < mouseY && mouseY < 475){
+   
+ }
  if(10 < mouseX && mouseX < 200 && 10 < mouseY && mouseY < 80){
     r.remove(); 
     buttonClicked();

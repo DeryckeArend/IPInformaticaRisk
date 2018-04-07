@@ -37,6 +37,11 @@ int globalTurn = 0;
 //Hierin staat wat de speler aan het doen is, "distribute", "attack" of "reinforce", gebruik aub precies deze namen
 String refAttDis = "distribute";
 
+//Variabelen voor de server
+int port = 10002;
+boolean gameServerRunning;
+Server gameServer;
+
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
 PImage background;
 PImage logo;
@@ -65,6 +70,7 @@ void setup(){
   surface.setResizable(true);
   state="menu";
   initiate(); 
+  gameServerRunning = false;
   drawMainMenu();
   setupSound();
   //drawDice(4,5);
@@ -95,6 +101,9 @@ void draw(){
 
     break;
     case("startMenu"):
+      if(startMenuState == 0 && gameServerRunning){
+        drawMultiplayerBox();        
+      }  
       if(startMenuState == 1){
         colorSelectPlayer();        
       }
