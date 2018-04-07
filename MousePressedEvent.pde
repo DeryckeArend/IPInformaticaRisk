@@ -196,7 +196,7 @@ void startMenu(){
    if(joinActive){
      drawMPWait();
      r.remove();
-     String ip = ipTF.getText();
+     String ip = cp5.get(Textfield.class, "Vul het ip in:").getText();
      println(ip);
      try{
       gameClient = new Client(this,ip,port); 
