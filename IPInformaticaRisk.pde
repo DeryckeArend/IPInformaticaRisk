@@ -53,7 +53,7 @@ PImage redCross;
 PImage tutorial;
 PImage musicOn;
 PImage logoWhite;
-PImage achtergrondSlider;
+PImage sliderBackground;
 
 //Deze methode wordt 1 keer gelezen voor het spel wordt opgestart
 void setup(){
@@ -134,7 +134,7 @@ void loadImages(){
   musicOn = loadImage("data/Images/musicon.png");
   logoWhite = loadImage("data/Images/logoCoNWhite.png");
   logo = loadImage("data/Images/logoCoN3.png");
-  achtergrondSlider = loadImage("data/Images/achtergrondSlider.png");
+  sliderBackground = loadImage("data/Images/achtergrondSlider.png");
 }
 
 //Deze methode laadt de continent data van het bestand continentdata.csv.

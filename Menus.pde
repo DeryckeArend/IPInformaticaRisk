@@ -74,11 +74,16 @@ void drawSliderBox() {
   noStroke();
   fill(206,169,99,50);
   rectMode(CORNER);
-  rect(480,500,920,80);
+  if(soundActive){
+    rect(480,500,920,80);
+  }
+  else{
+    image(sliderBackground,480,500);
+  }
 }
 
 void drawCreditsMenu(){
-  namenCreditsY = namenCreditsY - 5;
+  namenCreditsY = namenCreditsY - 1;
   background(0);
   image(background, 0, 0, width, height);
   textAlign(CENTER);
