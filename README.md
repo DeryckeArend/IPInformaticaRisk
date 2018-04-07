@@ -13,3 +13,9 @@
 - Spelregels aanpassen, duidelijk maken hoe we werken met de 3 stappen, en dobbelstenen uitleggen mbhv fotos
 - Step 1: make a video tutorial! Step 2: ???? Step 3: Profit 	//Maken we een video als 'tutorial'? == extra punten?
 - Eindscherm voor overwinaar maken, liefst met explosies en vuurwerk, bedankt
+
+### __Bugs en todo__
+ - Einde van spel (spel moet stoppen als 1 speler alle landen heeft)
+ - fouten in reinforce
+ - als er op veel knoppen na elkaar wordt gedrukt in een foute volgorde flipt de game soms --> fix it
+ - balance the game
