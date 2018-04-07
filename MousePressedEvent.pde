@@ -184,7 +184,6 @@ void returnMenuOptions() {
     buttonClicked();  
     drawMainMenu();
     state = "menu";
-    changeSound();
   }
 }
 
@@ -230,6 +229,7 @@ void updateSlider(){
   textAlign(CENTER);
   text("Music:", initialX -100, y+10);
   text(int(value) +"%", higherX +100, y+10);
+  changeSound();
 }
 
 boolean isOver(){

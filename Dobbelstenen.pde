@@ -11,8 +11,8 @@ int diceSize = 75;
    PFont titleDice =createFont("Showcard Gothic",40);
    textFont(titleDice,40);
    textAlign(CENTER);
-   text("Verdediger",(width/2)-350,275); 
-   text("Aanvaller",(width/2)+350,275);
+   text("Verdediger",(width/2)-350,(height/2)-265); 
+   text("Aanvaller",(width/2)+350,(height/2)-265);
    
    //Afhankelijk van het aantal dobbelstenen van de verdediger worden de rechthoekjes en de cirkeltjes getekend in diceMaker
   List<Integer> rollsDef = new ArrayList<Integer>();
@@ -23,7 +23,7 @@ int diceSize = 75;
   Collections.sort(rollsDef, Collections.reverseOrder());
    
   for(int i = 0; i < rollsDef.size(); i++){
-    diceMaker(rollsDef.get(i), width/2 - 350, 350 + 100*i, defNode.country.owner.playerColor);   
+    diceMaker(rollsDef.get(i), width/2 - 350, (height/2)-190 + 100*i, defNode.country.owner.playerColor);   
   }
   
   List<Integer> rollsAtt = new ArrayList<Integer>();
@@ -34,19 +34,19 @@ int diceSize = 75;
   Collections.sort(rollsAtt, Collections.reverseOrder());
   
   for(int i = 0; i < rollsAtt.size(); i++){
-    diceMaker(rollsAtt.get(i), width/2 + 350, 350 + 100*i, attNode.country.owner.playerColor);
+    diceMaker(rollsAtt.get(i), width/2 + 350, (height/2)-190 + 100*i, attNode.country.owner.playerColor);
   }
   
   if(rollsAtt.size() < rollsDef.size()){
     for (int i = 0; i < rollsAtt.size(); i++){
       if(rollsDef.get(i) >= rollsAtt.get(i)){
         imageMode(CENTER);    
-        image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
+        image(redCross, width/2 + 350, (height/2)-190 + 100*i, 90, 90);
         defSurvivor++;
       }
       if(rollsDef.get(i) < rollsAtt.get(i)){
         imageMode(CENTER);         
-        image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
+        image(redCross, width/2 - 350, (height/2)-190 + 100*i, 90, 90);
         attSurvivor++;
       }
       imageMode(CORNER);
@@ -58,12 +58,12 @@ int diceSize = 75;
     for (int i = 0; i < rollsDef.size(); i++){  
       if(rollsDef.get(i) >= rollsAtt.get(i)){
         imageMode(CENTER);    
-        image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
+        image(redCross, width/2 + 350, (height/2)-190 + 100*i, 90, 90);
         defSurvivor++;
       }
       if(rollsDef.get(i) < rollsAtt.get(i)){
        imageMode(CENTER);         
-       image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
+       image(redCross, width/2 - 350, (height/2)-190 + 100*i, 90, 90);
        attSurvivor++;
       }
       imageMode(CORNER);
@@ -75,12 +75,12 @@ int diceSize = 75;
     for (int i = 0; i < rollsDef.size(); i++){  
       if(rollsDef.get(i) >= rollsAtt.get(i)){
         imageMode(CENTER);    
-        image(redCross, width/2 + 350, 350 + 100*i, 90, 90);
+        image(redCross, width/2 + 350, (height/2)-190 + 100*i, 90, 90);
         defSurvivor++;
       }
       if(rollsDef.get(i) < rollsAtt.get(i)){
        imageMode(CENTER);         
-       image(redCross, width/2 - 350, 350 + 100*i, 90, 90);
+       image(redCross, width/2 - 350, (height/2)-190 + 100*i, 90, 90);
        attSurvivor++;
       }
       imageMode(CORNER);
@@ -88,17 +88,17 @@ int diceSize = 75;
   }
   
   rectMode(CENTER);
-  rect(width/2, 820, 320, 100, 25);
-  rect(width/2, 700, 320, 100, 25);
+  rect(width/2, (height/2)+280, 320, 100, 25);
+  rect(width/2, (height/2)+160, 320, 100, 25);
   fill(113, 125, 145);
   textSize(25);
   if(defSurvivor != 0){
     textAlign(CENTER);
-    text("Verdediger", width/2, 690);
-  }else{text("Aanvaller", width/2, 690);}
-  text("heeft gewonnen", width/2, 720);
+    text("Verdediger", width/2, (height/2)+150);
+  }else{text("Aanvaller", width/2, (height/2)+150);}
+  text("heeft gewonnen", width/2, (height/2)+180);
   textSize(40);
-  text("Sluiten", width/2, 840);
+  text("Sluiten", width/2, (height/2)+300);
   rectMode(CORNER);
   
   PFont ingameText = createFont("arial", 25); 

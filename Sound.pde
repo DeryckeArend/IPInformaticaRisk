@@ -13,6 +13,10 @@ void setupSound() {
   changeSound();
 }
 
+void changeSound(){
+  music.amp(value2);
+}
+
 void stopSound() {
   music.stop();
 }
@@ -23,9 +27,6 @@ void buttonClicked() {
   buttonClick.play();
 }
 
-void changeSound(){
-  music.amp(value2);
-}
 /*
 //muziekje wanneer je klikt op aanvallen
 void attackSound() {
