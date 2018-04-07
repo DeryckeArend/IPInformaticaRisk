@@ -132,7 +132,6 @@ void loadImages(){
   redCross = loadImage("data/Images/redCross.png");
   tutorial = loadImage("data/Images/tutorial.png");
   musicOn = loadImage("data/Images/musicon.png");
-  logoWhite = loadImage("data/Images/logoCoNWhite.png");
   logo = loadImage("data/Images/logoCoN3.png");
   sliderBackground = loadImage("data/Images/achtergrondSlider.png");
 }
