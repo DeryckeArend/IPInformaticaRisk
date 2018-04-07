@@ -105,7 +105,11 @@ void draw(){
       if(startMenuState == 0 && gameServerRunning){
         drawMultiplayerBox();
         gameClient = gameServer.available();
-        println(gameClient.ip());
+        if(gameClient != null){
+          println(gameClient.ip());
+          String input = gameClient.readString();
+          input = input.substring(0, input.indexOf("\n")); // Only up to the newline
+        }
       }  
       if(startMenuState == 1){
         colorSelectPlayer();        

@@ -200,6 +200,7 @@ void startMenu(){
      println(ip);
      try{
       gameClient = new Client(this,ip,port); 
+      gameClient.write("Hey bro I joined ya");
      }catch(Exception e){
        
      }
