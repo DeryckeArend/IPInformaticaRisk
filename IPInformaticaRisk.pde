@@ -42,6 +42,9 @@ int port = 10002;
 boolean gameServerRunning;
 Server gameServer;
 Client gameClient;
+boolean joinActive = false;
+Textfield ipTF;
+boolean connection = false;
 
 //Hier staan alle afbeeldingen zodat we ze van overal in het spel kunnen opladen, voor dat je een afbeelding kan tonen moet je hier een variabele PImage zetten met de naam die je wilt gebruiken
 PImage background;
@@ -115,7 +118,7 @@ void draw(){
       if(startMenuState == 1){
         colorSelectPlayer();        
       }
-      if(joinActive){
+      if(connection){
         gameClient.write("Am here, no worries");
       }
     break;

@@ -4,9 +4,6 @@ int startMenuState = 0;
 boolean menuActive = false;
 boolean soundActive = false;
 
-boolean joinActive = false;
-Textfield ipTF;
-
 void mousePressed(){
   //fill(0);
   //text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
@@ -204,6 +201,7 @@ void startMenu(){
      }catch(Exception e){
        
      }
+     connection = true;
    }
    if(playerAmount != 0){
      r.remove();
