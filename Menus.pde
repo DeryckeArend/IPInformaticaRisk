@@ -207,6 +207,13 @@ void drawStartMenu(){
   
 }
 
+void drawMPWait(){
+  image(background, 0, 0, width, height);
+  fill(255,255,255);
+  textAlign(CENTER);
+  text("Aan het wachten op host...", width/2, 500);
+}
+
 void drawMultiplayerBox(){
   rectMode(CENTER);
      stroke(0);

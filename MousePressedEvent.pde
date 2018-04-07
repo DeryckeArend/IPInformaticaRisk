@@ -4,6 +4,9 @@ int startMenuState = 0;
 boolean menuActive = false;
 boolean soundActive = false;
 
+boolean joinActive = false;
+Textfield ipTF;
+
 void mousePressed(){
   //fill(0);
   //text("X= " + mouseX + "  " + "Y= " + mouseY, mouseX, mouseY);
@@ -55,8 +58,10 @@ void mousePressed(){
     break;
     case("startMenu"):
       if(startMenuState==0){
-        nextMenu();
-      }else{startGameButton();}
+        startMenu();
+      }else{
+        startGameButton();
+      }
     break;
     case("loadscreen"):
     
@@ -186,8 +191,11 @@ void returnMenuOptions() {
   }
 }
 
-void nextMenu(){
- if((width/2 - 120) < mouseX &&  mouseX < (width/2 + 120) && 800 < mouseY && mouseY < 875){
+void startMenu(){
+ if((width/2 - 130) < mouseX &&  mouseX < (width/2 + 130) && 800 < mouseY && mouseY < 875){
+   if(joinActive){
+     drawMPWait();
+   }
    if(playerAmount != 0){
      r.remove();
      //r2.remove();
@@ -196,15 +204,15 @@ void nextMenu(){
      startMenuState = 1;
    }
  }
- if((width/2 - 1500) < mouseX &&  mouseX < (width/2 + 150) && 550 < mouseY && mouseY < 625){
-   if(!gameServerRunning){
-     
+ 
+ if((width/2 - 150) < mouseX &&  mouseX < (width/2 + 150) && 400 < mouseY && mouseY < 475){
+   if(!gameServerRunning && !joinActive){
      gameServer = new Server(this, port);
      println("Server started on: " + Server.ip());
      gameServerRunning = true;
 
      drawMultiplayerBox();
-   }else{
+   }else if(!joinActive){
      gameServerRunning = false;
      gameServer.stop();
      gameServer = null;
@@ -212,9 +220,23 @@ void nextMenu(){
      drawStartMenu();
    }
  }
- if((width/2 - 120) < mouseX &&  mouseX < (width/2 + 120) && 400 < mouseY && mouseY < 475){
-   
+ 
+ if(((width/2 - 140) < mouseX &&  mouseX < (width/2 + 140) && 550 < mouseY && mouseY < 625) && !gameServerRunning){
+   if(!joinActive){
+     joinActive = true;
+     cp5 = new ControlP5(this);
+     prepareTextField(ipTF, (width/2 -200), 400, "Vul het ip in:");
+   }else{
+     try{
+       cp5.remove(this);
+     }catch(Exception e){
+         println("Dit is een " + e.toString() + " exception, dit is normaal.");
+       }
+     r.remove();
+     drawStartMenu();
+   }
  }
+ 
  if(10 < mouseX && mouseX < 200 && 10 < mouseY && mouseY < 80){
     r.remove(); 
     buttonClicked();
