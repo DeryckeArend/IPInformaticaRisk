@@ -10,7 +10,7 @@ void setupSound() {
   // Load a soundfile from the /data folder of the sketch and play it back
   music = new SoundFile(this, "Music/soundtrack.mp3");
   music.loop();
-  music.amp(value2);
+  changeSound();
 }
 
 void stopSound() {
@@ -21,6 +21,10 @@ void stopSound() {
 void buttonClicked() {
   buttonClick = new SoundFile(this, "Music/buttonclick.mp3");
   buttonClick.play();
+}
+
+void changeSound(){
+  music.amp(value2);
 }
 /*
 //muziekje wanneer je klikt op aanvallen

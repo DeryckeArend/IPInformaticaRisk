@@ -184,8 +184,7 @@ void returnMenuOptions() {
     buttonClicked();  
     drawMainMenu();
     state = "menu";
-    stopSound();
-    setupSound();
+    changeSound();
   }
 }
 
@@ -346,7 +345,5 @@ void musicWeg(){
     state = "game";
     menuActive = false;
     soundActive = false;
-    stopSound();
-    setupSound();
   }
 }

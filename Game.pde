@@ -190,7 +190,12 @@ void drawSoldier(){
   
   textSize(25);
   fill(0);
-  text(n.soldiers, n.x + 30, n.y);
+  if(n.country == getCountry("blauw9")){
+    text(n.soldiers, n.x - 13, n.y + 35);
+  }
+  else {
+    text(n.soldiers, n.x + 30, n.y);
+  }
  }
 }
 
