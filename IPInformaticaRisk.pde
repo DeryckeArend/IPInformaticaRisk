@@ -110,16 +110,10 @@ void draw(){
         gameClient = gameServer.available();
         if(gameClient != null){
           println(gameClient.ip());
-          String input = gameClient.readString();
-          input = input.substring(0, input.indexOf("\n"));
-          println(input);
         }
       }  
       if(startMenuState == 1){
         colorSelectPlayer();        
-      }
-      if(connection){
-        gameClient.write("Am here, no worries");
       }
     break;
     case("game"):
@@ -216,4 +210,13 @@ void initiateCountries(){
       }
     }
   }
+}
+
+void serverEvent(Server server, Client client) {
+  String incomingMessage = "A new client has connected:" + client.ip();
+  println(incomingMessage);
+}
+
+void clientEvent(Client client) {
+  
 }
