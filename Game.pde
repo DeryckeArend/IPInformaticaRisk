@@ -66,7 +66,11 @@ void attackNodes(){
         String[] resultList = result.split(",");
         int defRemaining = Integer.parseInt(resultList[0]);
         int attRemaining = Integer.parseInt(resultList[1]);
-        activeNode.soldiers = attRemaining + 1;
+        if(activeNode.soldiers > 6){
+          activeNode.soldiers = attRemaining + (activeNode.soldiers - 6);
+        }else{
+          activeNode.soldiers = attRemaining + 1;
+        }
         n.soldiers = defRemaining;
         if(defRemaining == 0){
           n.country.owner = activeNode.country.owner;
