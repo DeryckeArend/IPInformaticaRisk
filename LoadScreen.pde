@@ -14,17 +14,17 @@ void startup() {
  
 void load() {
   background(0);
-  image(logoWhite, (width/2) - 250, 100, 500, 150);
+  image(logoWhite,(width/2) - 250,height/2-440, 500, 150);
   fill(255);
   textAlign(CENTER);
   textSize(60);
-  text("DMCV presents:", width/2,350);
+  text("DMCV presents:",width/2,height/2-190);
   fill(255,0,0);
   textSize(65);
-  text("Clash Of Nations", width/2, 450);
+  text("Clash Of Nations",width/2,height/2-90);
   fill(255,255,255);
   textSize(35);
-  text("Please wait while we are loading the game...", width/2, 520); 
+  text("Please wait while we are loading the game...",width/2,height/2-20); 
   textSize(15);
-  text("Thank you",width/2, 670);
+  text("Thank you",width/2, height/2+130);
 }
