@@ -1,10 +1,11 @@
 //De variabelen voor de knoppen in het hoofdmenu
 float buttonWidth = 400;
 float buttonHeight = 75;
-float button1Height = height/2-240;
+float button1Height = ((height/2)-240);
 float namenCreditsX = width/2; 
 float namenCreditsY = height/2 + 900;
 float straal = 20;
+
 
 //De variabelen voor de radiobuttons, ze staan hier zodat ze globaal zouden zijn
 RadioButton r;
@@ -43,6 +44,8 @@ void drawMainMenu(){
   rectMode(CORNER);
   strokeWeight(2);
   rect((width/2) - (buttonWidth/2), button1Height, buttonWidth, buttonHeight);
+  println(button1Height);
+  println(height/2-240);
   rect((width/2) - (buttonWidth/2), button1Height + 100, buttonWidth, buttonHeight);
   rect((width/2) - (buttonWidth/2), button1Height + 200, buttonWidth, buttonHeight);
   rect((width/2) - (buttonWidth/2), button1Height + 300, buttonWidth, buttonHeight);
@@ -87,7 +90,7 @@ void drawCreditsMenu(){
   background(0);
   image(background, 0, 0, width, height);
   textAlign(CENTER);
-  fill(255);
+  fill(0);
   textSize(50);
   text("Credits:", width/2, namenCreditsY-100);
   textAlign(RIGHT);
