@@ -3,8 +3,6 @@
 ## TODO:
 
 ### [__Muy importante__](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
-- 3de stap in een beurt (reinforce) maken, kijk anders s naar de code voor aanval, ~~zou redelijk simpel moeten zijn~~ zou fricking moelijk moeten zijn
-- Testen of alle landen deftig met elkaar zijn verbonden, via lijntjes bij aanval
 - lijntje oranje groen
 - Goed testen en eventueel waarden aanpassen, zoals aantal soldaten bij begin van ronde
 - Aangeven welke ronde het is, gebruik globalTurn
