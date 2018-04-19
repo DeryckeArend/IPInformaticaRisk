@@ -27,6 +27,7 @@ void endScreenUpdate() {
   textFont(myFont);
   textSize(100);
   text("Winner winner chicken dinner!",width/2,height/2);
+  text("congratualtions player(0)", width/2, height/2+200);
   
   for (int i = fireworks.size()-1; i >= 0; i--) {
     Firework f = fireworks.get(i);
