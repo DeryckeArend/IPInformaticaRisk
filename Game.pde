@@ -296,6 +296,9 @@ void pointSystem() {
   for(Player p : players){
     p.points = 0;
     p.points = p.countries;
+    if(p.points == 0){
+       players.remove(p); 
+    }
   }
   for(Continent c : continents) {
     checkContinents(c);
