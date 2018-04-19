@@ -108,7 +108,7 @@ void draw(){
         updateSlider();
       }
       
-      if(inDiceScreen && shouldUpdate){
+      if(shouldUpdate){
         if(currentDiceRoll != diceRollDuration){
           frameRate(20);
           currentDiceRoll++;
