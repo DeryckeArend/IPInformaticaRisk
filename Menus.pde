@@ -1,10 +1,11 @@
 //De variabelen voor de knoppen in het hoofdmenu
 float buttonWidth = 400;
 float buttonHeight = 75;
-float button1Height = 300;
+float button1Height = ((height/2)-240);
 float namenCreditsX = width/2; 
 float namenCreditsY = height/2 + 900;
 float straal = 20;
+
 
 //De variabelen voor de radiobuttons, ze staan hier zodat ze globaal zouden zijn
 RadioButton r;
@@ -37,12 +38,14 @@ Textfield t6;
 //Deze methode zorgt ervoor dat het main menu wordt getekend bij het opstarten van het spel,
 void drawMainMenu(){
   image(background, 0, 0, width, height);
-  image(logo, (width/2) - 250, 100, 500, 150);
+  image(logo, (width/2) - 250, height/2-440, 500, 150);
   stroke(10);
   fill(122, 105, 68, 100);
   rectMode(CORNER);
   strokeWeight(2);
   rect((width/2) - (buttonWidth/2), button1Height, buttonWidth, buttonHeight);
+  println(button1Height);
+  println(height/2-240);
   rect((width/2) - (buttonWidth/2), button1Height + 100, buttonWidth, buttonHeight);
   rect((width/2) - (buttonWidth/2), button1Height + 200, buttonWidth, buttonHeight);
   rect((width/2) - (buttonWidth/2), button1Height + 300, buttonWidth, buttonHeight);
@@ -75,10 +78,10 @@ void drawSliderBox() {
   fill(206,169,99,50);
   rectMode(CORNER);
   if(soundActive){
-    rect(480,500,920,80);
+    rect(width/2-480,height/2-40,920,80);
   }
   else{
-    image(sliderBackground,480,500);
+    image(sliderBackground,width/2-480,height/2-40);
   }
 }
 
@@ -87,7 +90,7 @@ void drawCreditsMenu(){
   background(0);
   image(background, 0, 0, width, height);
   textAlign(CENTER);
-  fill(255);
+  fill(0);
   textSize(50);
   text("Credits:", width/2, namenCreditsY-100);
   textAlign(RIGHT);
@@ -162,11 +165,11 @@ void drawStartMenu(){
   cp5 = new ControlP5(this);
   textAlign(CENTER);
   textSize(45);
-  text("Selecteer de Spel-Instellingen",960,75);
-  text("Aantal spelers:", 960, 250);
+  text("Selecteer de Spel-Instellingen",width/2,height/2-465);
+  text("Aantal spelers:", width/2, height/2-290);
   //text("Aantal computer-spelers:", 960, 500);
   r = cp5.addRadioButton("radioButtonPlayers")
-         .setPosition(590,300)
+         .setPosition(width/2-370,height/2-240)
          .setSize(60,60)
          .setColorForeground(color(0))
          .setColorBackground(color(89,68,39))
@@ -190,9 +193,9 @@ void drawStartMenu(){
   textSize(50);
   stroke(10);
   fill(89, 68, 39);
-  rect((width/2 -130),800, 260,75);
+  rect((width/2 -130),height/2+260, 260,75);
   fill(0);
-  text("Volgende", width/2,850);
+  text("Volgende", width/2,height/2+310);
   fill(122, 105, 68, 100);
   rect(10, 10, 200, 70);
   fill(0);
@@ -206,7 +209,7 @@ void drawStartMenu(){
 void drawPlayerSelectMenu(){
    textSize(45);
    image(background, 0, 0, width, height);
-   text("Selecteer de Spel-Instellingen",960,75);
+   text("Selecteer de Spel-Instellingen",width/2,height/2-465);
    fill(153);
    rectMode(CENTER);
     cp5 = new ControlP5(this);
@@ -218,11 +221,11 @@ void drawPlayerSelectMenu(){
     rect(width/4,height/2,480,720,45);
     rect(width/2+width/4,height/2,480,720,45);
     
-    prepareTextField(t1, 280,250, "Naam speler 1:");
-    prepareTextField(t2, width/2+280,250, "Naam speler 2:");
+    prepareTextField(t1, width/2-680,height/2-290, "Naam speler 1:");
+    prepareTextField(t2, width/2+280,height/2-290, "Naam speler 2:");
 
-    prepareRadioButton(rcp1,280,400,"ColorPicker1");
-    prepareRadioButton(rcp2,width/2+280,400,"ColorPicker2");
+    prepareRadioButton(rcp1,width/2-680,height/2-140,"ColorPicker1");
+    prepareRadioButton(rcp2,width/2+280,height/2-140,"ColorPicker2");
     break;
     
     case 3:
@@ -230,13 +233,13 @@ void drawPlayerSelectMenu(){
     rect(width/2,height/2,450,720,45);
     rect((width*3)/4,height/2,450,720,45);
     
-    prepareTextField(t1, 280,250, "Naam speler 1:");
-    prepareTextField(t2, (width/2)-200,250, "Naam speler 2:");
-    prepareTextField(t3, (width/2)+280,250, "Naam speler 3:");
+    prepareTextField(t1, (width/2)-680,height/2-290, "Naam speler 1:");
+    prepareTextField(t2, (width/2)-200,height/2-290, "Naam speler 2:");
+    prepareTextField(t3, (width/2)+280,height/2-290, "Naam speler 3:");
     
-    prepareRadioButton(rcp1,280,450, "ColorPicker1");
-    prepareRadioButton(rcp2,(width/2)-200,450,"ColorPicker2");
-    prepareRadioButton(rcp3,(width/2)+280,450,"ColorPicker3");
+    prepareRadioButton(rcp1,(width/2-680),height/2-90, "ColorPicker1");
+    prepareRadioButton(rcp2,(width/2)-200,height/2-90,"ColorPicker2");
+    prepareRadioButton(rcp3,(width/2)+280,height/2-90,"ColorPicker3");
     break;
     
     case 4:
@@ -245,15 +248,15 @@ void drawPlayerSelectMenu(){
     rect(width/4, height/4+height/2 -50,480,360,45);
     rect(width/2+width/4,height/2+height/4 -50,480,360,45); 
     
-    prepareTextField(t1, 280,250, "Naam speler 1:");
-    prepareTextField(t2, width/2+280,250, "Naam speler 2:");
-    prepareTextField(t3, 280,250 + height/2 -150, "Naam speler 3:");
-    prepareTextField(t4, width/2+280,250 + height/2 -150, "Naam speler 4:");
+    prepareTextField(t1, width/2-680,height/2-290, "Naam speler 1:");
+    prepareTextField(t2, width/2+280,height/2-290, "Naam speler 2:");
+    prepareTextField(t3, width/2-680,height/2-290 + height/2 -150, "Naam speler 3:");
+    prepareTextField(t4, width/2+280,height/2-290 + height/2 -150, "Naam speler 4:");
     
-    prepareRadioButton(rcp1,280,398,"ColorPicker1");
-    prepareRadioButton(rcp2,width/2+280,398,"ColorPicker2");
-    prepareRadioButton(rcp3,280,375 + height/2-127,"ColorPicker3");
-    prepareRadioButton(rcp4,width/2+280,375 + height/2-127,"ColorPicker4");
+    prepareRadioButton(rcp1,width/2-680,height/2-142,"ColorPicker1");
+    prepareRadioButton(rcp2,width/2+280,height/2-142,"ColorPicker2");
+    prepareRadioButton(rcp3,width/2-680,height/2-165 + height/2-127,"ColorPicker3");
+    prepareRadioButton(rcp4,width/2+280,height/2-165 + height/2-127,"ColorPicker4");
     
     break;
     case 5:
@@ -263,17 +266,17 @@ void drawPlayerSelectMenu(){
     rect(width/4+225, height/4+height/2 -50,480,360,45);
     rect((width*3)/4-225,height/2+height/4 -50,480,360,45); 
     
-    prepareTextField(t1, 280,250, "Naam speler 1:");
-    prepareTextField(t2, (width/2)-200,250, "Naam speler 2:");
-    prepareTextField(t3, (width/2)+280,250, "Naam speler 3:");
-    prepareTextField(t3, 500,250 + height/2 -150, "Naam speler 4:");
-    prepareTextField(t4, width/2+50,250 + height/2 -150, "Naam speler 5:");
+    prepareTextField(t1, width/2-680,height/2-290, "Naam speler 1:");
+    prepareTextField(t2, (width/2)-200,height/2-290, "Naam speler 2:");
+    prepareTextField(t3, (width/2)+280,height/2-290, "Naam speler 3:");
+    prepareTextField(t3, width/2-460,height/2-290 + height/2 -150, "Naam speler 4:");
+    prepareTextField(t4, width/2+50,height/2-290 + height/2 -150, "Naam speler 5:");
     
-    prepareRadioButton(rcp1,280,398, "ColorPicker1");
-    prepareRadioButton(rcp2,(width/2)-200,398,"ColorPicker2");
-    prepareRadioButton(rcp3,(width/2)+280,398,"ColorPicker3");
-    prepareRadioButton(rcp4,500,375 + height/2-127,"ColorPicker4");
-    prepareRadioButton(rcp5, width/2+50,375 + height/2-127,"ColorPicker5");
+    prepareRadioButton(rcp1,width/2-680,height/2-142, "ColorPicker1");
+    prepareRadioButton(rcp2,(width/2)-200,height/2-142,"ColorPicker2");
+    prepareRadioButton(rcp3,(width/2)+280,height/2-142,"ColorPicker3");
+    prepareRadioButton(rcp4,width/2-460,height/2-165 + height/2-127,"ColorPicker4");
+    prepareRadioButton(rcp5, width/2+50,height/2-165 + height/2-127,"ColorPicker5");
     
     break;
     
@@ -285,19 +288,19 @@ void drawPlayerSelectMenu(){
     rect(width/2,height/4+height/2-50,450,360,45);
     rect((width*3)/4,height/4 +height/2-50,450,360,45);
     
-    prepareTextField(t1, 280,250, "Naam speler 1:");
-    prepareTextField(t2, (width/2)-200,250, "Naam speler 2:");
-    prepareTextField(t3, (width/2)+280,250, "Naam speler 3:");
-    prepareTextField(t4, 280,250+height/2-150, "Naam speler 4:");
-    prepareTextField(t5, (width/2)-200,250+height/2-150, "Naam speler 5:");
-    prepareTextField(t6, (width/2)+280,250+height/2-150, "Naam speler 6:");
+    prepareTextField(t1, width/2-680,height/2-290, "Naam speler 1:");
+    prepareTextField(t2, (width/2)-200,height/2-290, "Naam speler 2:");
+    prepareTextField(t3, (width/2)+280,height/2-290, "Naam speler 3:");
+    prepareTextField(t4, width/2-680,height/2-290+height/2-150, "Naam speler 4:");
+    prepareTextField(t5, (width/2)-200,height/2-290+height/2-150, "Naam speler 5:");
+    prepareTextField(t6, (width/2)+280,height/2-290+height/2-150, "Naam speler 6:");
     
-    prepareRadioButton(rcp1,280,398, "ColorPicker1");
-    prepareRadioButton(rcp2,(width/2)-200,398,"ColorPicker2");
-    prepareRadioButton(rcp3,(width/2)+280,398,"ColorPicker3");
-    prepareRadioButton(rcp4,280,375+height/2-127, "ColorPicker4");
-    prepareRadioButton(rcp5,(width/2)-200,375+height/2-127,"ColorPicker5");
-    prepareRadioButton(rcp6,(width/2)+280,375+height/2-127,"ColorPicker6");
+    prepareRadioButton(rcp1,width/2-680,height/2-142, "ColorPicker1");
+    prepareRadioButton(rcp2,(width/2)-200,height/2-142,"ColorPicker2");
+    prepareRadioButton(rcp3,(width/2)+280,height/2-142,"ColorPicker3");
+    prepareRadioButton(rcp4,width/2-680,height/2-165+height/2-127, "ColorPicker4");
+    prepareRadioButton(rcp5,(width/2)-200,height/2-165+height/2-127,"ColorPicker5");
+    prepareRadioButton(rcp6,(width/2)+280,height/2-165+height/2-127,"ColorPicker6");
 
    
   }
@@ -307,9 +310,9 @@ void drawPlayerSelectMenu(){
   textSize(50);
   stroke(10);
   fill(89, 68, 39);
-  rect((width/2 -120),950, 240,75);
+  rect((width/2 -120),height/2+410, 240,75);
   fill(0);
-  text("Volgende", width/2,1005);
+  text("Volgende", width/2,height-75);
   fill(122, 105, 68, 100);
   rect(10, 10, 200, 70);
   fill(0);
@@ -485,4 +488,4 @@ color[] kleuren = new color[playerAmount+1];
     rectMode(CORNER);
     fill(0);
  }
- }
+}
