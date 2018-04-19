@@ -1,5 +1,6 @@
 Node activeNode;
 Node reinforceNode;
+Node activeNode2;
 int soldierAmount;
 boolean inDiceScreen = false;
 boolean inReinforce = false;
@@ -61,8 +62,16 @@ void attackNodes(){
           }
         }
       }else if(neighbours.contains(activeNode.country.name) && activeNode.soldiers >= 2){
-        String result = drawDice(n,activeNode);
         inDiceScreen = true;
+        activeNode2 = n;
+        shouldUpdate = true;
+      }
+    }
+  }
+}
+
+void attackResult(Node n){
+        String result = drawDice(n,activeNode);
         String[] resultList = result.split(",");
         int defRemaining = Integer.parseInt(resultList[0]);
         int attRemaining = Integer.parseInt(resultList[1]);
@@ -78,9 +87,6 @@ void attackNodes(){
           activeNode.soldiers = 1;
           n.country.owner.countries++;
         }
-      }
-    }
-  }
 }
 
 void reinforceNodes(){

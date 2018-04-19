@@ -107,6 +107,19 @@ void draw(){
         drawSliderBox();
         updateSlider();
       }
+      
+      if(inDiceScreen && shouldUpdate){
+        if(currentDiceRoll != diceRollDuration){
+          frameRate(20);
+          currentDiceRoll++;
+          diceUpdate(activeNode2, activeNode);
+        }else{
+          frameRate(60);
+          shouldUpdate = false;
+          currentDiceRoll = 0;
+          attackResult(activeNode2);
+        }
+      }
     break;
   }
 }

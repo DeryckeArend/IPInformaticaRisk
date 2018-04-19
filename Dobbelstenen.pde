@@ -1,4 +1,7 @@
 int diceSize = 75;
+int diceRollDuration = 30;
+int currentDiceRoll = 0;
+boolean shouldUpdate = false;
  
  String drawDice(Node defNode, Node attNode){
    int defSurvivor = 0;
@@ -130,5 +133,37 @@ int diceSize = 75;
      ellipse(x + diceSize/4, y, diceSize/5, diceSize/5);
      ellipse(x - diceSize/4, y, diceSize/5, diceSize/5);
    }
+ }
+ 
+ void diceUpdate(Node defNode, Node attNode){
+   rectMode(CORNER);
+   fill(113, 125, 145);
+   rect(460,200,1000,750,50);
+   fill(50);
+   PFont titleDice =createFont("Showcard Gothic",40);
+   textFont(titleDice,40);
+   textAlign(CENTER);
+   text("Verdediger",(width/2)-350,(height/2)-265); 
+   text("Aanvaller",(width/2)+350,(height/2)-265);
+   
+   List<Integer> rollsDef = new ArrayList<Integer>();
+   for(int i = 0; i < defNode.soldiers && i < 6; i++){
+     int rollDef = (int) random(1,7);
+     rollsDef.add(rollDef);
+   }   
+   
+  for(int i = 0; i < rollsDef.size(); i++){
+    diceMaker(rollsDef.get(i), width/2 - 350, (height/2)-190 + 100*i, defNode.country.owner.playerColor);   
+  }
+  
+  List<Integer> rollsAtt = new ArrayList<Integer>();
+  for(int i= 0; i< attNode.soldiers - 1 && i < 6; i++){
+     int rollAtt = (int) random(1,7);
+     rollsAtt.add(rollAtt);
+  }
+  
+  for(int i = 0; i < rollsAtt.size(); i++){
+    diceMaker(rollsAtt.get(i), width/2 + 350, (height/2)-190 + 100*i, attNode.country.owner.playerColor);
+  }
  }
  
