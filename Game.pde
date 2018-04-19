@@ -91,8 +91,6 @@ void attackResult(Node n){
           
           plusAttack(n);
           minusAttack(n);
-          
-          drawSoldierDistBoxAtt();
         }
 }
 
