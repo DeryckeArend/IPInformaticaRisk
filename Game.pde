@@ -77,6 +77,11 @@ void attackNodes(){
           n.soldiers = activeNode.soldiers - 1;
           activeNode.soldiers = 1;
           n.country.owner.countries++;
+          
+          plusAttack(n);
+          minusAttack(n);
+          
+          drawSoldierDistBoxAtt();
         }
       }
     }
@@ -446,4 +451,24 @@ public void minusReinforce(){
   }
   strokeWeight(2);
   drawTextRefBox(reinforceNode);
+}
+
+public void plusAttack(Node n){
+  if(activeNode.soldiers > 1){
+     n.soldiers++;
+     activeNode.soldiers--;
+     drawGame();
+  }
+  strokeWeight(2);
+  drawTextRefBox(activeNode);
+}
+
+public void minusAttack(Node n){
+  if(n.soldiers > 1){
+     n.soldiers--;
+     activeNode.soldiers++;
+     drawGame();
+  }
+  strokeWeight(2);
+  drawTextRefBox(activeNode);
 }
