@@ -1,7 +1,7 @@
 //De variabelen voor de knoppen in het hoofdmenu
 float buttonWidth = 400;
 float buttonHeight = 75;
-float button1Height = ((height/2)-240);
+float button1Height = 300;
 float namenCreditsX = width/2; 
 float namenCreditsY = height/2 + 900;
 float straal = 20;
