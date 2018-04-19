@@ -73,6 +73,7 @@ void attackNodes(){
         }
         n.soldiers = defRemaining;
         if(defRemaining == 0){
+          n.country.owner.countries--;
           n.country.owner = activeNode.country.owner;
           n.soldiers = activeNode.soldiers - 1;
           activeNode.soldiers = 1;
@@ -296,11 +297,12 @@ void pointSystem() {
   for(Player p : players){
     p.points = 0;
     p.points = p.countries;
-    if(p.points == 0){
+    if(p.countries == 0){
        players.remove(p);
-    }
+    }  
     if(players.size() == 1){
       state="endScreen";
+      background(0);
        endScreenDraw();
     }
   }

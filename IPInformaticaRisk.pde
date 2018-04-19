@@ -77,7 +77,7 @@ void draw(){
     break;
     case("optionsMenu"):
       updateSlider();
-    break;
+    break;  
     case("endScreen"):
       endScreenUpdate();
     break;
