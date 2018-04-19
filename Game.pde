@@ -355,7 +355,7 @@ void soldaatVerdeling() {
 
 void drawSoldierBox() {
   Player p = playerTurn;
-  soldierAmount = p.points +  p.countries/3;
+  soldierAmount = p.points/10 +  p.countries;
   rectMode(CENTER);
   fill(255,255,255);
   rect((width/2)-260,height-80,210,80);
