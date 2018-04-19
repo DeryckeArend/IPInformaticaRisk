@@ -3,7 +3,7 @@ SoundFile music;
 SoundFile buttonClick;
 SoundFile attackSound;
 SoundFile nextPlayer;
-
+SoundFile endScreen;
 
 void setupSound() {
   music = new SoundFile(this, "Music/soundtrack.mp3");
@@ -23,4 +23,9 @@ void stopSound() {
 void buttonClicked() {
   buttonClick = new SoundFile(this, "Music/buttonclick.mp3");
   buttonClick.play();
+}
+
+void endScreenMusic(){
+  endScreen = new SoundFile(this, "Music/victory.mp3");
+  music.loop();
 }
