@@ -297,7 +297,11 @@ void pointSystem() {
     p.points = 0;
     p.points = p.countries;
     if(p.points == 0){
-       players.remove(p); 
+       players.remove(p);
+    }
+    if(players.size() == 1){
+      state="endScreen";
+       endScreenDraw();
     }
   }
   for(Continent c : continents) {
