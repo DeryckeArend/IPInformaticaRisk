@@ -268,6 +268,7 @@ void startGameButton(){
   
 void quitButton(){
     if((sqrt(((1870 - mouseX)*(1870 - mouseX)) + ((45 - mouseY)*(45 - mouseY))) < 32.5)){
+      stroke(0);
       rectMode(CORNER);
       fill(206, 169, 99);
       rect(384, 316, 1151, 348, 25);
