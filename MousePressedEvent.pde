@@ -296,6 +296,7 @@ void diceScreenButtons(){
      if(820 < mouseY && mouseY < 920){
        inDiceScreen = false;
        drawGame();
+       drawAttackSoldierDistribute();
      }
   }
 }

@@ -88,7 +88,6 @@ void attackResult(Node n){
           n.soldiers = activeNode.soldiers - 1;
           activeNode.soldiers = 1;
           n.country.owner.countries++;
-
         }
 }
 
@@ -312,12 +311,12 @@ void pointSystem() {
     if(p.countries == 0){
        players.remove(p);
     }  
-    if(players.size() == 1){
+  }
+  if(players.size() == 1){
       state="endScreen";
       background(0);
        endScreenDraw();
     }
-  }
   for(Continent c : continents) {
     checkContinents(c);
   }
@@ -357,6 +356,24 @@ void loadPlayers(){
     players.add(p);
   }
  
+}
+
+void drawAttackSoldierDistribute(){
+  Node defNode = activeNode2;
+  Node attNode = activeNode;
+  
+  rectMode(CENTER);
+  fill(113, 125, 145);
+  rect(width/2, height/2, 850, 400, 25);
+  fill(50);
+  PFont titleDice =createFont("Showcard Gothic",40);
+  textFont(titleDice,40);
+  textAlign(CENTER);
+  text("Veroverd land",(width/2)-250,(height/2)-120); 
+  text("Aanvallend land",(width/2)+250,(height/2)-120);
+  text(defNode.soldiers + "", (width/2)-250, (height/2));
+  text(attNode.soldiers + "", (width/2)-250, (height/2));
+  
 }
 
 void soldaatVerdeling() {
@@ -466,22 +483,18 @@ public void minusReinforce(){
   drawTextRefBox(reinforceNode);
 }
 
-public void plusAttack(Node n){
+public void plusAttack(){
   if(activeNode.soldiers > 1){
-     n.soldiers++;
+     activeNode2.soldiers++;
      activeNode.soldiers--;
-     drawGame();
   }
   strokeWeight(2);
-  drawTextRefBox(activeNode);
 }
 
-public void minusAttack(Node n){
-  if(n.soldiers > 1){
-     n.soldiers--;
+public void minusAttack(){
+  if(activeNode2.soldiers > 1){
+     activeNode2.soldiers--;
      activeNode.soldiers++;
-     drawGame();
   }
   strokeWeight(2);
-  drawTextRefBox(activeNode);
 }
