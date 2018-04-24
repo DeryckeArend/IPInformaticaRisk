@@ -2,7 +2,9 @@ Node activeNode;
 Node reinforceNode;
 Node activeNode2;
 int soldierAmount;
+
 boolean inDiceScreen = false;
+boolean inAttackScreen = false;
 boolean inReinforce = false;
 
 void drawGame(){  
@@ -259,7 +261,10 @@ void drawSidebar() {
      fill(255);
      textAlign(CENTER);
      textSize(25);
-     text("Volgende beurt",width-220,height-72.5);
+     if(refAttDis == "reinforce"){
+       text("Volgende beurt",width-220,height-72.5);
+     }else{text("Volgende actie",width-220,height-72.5);}
+     
      
      fill(91,89,87);
      if(refAttDis.equals("distribute")){
@@ -367,14 +372,38 @@ void drawAttackSoldierDistribute(){
   fill(113, 125, 145);
   rect(width/2, height/2, 850, 400, 25);
   fill(50);
-  PFont titleDice =createFont("Showcard Gothic",40);
-  textFont(titleDice,40);
+  PFont popUpText =createFont("Showcard Gothic",40);
+  textFont(popUpText,40);
   textAlign(CENTER);
   text("Veroverd land",(width/2)-250,(height/2)-120); 
   text("Aanvallend land",(width/2)+250,(height/2)-120);
-  text(defNode.soldiers + "", (width/2)-250, (height/2));
-  text(attNode.soldiers + "", (width/2)-250, (height/2));
+  textFont(popUpText,80);
+  text(defNode.soldiers, (width/2)-250, (height/2));
+  text(attNode.soldiers, (width/2)+250, (height/2));
   
+  rect(width/2 - 5, (height/2) - 30, 250, 75, 25);
+  rect(width/2, (height/2)+100, 320, 100, 25);
+  
+  fill(255);
+  stroke(255);
+  textFont(popUpText,50);
+  text("Sluiten", (width/2), (height/2) + 130);
+  
+  PFont ingameText = createFont("arial", 25); 
+  textFont(ingameText, 25);
+}
+
+void drawAttackSoldierDistributeButtons(){
+  cp5 = new ControlP5(this);
+  cp5.addButton("plusAttack")
+     .setPosition((width/2)-100, height/2 - 50)
+     .setImages(upButton, upButton, upButton)
+     .updateSize();
+
+  cp5.addButton("minusAttack")
+     .setPosition((width/2)+25, height/2 - 50)
+     .setImages(downButton, downButton, downButton)
+     .updateSize();
 }
 
 void soldaatVerdeling() {
@@ -387,7 +416,7 @@ void drawSoldierBox() {
   Player p = playerTurn;
   soldierAmount = p.points/10 +  p.countries;
   rectMode(CENTER);
-  fill(255,255,255);
+  fill(p.playerColor);
   rect((width/2)-260,height-80,210,80);
   textAlign(CENTER);
   fill(0);
@@ -488,6 +517,7 @@ public void plusAttack(){
   if(activeNode.soldiers > 1){
      activeNode2.soldiers++;
      activeNode.soldiers--;
+     drawAttackSoldierDistribute();
   }
   strokeWeight(2);
 }
@@ -496,6 +526,7 @@ public void minusAttack(){
   if(activeNode2.soldiers > 1){
      activeNode2.soldiers--;
      activeNode.soldiers++;
+     drawAttackSoldierDistribute();
   }
   strokeWeight(2);
 }

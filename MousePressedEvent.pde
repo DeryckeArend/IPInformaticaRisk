@@ -43,8 +43,11 @@ void mousePressed(){
       reinforceNodes();
     }
     
-    if(inDiceScreen == true){
+    if(inDiceScreen){
       diceScreenButtons();
+    }
+    if(inAttackScreen){
+      attackScreenButtons();  
     }
     
     turnSystem();
@@ -296,8 +299,18 @@ void diceScreenButtons(){
      if(820 < mouseY && mouseY < 920){
        inDiceScreen = false;
        drawGame();
-       drawAttackSoldierDistribute();
+       if(activeNode.country.owner == activeNode2.country.owner){
+         drawAttackSoldierDistributeButtons();
+         drawAttackSoldierDistribute();
+         inAttackScreen = true;
+       }
      }
+  }
+}
+
+void attackScreenButtons(){
+  if(width/2 - 160 < mouseX && mouseX < width/2 + 160){
+    
   }
 }
 
