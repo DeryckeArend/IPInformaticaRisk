@@ -98,6 +98,11 @@ void reinforceNodes(){
   for(Node n: nodes) {
     n.active = false;
     if((sqrt(((n.x - mouseX)*(n.x - mouseX)) + ((n.y - mouseY)*(n.y - mouseY))) < straal)){
+      drawGame();
+      try{
+        cp5.remove("plusReinforce");
+        cp5.remove("minusReinforce");
+      }catch(Exception e){}
       if(activeNode == null){
        Country tempC = new Country();
        tempC.name = "ya";
@@ -311,13 +316,6 @@ void checkContinents(Continent continent){
 }
 
 void pointSystem() {
-  for(Player p : players){
-    p.points = 0;
-    p.points = p.countries;
-    if(p.countries == 0){
-       players.remove(p);
-    }  
-  }
   if(players.size() == 1){
       state="endScreen";
       background(0);
@@ -325,6 +323,13 @@ void pointSystem() {
     }
   for(Continent c : continents) {
     checkContinents(c);
+  }
+  for(Player p : players){
+    p.points = 0;
+    p.points = p.countries;
+    if(p.countries == 0){
+       players.remove(p);
+    }  
   }
 }
 
@@ -368,6 +373,7 @@ void drawAttackSoldierDistribute(){
   Node defNode = activeNode2;
   Node attNode = activeNode;
   
+  noStroke();
   rectMode(CENTER);
   fill(113, 125, 145);
   rect(width/2, height/2, 850, 400, 25);
@@ -375,6 +381,7 @@ void drawAttackSoldierDistribute(){
   PFont popUpText =createFont("Showcard Gothic",40);
   textFont(popUpText,40);
   textAlign(CENTER);
+  text("Verdeel de soldaten", width/2, height/2 - 165);
   text("Veroverd land",(width/2)-250,(height/2)-120); 
   text("Aanvallend land",(width/2)+250,(height/2)-120);
   textFont(popUpText,80);
@@ -415,6 +422,7 @@ void soldaatVerdeling() {
 void drawSoldierBox() {
   Player p = playerTurn;
   soldierAmount = p.points/10 +  p.countries;
+  stroke(0);
   rectMode(CENTER);
   fill(p.playerColor);
   rect((width/2)-260,height-80,210,80);

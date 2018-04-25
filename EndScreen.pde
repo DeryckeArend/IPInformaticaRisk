@@ -5,7 +5,6 @@ PVector gravity = new PVector(0, 0.2);
 PFont myFont;
 
 void endScreenDraw() {
-  fullScreen();
   fireworks = new ArrayList<Firework>();
   colorMode(HSB);
   background(51);

@@ -35,11 +35,11 @@ void mousePressed(){
     break;
     case("game"):
 
-    if(refAttDis.equals("distribute")){
+    if(refAttDis.equals("distribute") && !inDiceScreen){
       distributeNodes();
-    }else if(refAttDis.equals("attack") && inDiceScreen == false){
+    }else if(refAttDis.equals("attack") && !inDiceScreen){
       attackNodes();
-    }else if(refAttDis.equals("reinforce")){
+    }else if(refAttDis.equals("reinforce") && !inDiceScreen){
       reinforceNodes();
     }
     
@@ -238,7 +238,6 @@ void updateSlider(){
 boolean isOver(){
     return (x+w >= mouseX) && (mouseX >= x) && (y+h >= mouseY) && (mouseY >= y);
 }
-//end slider event
 
 void startGameButton(){
   if((width/2-120) < mouseX && mouseX < (width/2 + 120) && 950 < mouseY && mouseY < 1025){
@@ -296,7 +295,8 @@ void quitButton(){
 void diceScreenButtons(){
   if(width/2 - 160 < mouseX && mouseX < width/2 + 160){
      //Stop knop
-     if(820 < mouseY && mouseY < 920){
+     if((height/2) + 230 < mouseY && mouseY < (height/2) + 330){
+       rect(100,100,100,100);
        inDiceScreen = false;
        drawGame();
        if(activeNode.country.owner == activeNode2.country.owner){
@@ -310,7 +310,12 @@ void diceScreenButtons(){
 
 void attackScreenButtons(){
   if(width/2 - 160 < mouseX && mouseX < width/2 + 160){
-    
+    if((height/2) < mouseY && height/2 + 200 > mouseY){
+      inAttackScreen = false;
+      cp5.remove("plusAttack");
+      cp5.remove("minusAttack");
+      drawGame();
+    }
   }
 }
 
